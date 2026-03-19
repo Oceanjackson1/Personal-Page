@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "posts": "Posts",
+    "code": "Code",
+    "perp-dex": "Perp DEX",
+    "prediction-market": "Prediction Market",
+    "product-growth": "Product & Growth",
+    "web3": "Web3",
+    "ai": "AI",
+    "stories": "Stories",
+    "travel": "Travel",
+    "reflections": "Reflections",
+    "infra": "Infrastructure",
+    "products": "Products & Workflow",
+    "search": "Search posts and projects..."
+  },
+  "home": {
+    "motto": "Find the longest slope, roll the snowball",
+    "latestPosts": "Latest Posts",
+    "viewAll": "View All",
+    "codeRepos": "Code",
+    "projects": "projects"
+  },
+  "posts": {
+    "title": "Posts",
+    "all": "All",
+    "minRead": "min read",
+    "prevPost": "Previous",
+    "nextPost": "Next",
+    "toc": "Table of Contents"
+  },
+  "code": {
+    "title": "Code"
+  },
+  "footer": {
+    "rights": "© Ocean 2026"
+  }
+}

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostSidebar from '../../components/PostSidebar.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'perp-dex': { zh: 'Perp DEX', en: 'Perp DEX' },
+  'prediction-market': { zh: '预测市场', en: 'Prediction Market' },
+  'product-growth': { zh: '产品与增长', en: 'Product & Growth' },
+  web3: { zh: 'Web3综合', en: 'Web3' },
+  ai: { zh: 'AI探索', en: 'AI' },
+  stories: { zh: '故事集', en: 'Stories' },
+  travel: { zh: '旅居和探索', en: 'Travel' },
+  reflections: { zh: '个人思考', en: 'Reflections' },
+};
+---
+
+<BaseLayout title="文章">
+  <div class="max-w-[var(--width-wide)] mx-auto px-6">
+    <section class="pt-12 sm:pt-16 pb-20">
+      <div class="flex items-baseline justify-between mb-8">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n-zh="文章" data-i18n-en="Posts">文章</h1>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:gap-16">
+        <PostSidebar active="all" />
+
+        <!-- Right: post list -->
+        <div class="flex-1 min-w-0">
+          {sortedPosts.map((post) => {
+            const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: post.data.category };
+            const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            return (
+              <a href={`/posts/${post.id}/`} class="block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-4 hover:opacity-75 transition-opacity">
+                <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{post.data.title}</h3>
+                <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{post.data.description}</p>
+                <p class="text-sm text-[color:var(--color-text-secondary)]">
+                  <span data-i18n-zh={cat.zh} data-i18n-en={cat.en}>{cat.zh}</span> · {formattedDate}
+                </p>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

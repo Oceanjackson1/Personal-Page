@@ -1,0 +1,56 @@
+---
+interface Props {
+  active?: string;
+}
+const { active = '' } = Astro.props;
+
+const categories = [
+  { href: '/posts/', label: { zh: '所有文章', en: 'All Posts' }, id: 'all' },
+  { href: '/posts/perp-dex/', label: { zh: 'Perp DEX', en: 'Perp DEX' }, id: 'perp-dex' },
+  { href: '/posts/prediction-market/', label: { zh: '预测市场', en: 'Prediction Market' }, id: 'prediction-market' },
+  { href: '/posts/product-growth/', label: { zh: '产品与增长', en: 'Product & Growth' }, id: 'product-growth' },
+  { href: '/posts/web3/', label: { zh: 'Web3综合', en: 'Web3' }, id: 'web3' },
+  { href: '/posts/ai/', label: { zh: 'AI探索', en: 'AI' }, id: 'ai' },
+  { href: '/posts/stories/', label: { zh: '故事集', en: 'Stories' }, id: 'stories' },
+  { href: '/posts/travel/', label: { zh: '旅居和探索', en: 'Travel' }, id: 'travel' },
+  { href: '/posts/reflections/', label: { zh: '个人思考', en: 'Reflections' }, id: 'reflections' },
+];
+---
+
+<!-- Mobile: horizontal scrollable category bar -->
+<nav class="sm:hidden flex overflow-x-auto gap-2 pb-4 mb-4 -mx-6 px-6 scrollbar-hide">
+  {categories.map((cat) => (
+    <a href={cat.href}
+       class:list={[
+         "shrink-0 text-xs px-3.5 py-2 rounded-full border transition-colors whitespace-nowrap",
+         active === cat.id
+           ? "border-[var(--color-text-primary)] text-[color:var(--color-text-primary)] font-medium"
+           : "border-[var(--color-border)] text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] hover:border-[color:var(--color-text-tertiary)]"
+       ]}
+       data-i18n-zh={cat.label.zh}
+       data-i18n-en={cat.label.en}>
+      {cat.label.zh}
+    </a>
+  ))}
+</nav>
+
+<!-- Desktop: vertical sidebar, sticky -->
+<nav class="hidden sm:block w-32 shrink-0 sticky top-24 self-start">
+  {categories.map((cat) => (
+    <a href={cat.href}
+       class:list={[
+         "block text-sm mb-2.5 transition-colors",
+         active === cat.id
+           ? "text-[color:var(--color-text-primary)] font-medium"
+           : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]"
+       ]}
+       data-i18n-zh={cat.label.zh}
+       data-i18n-en={cat.label.en}>
+      {cat.label.zh}
+    </a>
+  ))}
+  <div class="mt-4 pt-4 border-t border-[var(--color-border)]">
+    <a href="/code/" class="block text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors"
+       data-i18n-zh="代码库" data-i18n-en="Code">代码库</a>
+  </div>
+</nav>

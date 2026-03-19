@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo 字体预览</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Serif+Display&family=EB+Garamond:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Instrument+Serif&family=Lora:wght@400;500&family=Noto+Serif+SC:wght@400;500&family=Playfair+Display:wght@400;500&family=Source+Serif+4:wght@400;500&family=Libre+Baskerville&family=Crimson+Pro:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: #FCF7F0;
+      color: #1A1A1A;
+      padding: 48px 32px;
+    }
+    h1 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #9B9B9B;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .option:hover { background: rgba(0,0,0,0.02); margin: 0 -16px; padding: 24px 16px; border-radius: 12px; }
+    .number {
+      font-size: 12px;
+      color: #9B9B9B;
+      width: 24px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .preview {
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      flex: 1;
+    }
+    .label {
+      font-size: 12px;
+      color: #9B9B9B;
+      width: 180px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .current { color: #017354; font-weight: 500; }
+    .divider {
+      margin: 32px 0 24px;
+      font-size: 12px;
+      color: #9B9B9B;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nav-sim {
+      margin-top: 48px;
+      padding: 16px 24px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-sim .links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      color: #6B6B6B;
+      letter-spacing: 0.08em;
+    }
+    #active-preview {
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      transition: font-family 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Logo 字体预览 — "Ocean 倪钰桐"</h1>
+
+  <p class="divider">衬线体 Serif — 编辑感 / 文学气质</p>
+
+  <div class="option" onclick="setFont(this)" data-font="'Playfair Display', serif" data-weight="500">
+    <span class="number">1</span>
+    <span class="preview" style="font-family: 'Playfair Display', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Playfair Display <span class="current">← 当前</span></span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'EB Garamond', serif" data-weight="500">
+    <span class="number">2</span>
+    <span class="preview" style="font-family: 'EB Garamond', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">EB Garamond</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Cormorant Garamond', serif" data-weight="500">
+    <span class="number">3</span>
+    <span class="preview" style="font-family: 'Cormorant Garamond', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Cormorant Garamond</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Source Serif 4', serif" data-weight="500">
+    <span class="number">4</span>
+    <span class="preview" style="font-family: 'Source Serif 4', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Source Serif 4</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Lora', serif" data-weight="500">
+    <span class="number">5</span>
+    <span class="preview" style="font-family: 'Lora', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Lora</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Instrument Serif', serif" data-weight="400">
+    <span class="number">6</span>
+    <span class="preview" style="font-family: 'Instrument Serif', serif; font-weight: 400;">Ocean 倪钰桐</span>
+    <span class="label">Instrument Serif</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'DM Serif Display', serif" data-weight="400">
+    <span class="number">7</span>
+    <span class="preview" style="font-family: 'DM Serif Display', serif; font-weight: 400;">Ocean 倪钰桐</span>
+    <span class="label">DM Serif Display</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Libre Baskerville', serif" data-weight="400">
+    <span class="number">8</span>
+    <span class="preview" style="font-family: 'Libre Baskerville', serif; font-weight: 400;">Ocean 倪钰桐</span>
+    <span class="label">Libre Baskerville</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Fraunces', serif" data-weight="500">
+    <span class="number">9</span>
+    <span class="preview" style="font-family: 'Fraunces', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Fraunces</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Crimson Pro', serif" data-weight="500">
+    <span class="number">10</span>
+    <span class="preview" style="font-family: 'Crimson Pro', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Crimson Pro</span>
+  </div>
+
+  <div class="option" onclick="setFont(this)" data-font="'Literata', serif" data-weight="500">
+    <span class="number">11</span>
+    <span class="preview" style="font-family: 'Literata', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Literata</span>
+  </div>
+
+  <p class="divider">中文衬线体 — 与中文名更搭配</p>
+
+  <div class="option" onclick="setFont(this)" data-font="'Noto Serif SC', serif" data-weight="500">
+    <span class="number">12</span>
+    <span class="preview" style="font-family: 'Noto Serif SC', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <span class="label">Noto Serif SC（思源宋体）</span>
+  </div>
+
+  <!-- Live nav simulation -->
+  <div class="nav-sim">
+    <span id="active-preview" style="font-family: 'Playfair Display', serif; font-weight: 500;">Ocean 倪钰桐</span>
+    <div class="links">
+      <span>文章</span>
+      <span>代码库</span>
+      <span>🔍</span>
+    </div>
+  </div>
+  <p style="text-align: center; font-size: 12px; color: #9B9B9B; margin-top: 12px;">↑ 点击上方任意字体，此处实时预览导航栏效果</p>
+
+  <script>
+    function setFont(el) {
+      const font = el.getAttribute('data-font');
+      const weight = el.getAttribute('data-weight');
+      const preview = document.getElementById('active-preview');
+      preview.style.fontFamily = font;
+      preview.style.fontWeight = weight;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).filter(p => p.data.category === 'infra').sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="基建相关">
+  <section class="py-16 sm:py-24">
+    <div class="max-w-[var(--width-wide)] mx-auto px-6">
+      <p class="text-lg text-[color:var(--color-text-primary)] leading-relaxed max-w-2xl mb-20" data-i18n-zh="底层工具、框架和基础设施项目" data-i18n-en="Low-level tools, frameworks, and infrastructure projects">底层工具、框架和基础设施项目</p>
+      <h2 class="font-mono text-xs uppercase tracking-widest text-[color:var(--color-text-tertiary)] mb-2" data-i18n-zh="数据基建" data-i18n-en="Data Infrastructure">数据基建</h2>
+      <div>
+        {projects.map((project) => (
+          <ProjectCard
+            name={project.data.name}
+            description={project.data.description}
+            tech={project.data.tech}
+            github={project.data.github}
+            demo={project.data.demo}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

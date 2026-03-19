@@ -1,0 +1,50 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  tech: string[];
+  github?: string;
+  demo?: string;
+}
+
+const { name, description, tech, github, demo } = Astro.props;
+---
+
+<div class="group py-10 border-t border-[var(--color-border)]">
+  <div class="flex flex-col md:flex-row md:gap-12">
+    <!-- Left: Project name -->
+    <div class="md:w-48 lg:w-56 shrink-0 mb-3 md:mb-0 md:pt-1">
+      <h3 class="font-mono font-bold text-sm uppercase tracking-widest text-[color:var(--color-text-primary)] transition-colors duration-300 group-hover:text-[color:var(--color-text-secondary)]">
+        {name}
+      </h3>
+    </div>
+
+    <!-- Middle: Description + Tech + Links -->
+    <div class="flex-1 min-w-0">
+      <p class="text-base text-[color:var(--color-text-primary)] leading-relaxed mb-4">
+        {description}
+      </p>
+
+      <!-- Tech as inline text -->
+      <p class="text-sm text-[color:var(--color-text-tertiary)] mb-5 break-words">
+        {tech.join(' · ')}
+      </p>
+
+      <!-- Links as pill buttons -->
+      <div class="flex flex-wrap gap-2">
+        {github && (
+          <a href={github} target="_blank" rel="noopener noreferrer"
+             class="inline-block text-xs px-4 py-2 sm:px-3.5 sm:py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:border-[color:var(--color-text-tertiary)] transition-colors duration-200">
+            Github
+          </a>
+        )}
+        {demo && (
+          <a href={demo} target="_blank" rel="noopener noreferrer"
+             class="inline-block text-xs px-4 py-2 sm:px-3.5 sm:py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:border-[color:var(--color-text-tertiary)] transition-colors duration-200">
+            Demo
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,212 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/posts/', zh: '文章', en: 'POSTS' },
+  { href: '/code/', zh: '代码库', en: 'CODE' },
+];
+
+function isActive(href: string) {
+  if (href === '/posts/') return currentPath === '/posts/' || currentPath === '/posts';
+  return currentPath.startsWith(href);
+}
+---
+
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-nav">
+  <div class="max-w-[var(--width-max)] mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="text-[color:var(--color-text-primary)] hover:opacity-70 transition-opacity">
+      <span class="text-lg" style="font-family: 'Noto Serif SC', 'PingFang SC', serif; font-weight: 500; letter-spacing: -0.01em;">Ocean <span class="hidden sm:inline">倪钰桐</span></span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <a href={link.href}
+           class:list={[
+             "nav-link relative px-4 py-2 text-[13px] tracking-[0.08em] transition-colors",
+             isActive(link.href)
+               ? "text-[color:var(--color-text-primary)]"
+               : "text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)]"
+           ]}
+           data-active={isActive(link.href) ? "true" : undefined}
+           data-i18n-zh={link.zh}
+           data-i18n-en={link.en}>
+          {link.zh}
+          {/* Hand-drawn circle SVG */}
+          <svg class="hand-circle" viewBox="0 0 160 55" preserveAspectRatio="none" fill="none">
+            <path
+              d="M12,28 C14,12 40,6 80,7 C120,8 148,14 149,28 C150,42 122,49 80,48 C38,47 10,44 12,28Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              pathLength="1"
+            />
+          </svg>
+        </a>
+      ))}
+    </div>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-2">
+      <!-- Search -->
+      <button id="search-btn" class="p-2.5 rounded-full hover:bg-[var(--color-border)] transition-colors" aria-label="Search">
+        <svg class="w-[18px] h-[18px] text-[color:var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+      </button>
+
+      <!-- Mobile menu toggle -->
+      <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-full hover:bg-[var(--color-border)] transition-colors" aria-label="Menu">
+        <svg id="menu-icon-open" class="w-[18px] h-[18px] text-[color:var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" class="w-[18px] h-[18px] text-[color:var(--color-text-secondary)] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu — full screen overlay -->
+  <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 top-16 bg-[var(--color-bg)] z-40">
+    <div class="flex flex-col px-6 pt-12">
+      {navLinks.map((link, i) => (
+        <a href={link.href}
+           class:list={[
+             "mobile-nav-link block py-4 text-2xl font-medium tracking-wide transition-all",
+             isActive(link.href)
+               ? "text-[color:var(--color-text-primary)]"
+               : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]"
+           ]}
+           style={`transition-delay: ${i * 50}ms`}
+           data-i18n-zh={link.zh}
+           data-i18n-en={link.en}>
+          {link.zh}
+        </a>
+      ))}
+
+      <div class="mt-10 pt-8 border-t border-[var(--color-border)] flex gap-8">
+        <a href="https://x.com/Ocean_Jackon" target="_blank" rel="noopener noreferrer"
+           class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">𝕏</a>
+        <a href="https://github.com/Oceanjackson1" target="_blank" rel="noopener noreferrer"
+           class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">GitHub</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+
+<style>
+  /* ─── Hand-drawn circle ─── */
+  .hand-circle {
+    position: absolute;
+    inset: -2px -8px;
+    width: calc(100% + 16px);
+    height: calc(100% + 4px);
+    pointer-events: none;
+  }
+
+  .hand-circle path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover: draw the circle */
+  .nav-link:hover .hand-circle path {
+    stroke-dashoffset: 0;
+  }
+
+  /* Active: circle always visible */
+  .nav-link[data-active] .hand-circle path {
+    stroke-dashoffset: 0;
+  }
+
+  /* When hovering a sibling, dim the active circle */
+  .nav-link[data-active]:not(:hover) {
+    transition: opacity 0.2s;
+  }
+  /* If any sibling is hovered, reduce active circle opacity */
+  :has(.nav-link:hover) .nav-link[data-active]:not(:hover) .hand-circle path {
+    opacity: 0.25;
+    transition: opacity 0.2s;
+  }
+
+  /* ─── Mobile menu ─── */
+  .mobile-menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-link {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .mobile-menu.open .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ─── Nav scroll compact ─── */
+  #main-nav {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #main-nav.scrolled {
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+  }
+</style>
+
+<script>
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  mobileBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('open');
+    iconOpen?.classList.toggle('hidden', isOpen);
+    iconClose?.classList.toggle('hidden', !isOpen);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('open');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Nav scroll behavior
+  const nav = document.getElementById('main-nav');
+  const navInner = nav?.querySelector(':scope > div') as HTMLElement | null;
+
+  window.addEventListener('scroll', () => {
+    if (!nav || !navInner) return;
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+      navInner.style.height = '48px';
+    } else {
+      nav.classList.remove('scrolled');
+      navInner.style.height = '64px';
+    }
+  });
+
+  // Search shortcut (Cmd+K) — handled by SearchModal
+</script>

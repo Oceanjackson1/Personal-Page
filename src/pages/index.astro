@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'perp-dex': { zh: 'Perp DEX', en: 'Perp DEX' },
+  'prediction-market': { zh: '预测市场', en: 'Prediction Market' },
+  'product-growth': { zh: '产品与增长', en: 'Product & Growth' },
+  web3: { zh: 'Web3综合', en: 'Web3' },
+  ai: { zh: 'AI探索', en: 'AI' },
+  stories: { zh: '故事集', en: 'Stories' },
+  travel: { zh: '旅居和探索', en: 'Travel' },
+  reflections: { zh: '个人思考', en: 'Reflections' },
+};
+
+const categories = [
+  { id: 'all', zh: '所有文章' },
+  { id: 'perp-dex', zh: 'Perp DEX' },
+  { id: 'prediction-market', zh: '预测市场' },
+  { id: 'product-growth', zh: '产品与增长' },
+  { id: 'web3', zh: 'Web3综合' },
+  { id: 'ai', zh: 'AI探索' },
+  { id: 'stories', zh: '故事集' },
+  { id: 'travel', zh: '旅居和探索' },
+  { id: 'reflections', zh: '个人思考' },
+];
+---
+
+<BaseLayout title="Ocean's Blog">
+  <div class="max-w-[var(--width-wide)] mx-auto px-6">
+
+    <section class="pt-12 sm:pt-16 pb-12 sm:pb-20">
+      <!-- Hero — top, full width -->
+      <div class="flex items-center gap-5 mb-3">
+        <img src="/avatar.jpg" alt="Ocean" class="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <h1 class="text-xl font-semibold">Ocean</h1>
+          <p class="text-sm text-[color:var(--color-text-secondary)]">找到一个最长的雪坡，滚雪球</p>
+        </div>
+      </div>
+      <div class="flex gap-5 mb-12 text-sm text-[color:var(--color-text-tertiary)]">
+        <a href="https://x.com/Ocean_Jackon" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--color-text-primary)] transition-colors">𝕏</a>
+        <a href="https://github.com/Oceanjackson1" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--color-text-primary)] transition-colors">GitHub</a>
+      </div>
+
+      <!-- Sidebar + Posts -->
+      <div class="flex flex-col sm:flex-row sm:gap-16">
+
+        <!-- Desktop sidebar — sticky -->
+        <nav class="hidden sm:block w-32 shrink-0 sticky top-24 self-start">
+          {categories.map((cat) => (
+            <button
+              class="cat-btn block text-sm mb-2.5 transition-colors text-left w-full"
+              data-cat={cat.id}
+            >
+              {cat.zh}
+            </button>
+          ))}
+          <div class="mt-4 pt-4 border-t border-[var(--color-border)]">
+            <a href="/code/" class="block text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">代码库</a>
+          </div>
+        </nav>
+
+        <!-- Mobile: horizontal pills -->
+        <div class="sm:hidden flex overflow-x-auto gap-2 pb-4 mb-4 -mx-6 px-6 scrollbar-hide" id="mobile-cats">
+          {categories.map((cat) => (
+            <button
+              class="cat-btn shrink-0 text-xs px-3.5 py-2 rounded-full border border-[var(--color-border)] transition-colors whitespace-nowrap"
+              data-cat={cat.id}
+            >
+              {cat.zh}
+            </button>
+          ))}
+        </div>
+
+        <!-- Post list -->
+        <div class="flex-1 min-w-0" id="post-list">
+          {sortedPosts.map((post) => {
+            const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: post.data.category };
+            const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            return (
+              <a href={`/posts/${post.id}/`}
+                 class="post-item block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-3 hover:opacity-75 transition-opacity"
+                 data-category={post.data.category}>
+                <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{post.data.title}</h3>
+                <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{post.data.description}</p>
+                <p class="text-sm text-[color:var(--color-text-secondary)]">
+                  <span>{cat.zh}</span> · {formattedDate}
+                </p>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.cat-btn');
+    const items = document.querySelectorAll('.post-item');
+
+    function setActive(catId: string) {
+      buttons.forEach((btn) => {
+        const id = btn.getAttribute('data-cat');
+        const isActive = id === catId;
+
+        if (btn.closest('nav')) {
+          btn.className = `cat-btn block text-sm mb-2.5 transition-colors text-left w-full ${
+            isActive
+              ? 'text-[color:var(--color-text-primary)] font-medium'
+              : 'text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]'
+          }`;
+        } else {
+          btn.className = `cat-btn shrink-0 text-xs px-3.5 py-2 rounded-full border transition-colors whitespace-nowrap ${
+            isActive
+              ? 'border-[var(--color-text-primary)] text-[color:var(--color-text-primary)] font-medium'
+              : 'border-[var(--color-border)] text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]'
+          }`;
+        }
+      });
+
+      items.forEach((item) => {
+        const postCat = item.getAttribute('data-category');
+        const show = catId === 'all' || postCat === catId;
+        (item as HTMLElement).style.display = show ? '' : 'none';
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setActive(btn.getAttribute('data-cat') || 'all');
+      });
+    });
+
+    setActive('all');
+  </script>
+</BaseLayout>

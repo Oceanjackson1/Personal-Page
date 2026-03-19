@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  date: Date;
+  slug: string;
+  featured?: boolean;
+}
+
+const { title, description, category, date, slug, featured = false } = Astro.props;
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'perp-dex': { zh: 'Perp DEX', en: 'Perp DEX' },
+  'prediction-market': { zh: '预测市场', en: 'Prediction Market' },
+  'product-growth': { zh: '产品与增长', en: 'Product & Growth' },
+  web3: { zh: 'Web3综合', en: 'Web3' },
+  ai: { zh: 'AI探索', en: 'AI' },
+  stories: { zh: '故事集', en: 'Stories' },
+  travel: { zh: '旅居和探索', en: 'Travel' },
+  reflections: { zh: '个人思考', en: 'Reflections' },
+};
+
+const cat = categoryLabels[category] || { zh: category, en: category };
+const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<a href={`/posts/${slug}/`} class="block bg-[var(--color-surface)] rounded-2xl px-7 py-6 mb-4 hover:opacity-75 transition-opacity">
+  <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{title}</h3>
+  <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{description}</p>
+  <p class="text-sm text-[color:var(--color-text-secondary)]">
+    <span data-i18n-zh={cat.zh} data-i18n-en={cat.en}>{cat.zh}</span> · {formattedDate}
+  </p>
+</a>

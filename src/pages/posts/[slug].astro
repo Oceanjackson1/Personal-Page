@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const currentIndex = sortedPosts.findIndex(p => p.id === post.id);
+const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+
+const categoryLabels: Record<string, { zh: string; en: string }> = {
+  'perp-dex': { zh: 'Perp DEX', en: 'Perp DEX' },
+  'prediction-market': { zh: '预测市场', en: 'Prediction Market' },
+  'product-growth': { zh: '产品与增长', en: 'Product & Growth' },
+  web3: { zh: 'Web3综合', en: 'Web3' },
+  ai: { zh: 'AI探索', en: 'AI' },
+  stories: { zh: '故事集', en: 'Stories' },
+  travel: { zh: '旅居和探索', en: 'Travel' },
+  reflections: { zh: '个人思考', en: 'Reflections' },
+};
+
+const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: post.data.category };
+const readTime = Math.max(1, Math.ceil((post.body?.length || 0) / 400));
+const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <!-- Reading progress -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <article class="py-12 sm:py-16">
+    <div class="max-w-[var(--width-content)] mx-auto px-6">
+      <!-- Header -->
+      <header class="mb-10">
+        <div class="flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)] mb-4">
+          <span data-i18n-zh={cat.zh} data-i18n-en={cat.en}>{cat.zh}</span>
+          <span>&middot;</span>
+          <time>{formattedDate}</time>
+          <span>&middot;</span>
+          <span>{readTime} <span data-i18n-zh="分钟阅读" data-i18n-en="min read">分钟阅读</span></span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">{post.data.title}</h1>
+      </header>
+
+      <hr class="border-[var(--color-border)] mb-10" />
+
+      <!-- Content -->
+      <div class="prose" id="article-content">
+        <Content />
+      </div>
+
+      <hr class="border-[var(--color-border)] mt-10 mb-8" />
+
+      <!-- Prev/Next -->
+      <nav class="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+        {prevPost ? (
+          <a href={`/posts/${prevPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors line-clamp-1" data-i18n-zh={`\u2190 ${prevPost.data.title}`} data-i18n-en={`\u2190 ${prevPost.data.title}`}>
+            &larr; {prevPost.data.title}
+          </a>
+        ) : <div />}
+        {nextPost ? (
+          <a href={`/posts/${nextPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors sm:text-right line-clamp-1" data-i18n-zh={`${nextPost.data.title} \u2192`} data-i18n-en={`${nextPost.data.title} \u2192`}>
+            {nextPost.data.title} &rarr;
+          </a>
+        ) : <div />}
+      </nav>
+    </div>
+  </article>
+
+  <!-- TOC (desktop right side) -->
+  {headings.length > 0 && (
+    <aside class="hidden xl:block fixed right-8 top-1/3 w-48" id="toc">
+      <p class="text-xs font-medium text-[color:var(--color-text-tertiary)] uppercase tracking-wider mb-3" data-i18n-zh="目录" data-i18n-en="Contents">目录</p>
+      <nav class="space-y-1.5">
+        {headings.filter(h => h.depth <= 3).map((h) => (
+          <a href={`#${h.slug}`}
+             class:list={[
+               "block text-xs text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors",
+               h.depth === 3 && "pl-3"
+             ]}>
+            {h.text}
+          </a>
+        ))}
+      </nav>
+    </aside>
+  )}
+
+  <script>
+    // Reading progress
+    const progressBar = document.getElementById('reading-progress');
+    const article = document.getElementById('article-content');
+
+    function updateProgress() {
+      if (!article || !progressBar) return;
+      const rect = article.getBoundingClientRect();
+      const articleTop = rect.top + window.scrollY;
+      const articleHeight = rect.height;
+      const scrolled = window.scrollY - articleTop;
+      const progress = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+      progressBar.style.width = `${progress}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+  </script>
+
+  <script>
+    document.querySelectorAll('.prose pre').forEach((pre) => {
+      const wrapper = pre as HTMLElement;
+      wrapper.style.position = 'relative';
+      const btn = document.createElement('button');
+      btn.textContent = 'Copy';
+      btn.style.cssText = 'position:absolute;top:0.75rem;right:0.75rem;font-size:0.75rem;padding:0.25rem 0.5rem;border-radius:6px;background:var(--color-border);color:var(--color-text-tertiary);cursor:pointer;border:none;transition:color 0.15s';
+      btn.addEventListener('mouseenter', () => { btn.style.color = 'var(--color-text-primary)'; });
+      btn.addEventListener('mouseleave', () => { btn.style.color = 'var(--color-text-tertiary)'; });
+      btn.addEventListener('click', () => {
+        const code = wrapper.querySelector('code');
+        navigator.clipboard.writeText(code?.textContent || '');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+      wrapper.appendChild(btn);
+    });
+  </script>
+
+  <script>
+    const tocLinks = document.querySelectorAll('#toc a');
+    const headings = document.querySelectorAll('#article-content h2, #article-content h3');
+    if (tocLinks.length > 0 && headings.length > 0) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tocLinks.forEach(l => {
+                l.classList.remove('!text-[color:var(--color-text-primary)]', '!font-medium');
+              });
+              const active = document.querySelector('#toc a[href="#' + entry.target.id + '"]');
+              active?.classList.add('!text-[color:var(--color-text-primary)]', '!font-medium');
+            }
+          });
+        },
+        { rootMargin: '-80px 0px -60% 0px' }
+      );
+      headings.forEach(h => obs.observe(h));
+    }
+  </script>
+</BaseLayout>

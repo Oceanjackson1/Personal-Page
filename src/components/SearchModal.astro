@@ -1,0 +1,329 @@
+---
+// SearchModal — Cmd+K spotlight-style search dialog
+---
+
+<dialog id="search-dialog" class="search-dialog">
+  <div class="search-backdrop" data-close></div>
+  <div class="search-panel">
+    <!-- Input -->
+    <div class="search-input-wrap">
+      <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+      <input
+        id="search-input"
+        type="text"
+        placeholder="搜索文章和项目..."
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <kbd class="search-kbd">ESC</kbd>
+    </div>
+
+    <!-- Results -->
+    <div id="search-results" class="search-results">
+      <div class="search-empty">输入关键词开始搜索</div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  /* ─── Dialog reset ─── */
+  .search-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .search-dialog[open] {
+    opacity: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .search-dialog::backdrop {
+    display: none;
+  }
+
+  /* ─── Backdrop ─── */
+  .search-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* ─── Panel ─── */
+  .search-panel {
+    position: relative;
+    margin-top: min(20vh, 120px);
+    width: 90%;
+    max-width: 560px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-popup);
+    overflow: hidden;
+    transform: translateY(-8px);
+    transition: transform 0.15s ease;
+  }
+  .search-dialog[open] .search-panel {
+    transform: translateY(0);
+  }
+
+  /* ─── Input ─── */
+  .search-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+  }
+  #search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+  }
+  #search-input::placeholder {
+    color: var(--color-text-tertiary);
+  }
+  .search-kbd {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+  }
+
+  /* ─── Results ─── */
+  .search-results {
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 8px;
+  }
+  .search-empty {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: 14px;
+  }
+  .search-result-item {
+    display: block;
+    padding: 12px 16px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.1s;
+  }
+  .search-result-item:hover,
+  .search-result-item.active {
+    background: var(--color-surface);
+  }
+  .search-result-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+  }
+  .search-result-desc {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .search-result-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .search-result-tag {
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  .search-result-date {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+  }
+
+  /* ─── Highlight match ─── */
+  :global(.search-highlight) {
+    background: rgba(255, 200, 0, 0.25);
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('search-dialog') as HTMLDialogElement;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const resultsContainer = document.getElementById('search-results')!;
+  const backdrop = dialog.querySelector('[data-close]')!;
+
+  type SearchItem = {
+    type: string;
+    slug: string;
+    title: string;
+    description: string;
+    category: string;
+    date: string;
+    url: string;
+  };
+
+  let searchIndex: SearchItem[] | null = null;
+  let activeIndex = -1;
+
+  // Category display names
+  const categoryNames: Record<string, string> = {
+    'perp-dex': 'Perp DEX',
+    'prediction-market': '预测市场',
+    'product-growth': '产品与增长',
+    'web3': 'Web3',
+    'ai': 'AI',
+    'stories': '故事集',
+    'travel': '旅居',
+    'reflections': '思考',
+    'infra': '基建',
+    'products': '产品',
+  };
+
+  async function loadIndex() {
+    if (searchIndex) return;
+    try {
+      const res = await fetch('/search-index.json');
+      searchIndex = await res.json();
+    } catch {
+      searchIndex = [];
+    }
+  }
+
+  function openSearch() {
+    dialog.showModal();
+    input.value = '';
+    input.focus();
+    activeIndex = -1;
+    resultsContainer.innerHTML = '<div class="search-empty">输入关键词开始搜索</div>';
+    loadIndex();
+  }
+
+  function closeSearch() {
+    dialog.close();
+  }
+
+  function highlight(text: string, query: string): string {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${escaped})`, 'gi'), '<span class="search-highlight">$1</span>');
+  }
+
+  function search(query: string) {
+    if (!searchIndex || !query.trim()) {
+      resultsContainer.innerHTML = '<div class="search-empty">输入关键词开始搜索</div>';
+      activeIndex = -1;
+      return;
+    }
+
+    const q = query.toLowerCase().trim();
+    const results = searchIndex.filter(
+      (item) =>
+        item.title.toLowerCase().includes(q) ||
+        item.description.toLowerCase().includes(q)
+    );
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="search-empty">没有找到相关内容</div>';
+      activeIndex = -1;
+      return;
+    }
+
+    activeIndex = 0;
+    resultsContainer.innerHTML = results
+      .slice(0, 20)
+      .map(
+        (item, i) => `
+        <a href="${item.url}" class="search-result-item${i === 0 ? ' active' : ''}" data-index="${i}">
+          <div class="search-result-title">${highlight(item.title, query)}</div>
+          <div class="search-result-desc">${highlight(item.description, query)}</div>
+          <div class="search-result-meta">
+            <span class="search-result-tag">${categoryNames[item.category] || item.category}</span>
+            ${item.date ? `<span class="search-result-date">${item.date}</span>` : ''}
+          </div>
+        </a>
+      `
+      )
+      .join('');
+  }
+
+  function updateActive(items: NodeListOf<Element>) {
+    items.forEach((el, i) => {
+      el.classList.toggle('active', i === activeIndex);
+    });
+    items[activeIndex]?.scrollIntoView({ block: 'nearest' });
+  }
+
+  // Open
+  document.getElementById('search-btn')?.addEventListener('click', openSearch);
+
+  // Close on backdrop click
+  backdrop.addEventListener('click', closeSearch);
+
+  // Search on input
+  input.addEventListener('input', () => search(input.value));
+
+  // Keyboard navigation
+  input.addEventListener('keydown', (e) => {
+    const items = resultsContainer.querySelectorAll('.search-result-item');
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      updateActive(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      updateActive(items);
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      (items[activeIndex] as HTMLAnchorElement).click();
+    }
+  });
+
+  // Cmd+K global shortcut (override the one in Nav)
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (dialog.open) {
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    }
+  });
+</script>

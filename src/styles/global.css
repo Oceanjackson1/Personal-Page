@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   Ocean's Blog — Warm Editorial Design System
+   ═══════════════════════════════════════════════ */
+
+@theme {
+  /* Colors — Light mode (warm tones) */
+  --color-bg: #F7F7F4;
+  --color-surface: #F2F1EE;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B6B6B;
+  --color-text-tertiary: #9B9B9B;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-accent: #1A1A1A;
+  --color-accent-hover: #000000;
+
+  /* Spacing */
+  --spacing-section: 80px;
+  --spacing-section-lg: 120px;
+
+  /* Radius */
+  --radius-btn: 12px;
+  --radius-card: 18px;
+  --radius-lg: 24px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-popup: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, monospace;
+
+  /* Content width */
+  --width-content: 680px;
+  --width-wide: 1080px;
+  --width-max: 1200px;
+}
+
+
+/* ─── Base styles ─── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@media (min-width: 640px) {
+  body { font-size: 17px; }
+}
+
+/* ─── Chinese typography adjustments ─── */
+:lang(zh) {
+  line-height: 1.8;
+}
+
+:lang(en) {
+  line-height: 1.5;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ─── Scrollbar (subtle) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-tertiary);
+  border-radius: 3px;
+}
+
+/* ─── Prose / Article styles ─── */
+.prose {
+  max-width: var(--width-content);
+  margin: 0 auto;
+  color: var(--color-text-primary);
+}
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.prose h1 { font-size: 1.75rem; }
+.prose h2 { font-size: 1.25rem; }
+.prose h3 { font-size: 1.125rem; }
+
+@media (min-width: 640px) {
+  .prose h1 { font-size: 2rem; }
+  .prose h2 { font-size: 1.5rem; }
+  .prose h3 { font-size: 1.25rem; }
+}
+.prose p { margin-bottom: 1.25em; }
+.prose a {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-text-tertiary);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+.prose a:hover {
+  text-decoration-color: var(--color-text-primary);
+}
+.prose blockquote {
+  border-left: 3px solid var(--color-text-tertiary);
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.prose code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-border);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  padding: 1em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .prose pre {
+    font-size: 15px;
+    padding: 1.25em;
+  }
+}
+.prose img {
+  border-radius: var(--radius-btn);
+  margin: 2em auto;
+  max-width: 100%;
+}
+.prose ul, .prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+.prose li {
+  margin-bottom: 0.25em;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2em 0;
+}
+
+/* ─── Full-bleed images in articles ─── */
+@media (min-width: 640px) {
+  .prose .full-bleed {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
+  }
+}
+
+/* ─── Reading progress bar ─── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-accent);
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ─── Hide scrollbar for horizontal scroll ─── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Nav glassmorphism ─── */
+.nav-glass {
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  border-bottom: 1px solid var(--color-border);
+}

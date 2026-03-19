@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostSidebar from '../../components/PostSidebar.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).filter(p => p.data.category === 'perp-dex').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<BaseLayout title="Perp DEX">
+  <section class="py-12 sm:py-16">
+    <div class="max-w-[var(--width-wide)] mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="Perp DEX" data-i18n-en="Perp DEX">Perp DEX</h1>
+      <div class="flex flex-col sm:flex-row sm:gap-16">
+        <PostSidebar active="perp-dex" />
+        <div class="flex-1 min-w-0">
+          {posts.map((post) => {
+            const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            return (
+              <a href={`/posts/${post.id}/`} class="block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-4 hover:opacity-75 transition-opacity">
+                <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{post.data.title}</h3>
+                <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{post.data.description}</p>
+                <p class="text-sm text-[color:var(--color-text-secondary)]">Perp DEX · {formattedDate}</p>
+              </a>
+            );
+          })}
+          {posts.length === 0 && <p class="text-[color:var(--color-text-tertiary)] py-8">暂无文章</p>}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

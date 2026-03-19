@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const infraProjects = allProjects.filter(p => p.data.category === 'infra').sort((a, b) => a.data.order - b.data.order);
+const productProjects = allProjects.filter(p => p.data.category === 'products').sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="代码库">
+  <section class="py-12 sm:py-24">
+    <div class="max-w-[var(--width-wide)] mx-auto px-6">
+
+      <!-- Intro -->
+      <div class="max-w-2xl mb-12 sm:mb-20">
+        <p class="text-lg text-[color:var(--color-text-primary)] leading-relaxed">Ocean 构建并开源的相关代码库</p>
+        <p class="text-lg text-[color:var(--color-text-secondary)] leading-relaxed">在代码平权的时代拓展无限的可能</p>
+      </div>
+
+      <!-- Infra -->
+      <div class="mb-16">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-[color:var(--color-text-tertiary)] mb-2" data-i18n-zh="数据基建" data-i18n-en="Data Infrastructure">数据基建</h2>
+        <div>
+          {infraProjects.map((project) => (
+            <ProjectCard
+              name={project.data.name}
+              description={project.data.description}
+              tech={project.data.tech}
+              github={project.data.github}
+              demo={project.data.demo}
+            />
+          ))}
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h2 class="font-mono text-xs uppercase tracking-widest text-[color:var(--color-text-tertiary)] mb-2" data-i18n-zh="产品与交易工具" data-i18n-en="Products & Trading Tools">产品与交易工具</h2>
+        <div>
+          {productProjects.map((project) => (
+            <ProjectCard
+              name={project.data.name}
+              description={project.data.description}
+              tech={project.data.tech}
+              github={project.data.github}
+              demo={project.data.demo}
+            />
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
