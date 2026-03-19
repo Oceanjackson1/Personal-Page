@@ -69,33 +69,34 @@ function isActive(href: string) {
     </div>
   </div>
 
-  <!-- Mobile menu — full screen overlay -->
-  <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 top-16 z-40" style="background-color: var(--color-bg, #F7F7F4);">
-    <div class="flex flex-col px-6 pt-12">
-      {navLinks.map((link, i) => (
-        <a href={link.href}
-           class:list={[
-             "mobile-nav-link block py-4 text-2xl font-medium tracking-wide transition-all",
-             isActive(link.href)
-               ? "text-[color:var(--color-text-primary)]"
-               : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]"
-           ]}
-           style={`transition-delay: ${i * 50}ms`}
-           data-i18n-zh={link.zh}
-           data-i18n-en={link.en}>
-          {link.zh}
-        </a>
-      ))}
+</nav>
 
-      <div class="mt-10 pt-8 border-t border-[var(--color-border)] flex gap-8">
-        <a href="https://x.com/Ocean_Jackon" target="_blank" rel="noopener noreferrer"
-           class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">𝕏</a>
-        <a href="https://github.com/Oceanjackson1" target="_blank" rel="noopener noreferrer"
-           class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">GitHub</a>
-      </div>
+<!-- Mobile menu — OUTSIDE nav to avoid backdrop-filter containing block -->
+<div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 top-16 z-50" style="background-color: var(--color-bg, #F7F7F4);">
+  <div class="flex flex-col px-6 pt-12">
+    {navLinks.map((link, i) => (
+      <a href={link.href}
+         class:list={[
+           "mobile-nav-link block py-4 text-2xl font-medium tracking-wide transition-all",
+           isActive(link.href)
+             ? "text-[color:var(--color-text-primary)]"
+             : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]"
+         ]}
+         style={`transition-delay: ${i * 50}ms`}
+         data-i18n-zh={link.zh}
+         data-i18n-en={link.en}>
+        {link.zh}
+      </a>
+    ))}
+
+    <div class="mt-10 pt-8 border-t border-[var(--color-border)] flex gap-8">
+      <a href="https://x.com/Ocean_Jackon" target="_blank" rel="noopener noreferrer"
+         class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">𝕏</a>
+      <a href="https://github.com/Oceanjackson1" target="_blank" rel="noopener noreferrer"
+         class="text-base py-1 text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">GitHub</a>
     </div>
   </div>
-</nav>
+</div>
 
 <!-- Spacer for fixed nav -->
 <div class="h-16"></div>
