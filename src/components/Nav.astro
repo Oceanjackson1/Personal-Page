@@ -70,7 +70,7 @@ function isActive(href: string) {
   </div>
 
   <!-- Mobile menu — full screen overlay -->
-  <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 top-16 bg-[var(--color-bg)] z-40">
+  <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 top-16 z-40" style="background-color: var(--color-bg, #F7F7F4);">
     <div class="flex flex-col px-6 pt-12">
       {navLinks.map((link, i) => (
         <a href={link.href}
@@ -138,13 +138,18 @@ function isActive(href: string) {
 
   /* ─── Mobile menu ─── */
   .mobile-menu {
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.3s;
   }
   .mobile-menu.open {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0s;
   }
 
   .mobile-nav-link {
