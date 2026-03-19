@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ocean.blog', // Update when domain is decided
+  site: 'https://niyutongocean.xyz',
   vite: {
     plugins: [tailwindcss()],
   },
