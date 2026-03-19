@@ -5,12 +5,12 @@ category: "perp-dex"
 date: 2024-12-19
 ---
 
-Hyperliquid的介绍
+## Hyperliquid的介绍
 
 Hyperliquid是DEX，也有自己的Layer 1 公链，目前的Ticker是HYPE，已经上线Bitget和Kucoin T2的交易所。特点是链上的衍生品合约，价格预言机机制跟传统的DEX的区别是没有调用Chainlink外部预言机，订单铺机制多样，且有TWAP 优化可以降低市场冲击。
 
-跟DEX的竞争优势
-综合的DEX对比
+## 跟DEX的竞争优势
+### 综合的DEX对比
 
 传统的DEX对于散户最著名的莫过于Uniswap，其中的原理是使用恒定乘积公式和自动做市场机制以实现流动性。流动性参与者为流动池注入两种代币交易对，因此实现流动性。在这个过程中，流动性的提供者可以获得收益（交易所的手续费）。
 
@@ -20,7 +20,7 @@ Hyperliquid是DEX，也有自己的Layer 1 公链，目前的Ticker是HYPE，已
 
 但是随着交易的需求更为复杂，原先的X * Y = K的机制无法满足交易者的需求，出现了类似1inch的跨平台的撮合机制，解决措施是路径优化算法，在多个DEX和流动性池子中找到最佳的交易。
 
-链上杠杆合约Trader的需求
+## 链上杠杆合约Trader的需求
 
 
 
@@ -30,7 +30,7 @@ Hyperliquid是DEX，也有自己的Layer 1 公链，目前的Ticker是HYPE，已
 
 值得注意的是，因为Hype依旧是一个早期项目，交互带来的空投预期依旧会存在。
 
-过往已有杠杆交易的DEX跟Hype的比较
+## 过往已有杠杆交易的DEX跟Hype的比较
 
 
 
@@ -38,8 +38,8 @@ Hyperliquid是DEX，也有自己的Layer 1 公链，目前的Ticker是HYPE，已
 
 Hyperliquid针对dYdX的优化集中在两点，一是价格预言机，二是订单的多种类型。
 
-跟CEX竞争优势是什么
-跟CEX比较
+## 跟CEX竞争优势是什么
+### 跟CEX比较
 
 
 
@@ -49,34 +49,34 @@ Hyperliquid针对dYdX的优化集中在两点，一是价格预言机，二是�
 
 对于大户以上的，在Hyper中的Maker Fee是0，而Taker的费率依旧比BN低很多。
 
-具体的技术是如何实现的和差异性
-价格预言机差异
+## 具体的技术是如何实现的和差异性
+### 价格预言机差异
 
 
-Hype如何做价格预言机的
+## Hype如何做价格预言机的
 
 数据来源是，从以下主要交易所采集现货价格，基于多数据源进行计算：
 
-Binance: 权重 3
+## Binance: 权重 3
 
-OKX: 权重 2
+## OKX: 权重 2
 
-Bybit: 权重 2
+## Bybit: 权重 2
 
-Kraken: 权重 1
+## Kraken: 权重 1
 
-Kucoin: 权重 1
+## Kucoin: 权重 1
 
-Gate.io: 权重 1
+## Gate.io: 权重 1
 
-MEXC: 权重 1
+## MEXC: 权重 1
 
-Hyperliquid Spot: 权重 1
-
-
+## Hyperliquid Spot: 权重 1
 
 
-在验证数据上，验证者（Validators）的核心角色被提出
+
+
+## 在验证数据上，验证者（Validators）的核心角色被提出
 
 验证者的主要任务是每3秒 发布每种永续合约（Perpetual Contract）资产的现货预言机价格。
 
@@ -90,16 +90,16 @@ Hyperliquid Spot: 权重 1
 
 清算中心（Clearinghouse） 将所有验证者的价格集合，再次计算加权中位数，得出最终的清算价格（Oracle Price）
 
-订单薄上的技术优势
+## 订单薄上的技术优势
 
 
 
 在技术优势上，核心在于完全链上的订单薄和TWAP优化，也符合机构交易者的需求。
 
-订单薄机制的多种类型
+## 订单薄机制的多种类型
 
 
-总结
+## 总结
 
 Hyperliquid是对于链上衍生品机制的创新，核心的技术创新点在于价格的预言机和订单薄，因为产品过于早期，所以后续的发展可以持续跟进监测。
 

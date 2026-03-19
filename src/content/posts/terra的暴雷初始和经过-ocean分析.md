@@ -9,7 +9,7 @@ Terra的暴雷展现了人性的恐怖和贪婪，也是加密货币早期发展
 
 
 
-项目背景
+## 项目背景
 Seungju Lee 在一篇发表在Finance Research Letters期刊中的文章评价道: “在 2022 年 5 月史诗般的崩溃之前，由 Terraform Labs 开发的 Terra 协议被投资者评价为成功的区块链项目。LUNA 是 Terra 的原生代币，截至 2022 年 4 月，其市值在加密货币中排名第八，接近 400 亿美元。”
 Terra是一个开源的区块链支付平台，用于算法稳定币，这些加密货币能自动追踪货币或其他资产的价格。Terra区块链使用户能够即时消费、储蓄、交易或兑换Terra稳定币。Terra协议创建了旨在持续追踪法定货币（如美元或欧元等政府支持的货币）价格的稳定币。它由两种加密货币代币组成——Terra和Luna。
 Terra由总部位于韩国的Terraform Labs开发，该公司由Do Kwon和Daniel Shin于2018年创立。Do Kwon曾在微软和苹果工作，并创立了提供去中心化无线网状网络解决方案的初创公司Anyfi。Shin是亚洲支付技术公司Chai的创始人兼CEO，该公司是Terra的合作伙伴，也是韩国电子商务公司TMON（又名Ticket Monster）的联合创始人。

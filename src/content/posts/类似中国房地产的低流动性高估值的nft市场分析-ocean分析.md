@@ -5,7 +5,7 @@ category: "web3"
 date: 2023-12-02
 ---
 
-NFT市场概况
+## NFT市场概况
 普通用户最初接触到加密货币市场的两个概念分为是比特币和NFT，原因是比特币作为媒体最先且最热烈讨论的话题，从曝光量上能触及更多的用户，对于NFT来讲一种图片绘画形式用户的理解成本更低。
 但是真正激励大家参与的是二级市场上增值的可能，因此这两者都被赋予了一种金融的属性。对于联盟链项目或者一些无法被二次交易转售的NFT，则在本文的论证框架中是没有价值的，且不在讨论的范畴。
 人类思想的两个最伟大的发明是文字和金钱---智力的共同语言和自身利益的共同语言---米拉波。
@@ -17,7 +17,7 @@ NFT市场概况
 本文从两个维度分析（宏观和微观）现在的NFT市场。
 
 
-数据选择来源和理由
+## 数据选择来源和理由
 数据分为两种，第一是一手数据，来自Biance NFT，获取方式为爬虫。二是三方平台数据，比如NFTGo或者其他咨询报告或者文章数据。
 （Biance NFT截图）
 宏观指标分析
@@ -45,12 +45,12 @@ NFT市场概况
 （数据来源Biance NFT ; Ocean制作）
 
 
-市场评论
+## 市场评论
 FJ Labs在一篇文章中探讨过加密货币市场的流动性，对于这家机构他们已经将3000万美金的核心资金分配给流动加密策略。在他们的筛选分析项目中，该机构指出目前有22932种独特的加密资产，其中99%是完全没有价值的。对于他们的投资，他们根据市值、完全稀释价值、代币发行、交易量以及代币分布等量化指标分析。
 对于NFT市场，在他们的投资逻辑框架中肯定不算是一个好的投资标的，低流动性，高估值等不良投资标的要素。但是对于投资者来讲是不良市场资产，但是作为普通用户如果想初入加密资产市场，购买低价值的NFT作为早期的参与者不失一种好的选择和探索方式（因为通过购买，可以初步了解如何注册一个加密数字钱包，访问交易所等）
 
 
-引用来源
+## 引用来源
 NFTGo. (2023). Global NFT Market Overview. Available at: https://nftgo.io/analytics/market-overview [Accessed 2 Dec. 2023].
 Binance. (2023). Binance NFT | Marketplace for NFTs and Mystery Boxes. Available at: https://www.binance.com/en/nft/home [Accessed 2 Dec. 2023].
 Brown, R. (2023). FJ Labs’ Liquid Crypto Evaluation Process. Fabrice Grinda. Available at: https://fabricegrinda.com/fj-labs-liquid-crypto-evaluation-process/ [Accessed 2 Dec. 2023].
