@@ -33,9 +33,34 @@ const categoryLabels: Record<string, { zh: string; en: string }> = {
 const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: post.data.category };
 const readTime = Math.max(1, Math.ceil((post.body?.length || 0) / 400));
 const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const isoDate = post.data.date.toISOString();
+const canonicalURL = new URL(`/posts/${post.id}/`, Astro.site);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": isoDate,
+  "dateModified": isoDate,
+  "author": {
+    "@type": "Person",
+    "name": "Ocean 倪钰桐",
+    "url": "https://niyutongocean.xyz"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ocean 倪钰桐"
+  },
+  "url": canonicalURL.href,
+  "wordCount": post.body?.length || 0,
+  "timeRequired": `PT${readTime}M`,
+  "inLanguage": "zh-CN"
+};
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Reading progress -->
   <div class="reading-progress" id="reading-progress"></div>
 

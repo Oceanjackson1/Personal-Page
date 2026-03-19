@@ -7,9 +7,12 @@ import SearchModal from '../components/SearchModal.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "Ocean's Blog — 找到一个最长的雪坡，滚雪球" } = Astro.props;
+const { title, description = "Ocean's Blog — 找到一个最长的雪坡，滚雪球", ogImage = "/avatar.jpg" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -18,9 +21,26 @@ const { title, description = "Ocean's Blog — 找到一个最长的雪坡，滚
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
   <title>{title} | Ocean</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={`${title} | Ocean`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="Ocean's Blog" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Ocean_Jackon" />
+  <meta name="twitter:title" content={`${title} | Ocean`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
 
   <!-- Preload Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
