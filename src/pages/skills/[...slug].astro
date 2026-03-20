@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const skills = await getCollection('skills');
+  return skills.map(skill => ({
+    params: { slug: skill.id },
+    props: { skill },
+  }));
+}
+
+const { skill } = Astro.props;
+const { Content } = await render(skill);
+
+const sourceLabel = skill.data.source === 'community' ? '社区公开' : '官方';
+const categoryLabels: Record<string, string> = {
+  development: '开发',
+  workflow: '工作流',
+  research: '研究',
+  writing: '写作',
+  devops: 'DevOps',
+  other: '其他',
+};
+---
+
+<BaseLayout
+  title={`${skill.data.title} | Claude Skill`}
+  description={skill.data.description}
+>
+  <article class="py-12 sm:py-20">
+    <div class="max-w-[var(--width-content)] mx-auto px-6">
+
+      <!-- Back link -->
+      <a href="/skills/" class="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+        </svg>
+        返回 Claude Skill
+      </a>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">{skill.data.title}</h1>
+        <p class="text-base text-[color:var(--color-text-secondary)] leading-relaxed mb-4">{skill.data.description}</p>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-block text-[11px] px-2.5 py-1 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
+            {categoryLabels[skill.data.category] || skill.data.category}
+          </span>
+          <span class="inline-flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full bg-[var(--color-card-bg)] text-[color:var(--color-text-tertiary)]">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+            {sourceLabel}
+          </span>
+          {skill.data.author && (
+            <span class="text-[11px] text-[color:var(--color-text-tertiary)]">
+              by {skill.data.author}
+            </span>
+          )}
+        </div>
+
+        {skill.data.sourceUrl && (
+          <a href={skill.data.sourceUrl} target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1.5 mt-4 text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+            查看原始来源
+          </a>
+        )}
+      </header>
+
+      <hr class="border-[var(--color-border)] mb-10" />
+
+      <!-- Content -->
+      <div class="prose">
+        <Content />
+      </div>
+
+      {skill.data.tags.length > 0 && (
+        <div class="mt-12 pt-6 border-t border-[var(--color-border)]">
+          <div class="flex flex-wrap gap-2">
+            {skill.data.tags.map(tag => (
+              <span class="text-xs px-3 py-1 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </article>
+</BaseLayout>

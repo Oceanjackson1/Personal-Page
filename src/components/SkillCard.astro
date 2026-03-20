@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  source: string;
+  sourceUrl?: string;
+  author?: string;
+  tags: string[];
+  slug: string;
+}
+
+const { title, description, category, source, sourceUrl, author, tags, slug } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  development: '开发',
+  workflow: '工作流',
+  research: '研究',
+  writing: '写作',
+  devops: 'DevOps',
+  other: '其他',
+};
+---
+
+<a href={`/skills/${slug}/`} class="block group">
+  <div class="py-8 border-t border-[var(--color-border)] transition-colors duration-200">
+    <div class="flex flex-col sm:flex-row sm:gap-8">
+      <!-- Left: title + source badge -->
+      <div class="sm:w-56 lg:w-64 shrink-0 mb-2 sm:mb-0">
+        <h3 class="font-mono font-bold text-sm tracking-wide text-[color:var(--color-text-primary)] group-hover:opacity-70 transition-opacity">
+          {title}
+        </h3>
+        <div class="flex items-center gap-2 mt-2">
+          <span class="inline-block text-[10px] px-2 py-0.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
+            {categoryLabels[category] || category}
+          </span>
+          <span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-card-bg)] text-[color:var(--color-text-tertiary)]">
+            {source === 'community' ? '社区公开' : '官方'}
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: description + tags -->
+      <div class="flex-1 min-w-0">
+        <p class="text-sm text-[color:var(--color-text-secondary)] leading-relaxed mb-3">
+          {description}
+        </p>
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {tags.map(tag => (
+              <span class="text-[11px] text-[color:var(--color-text-tertiary)]">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+        {author && (
+          <p class="text-[11px] text-[color:var(--color-text-tertiary)] mt-2">
+            by {author}
+          </p>
+        )}
+      </div>
+
+      <!-- Arrow -->
+      <div class="hidden sm:flex items-center shrink-0">
+        <svg class="w-4 h-4 text-[color:var(--color-text-tertiary)] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</a>

@@ -25,4 +25,18 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { posts, projects };
+const skills = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/skills' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(['development', 'workflow', 'research', 'writing', 'devops', 'other']),
+    source: z.enum(['community', 'official']).default('community'),
+    sourceUrl: z.string().optional(),
+    author: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    date: z.coerce.date(),
+  }),
+});
+
+export const collections = { posts, projects, skills };
