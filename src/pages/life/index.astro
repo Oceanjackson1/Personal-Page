@@ -32,8 +32,7 @@ function renderStars(rating: number | null): string {
         城市生活记忆
       </h1>
       <p class="text-sm sm:text-base text-[color:var(--color-text-secondary)] max-w-lg mx-auto leading-relaxed">
-        记录我在世界各地喜欢的角落<br class="sm:hidden" />
-        <span class="hidden sm:inline"> · </span>Recording my favorite corners around the world
+        记录我在世界各地喜欢的角落
       </p>
       <p class="mt-4 text-xs text-[color:var(--color-text-tertiary)]" id="stats-bar">
         共 <span class="font-medium text-[color:var(--color-text-secondary)]">{places.length}</span> 个收藏地点
@@ -41,7 +40,7 @@ function renderStars(rating: number | null): string {
     </section>
 
     <!-- Category Tabs -->
-    <div class="flex justify-center gap-2 sm:gap-3 mb-6">
+    <div class="flex justify-center gap-2.5 sm:gap-3 mb-5">
       <button class="cat-tab active" data-category="food">
         <span class="tab-emoji">🍜</span>
         <span data-i18n-zh="美食录" data-i18n-en="Food">美食录</span>
@@ -60,7 +59,7 @@ function renderStars(rating: number | null): string {
     </div>
 
     <!-- City Filter Pills -->
-    <div class="flex justify-center flex-wrap gap-1.5 sm:gap-2 mb-8 px-2" id="city-filters">
+    <div class="flex justify-center flex-wrap gap-2 sm:gap-2.5 mb-10 px-4" id="city-filters">
       <button class="city-pill active" data-city="all">全部</button>
       {allCities.map(city => (
         <button class="city-pill" data-city={city}>{city}</button>
@@ -173,22 +172,24 @@ function renderStars(rating: number | null): string {
 
     /* City pills */
     .city-pill {
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--color-text-tertiary);
       background: transparent;
-      border: 1px solid var(--color-border);
+      border: 1.5px solid var(--color-border);
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.2s ease;
       white-space: nowrap;
     }
     .city-pill:hover {
       color: var(--color-text-secondary);
       border-color: var(--color-text-tertiary);
+      background: var(--color-surface);
     }
     .city-pill.active {
-      color: var(--color-text-primary);
+      color: var(--color-bg);
+      background: var(--color-text-primary);
       border-color: var(--color-text-primary);
       font-weight: 500;
     }
