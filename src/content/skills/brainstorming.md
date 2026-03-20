@@ -1,21 +1,21 @@
 ---
 title: "Brainstorming"
-description: "结构化头脑风暴工具，支持多轮会话、版本管理和决策追踪的协作式思维框架。"
+description: "在开始任何创意工作之前，通过协作对话将想法转化为完整的设计方案和规格说明"
 category: "workflow"
 source: "community"
 sourceUrl: "https://github.com/anthropics/claude-code"
-author: "Claude Code Community"
-tags: ["brainstorm", "ideation", "planning"]
-date: 2026-03-12
+author: "Superpowers"
+tags: ["brainstorming", "design", "planning", "ideation"]
+date: 2026-03-20
 ---
 
-## 功能概述
+## 概述
 
-Brainstorming Skill 是一个为多会话思维项目设计的协作系统。它支持跨天甚至跨周的深度思考项目。
+Brainstorming 技能帮助你在实现之前，通过自然的协作对话将想法转化为完整的设计和规格。它会先了解当前项目上下文，然后逐一提问以细化想法，最终呈现设计方案并获得用户批准。
 
-## 核心特性
+## 主要功能
 
-- **版本管理** — 每次会话生成版本文件，追踪思维演进
-- **决策日志** — 记录关键决策及其推理过程
-- **想法成熟度追踪** — 从原始想法到可执行方案的完整生命周期
-- **连接模式** — 跨项目发现关联和灵感
+- 在编写任何代码之前进行设计探索，避免返工
+- 通过逐步提问理解用户意图和需求
+- 强制要求所有项目（无论多简单）都经过设计审查
+- 生成设计方案后等待用户批准才进入实现阶段
