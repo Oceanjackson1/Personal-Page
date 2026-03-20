@@ -1,7 +1,7 @@
 ---
 title: "为群体行为定价｜解析Ton Game Min App"
 description: "TON生态背靠9亿用户，Notcoin上线BN后，众多TG生态游戏涌现，如Hamster 仓鼠，Catizen猫，Banana香蕉等。"
-category: "prediction-market"
+category: "product-growth"
 date: 2024-08-09
 ---
 
