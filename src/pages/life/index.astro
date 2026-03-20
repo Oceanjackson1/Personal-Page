@@ -10,9 +10,32 @@ const allCities = [...new Set(places.map(p => p.city).filter(Boolean))].sort();
 const foodCities = [...new Set(foodPlaces.map(p => p.city).filter(Boolean))].sort();
 const barCities = [...new Set(barPlaces.map(p => p.city).filter(Boolean))].sort();
 const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))].sort();
+
+const lifeLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Ocean 的城市生活记忆",
+  "description": "Ocean 在世界各地收藏的美食、酒吧和咖啡馆推荐",
+  "url": "https://niyutongocean.xyz/life/",
+  "numberOfItems": places.length,
+  "itemListElement": places.slice(0, 20).map((place, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Restaurant",
+      "name": place.name,
+      ...(place.rating ? { "aggregateRating": { "@type": "AggregateRating", "ratingValue": place.rating, "bestRating": 5, ...(place.reviews ? { "reviewCount": place.reviews } : {}) } } : {}),
+      ...(place.cuisine ? { "servesCuisine": place.cuisine } : {}),
+      ...(place.city ? { "address": { "@type": "PostalAddress", "addressLocality": place.city } } : {})
+    }
+  }))
+};
 ---
 
-<BaseLayout title="城市生活记忆" description="记录我在世界各地喜欢的角落">
+<BaseLayout title="城市生活记忆" description="Ocean 在世界各地收藏的美食、酒吧和咖啡馆推荐 — 曼谷、东京、宁波等城市的生活记忆。">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(lifeLd)} />
+  </Fragment>
   <div class="max-w-[var(--width-wide)] mx-auto px-6">
 
     <!-- Hero -->
@@ -56,7 +79,7 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 pb-16" id="cards-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="cards-grid">
       {places.map(place => (
         <a
           href={`https://www.google.com/maps/search/${place.mapsQuery}`}
@@ -74,7 +97,7 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
           <div class="flex items-start justify-between gap-3 mb-3">
             <h3 class="text-[16px] font-semibold text-[color:var(--color-text-primary)] leading-snug line-clamp-2">{place.name}</h3>
             {place.city && (
-              <span class="shrink-0 text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-border)] text-[color:var(--color-text-tertiary)] whitespace-nowrap mt-0.5">
+              <span class="city-tag shrink-0 text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-border)] text-[color:var(--color-text-tertiary)] whitespace-nowrap mt-0.5">
                 {place.city}
               </span>
             )}
@@ -102,13 +125,23 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            <span>在 Google Maps 中打开</span>
+            <span>Google Maps</span>
             <svg class="maps-arrow w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
             </svg>
           </div>
         </a>
       ))}
+    </div>
+
+    <!-- Load More -->
+    <div class="flex justify-center py-10" id="load-more-wrap">
+      <button id="load-more-btn" class="load-more-btn">
+        <span id="load-more-text">加载更多</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+        </svg>
+      </button>
     </div>
 
     <!-- Footer link -->
@@ -188,18 +221,27 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
     /* ─── Place Cards ─── */
     .place-card {
       position: relative;
-      display: block;
+      display: none; /* hidden by default, JS shows matching ones */
       background: var(--color-surface);
       border-radius: 18px;
       padding: 22px 24px;
       cursor: pointer;
       text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      opacity: 0;
+      transform: translateY(16px);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                   box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  opacity 0.35s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+                  opacity 0.3s ease;
     }
-    .place-card:hover {
+    .place-card.show {
+      display: block;
+    }
+    .place-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .place-card.visible:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
     }
@@ -251,41 +293,28 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
       transform: translateX(4px);
     }
 
-    /* ─── Filter Animation ─── */
-    .place-card[data-hidden="true"] {
-      opacity: 0;
-      transform: scale(0.95) translateY(8px);
-      pointer-events: none;
-      position: absolute;
-      visibility: hidden;
-      height: 0;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
+    /* ─── Load More ─── */
+    .load-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 28px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      background: transparent;
+      border: 1.5px solid var(--color-border);
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
-
-    /* ─── Scroll Entrance ─── */
-    .place-card {
-      opacity: 0;
-      transform: translateY(24px);
+    .load-more-btn:hover {
+      color: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+      background: var(--color-surface);
     }
-    .place-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .place-card:hover {
-      transform: translateY(-4px);
-    }
-    .place-card[data-hidden="true"] {
-      opacity: 0 !important;
-      transform: scale(0.95) translateY(8px) !important;
-      pointer-events: none;
-      position: absolute;
-      visibility: hidden;
-      height: 0;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
+    .load-more-btn.hidden {
+      display: none;
     }
   </style>
 
@@ -293,52 +322,43 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
     const catTabs = document.querySelectorAll('.cat-tab');
     const cityContainer = document.getElementById('city-filters');
     const cards = document.querySelectorAll('.place-card');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreWrap = document.getElementById('load-more-wrap');
+    const loadMoreText = document.getElementById('load-more-text');
 
+    const PAGE_SIZE = 15;
     let currentCategory = 'food';
     let currentCity = 'all';
+    let visibleLimit = PAGE_SIZE;
 
     const cityMap = { food: foodCities, bar: barCities, coffee: coffeeCities };
 
     // ─── Scroll Entrance Animation ───
     const entranceObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           const card = entry.target;
-          // Stagger delay based on visible index
-          const visibleCards = [...cards].filter(c => c.getAttribute('data-hidden') !== 'true' && !c.classList.contains('visible'));
-          const idx = visibleCards.indexOf(card);
-          const delay = Math.min(idx * 60, 300);
-          setTimeout(() => {
-            card.classList.add('visible');
-          }, delay);
+          const allShow = [...cards].filter(c => c.classList.contains('show') && !c.classList.contains('visible'));
+          const idx = allShow.indexOf(card);
+          const delay = Math.min(Math.max(idx, 0) * 50, 250);
+          setTimeout(() => card.classList.add('visible'), delay);
           entranceObserver.unobserve(card);
         }
       });
-    }, { threshold: 0.08 });
-
-    function observeVisibleCards() {
-      cards.forEach(card => {
-        if (card.getAttribute('data-hidden') !== 'true' && !card.classList.contains('visible')) {
-          entranceObserver.observe(card);
-        }
-      });
-    }
+    }, { threshold: 0.05 });
 
     // ─── Count Animation ───
     function animateCount(target) {
       const el = document.getElementById('stats-count');
       if (!el) return;
       const from = parseInt(el.textContent) || 0;
-      const to = target;
-      if (from === to) return;
-      const duration = 300;
+      if (from === target) return;
+      const duration = 250;
       const start = performance.now();
       function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(from + (to - from) * eased);
-        if (progress < 1) requestAnimationFrame(tick);
+        const p = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
     }
@@ -365,59 +385,89 @@ const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))]
       });
     }
 
-    // ─── Filter Cards ───
-    function filterCards() {
-      let visibleCount = 0;
-      cards.forEach(card => {
+    // ─── Get matching cards ───
+    function getMatchingCards() {
+      return [...cards].filter(card => {
         const cat = card.getAttribute('data-category');
         const city = card.getAttribute('data-city');
-        const catMatch = cat === currentCategory;
-        const cityMatch = currentCity === 'all' || city === currentCity;
-        const show = catMatch && cityMatch;
+        return cat === currentCategory && (currentCity === 'all' || city === currentCity);
+      });
+    }
 
-        if (show) {
-          card.setAttribute('data-hidden', 'false');
-          card.classList.remove('visible');
-          visibleCount++;
-        } else {
-          card.setAttribute('data-hidden', 'true');
-          card.classList.remove('visible');
+    // ─── Render Cards ───
+    function renderCards() {
+      const matching = getMatchingCards();
+      const totalMatch = matching.length;
+
+      // Hide all first
+      cards.forEach(card => {
+        card.classList.remove('show', 'visible');
+        // Hide city tag when a specific city is selected
+        const cityTag = card.querySelector('.city-tag');
+        if (cityTag) {
+          cityTag.style.display = currentCity === 'all' ? '' : 'none';
         }
       });
 
-      // Animate count
-      animateCount(visibleCount);
+      // Show up to visibleLimit
+      const toShow = matching.slice(0, visibleLimit);
+      toShow.forEach(card => card.classList.add('show'));
 
+      // Animate count
+      animateCount(totalMatch);
+
+      // Update stats
       const statsBar = document.getElementById('stats-bar');
       if (statsBar) {
         const catNames = { food: '美食', bar: '酒吧', coffee: '咖啡' };
         const cityText = currentCity === 'all' ? '' : ` · ${currentCity}`;
-        statsBar.innerHTML = `当前显示 <span class="font-medium text-[color:var(--color-text-secondary)]" id="stats-count">${visibleCount}</span> 个${catNames[currentCategory] || ''}地点${cityText}`;
+        statsBar.innerHTML = `当前显示 <span class="font-medium text-[color:var(--color-text-secondary)]" id="stats-count">${totalMatch}</span> 个${catNames[currentCategory] || ''}地点${cityText}`;
       }
 
-      // Re-trigger entrance animations
+      // Update load more button
+      const remaining = totalMatch - visibleLimit;
+      if (remaining > 0) {
+        loadMoreWrap.style.display = '';
+        loadMoreText.textContent = `加载更多 (${remaining})`;
+      } else {
+        loadMoreWrap.style.display = 'none';
+      }
+
+      // Trigger entrance animations
       requestAnimationFrame(() => {
-        observeVisibleCards();
+        toShow.forEach(card => {
+          if (!card.classList.contains('visible')) {
+            entranceObserver.observe(card);
+          }
+        });
       });
     }
 
     function selectCategory(cat) {
       currentCategory = cat;
       currentCity = 'all';
-      catTabs.forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.category === cat);
-      });
+      visibleLimit = PAGE_SIZE;
+      catTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.category === cat));
       updateCityPills();
-      filterCards();
+      renderCards();
+      // Scroll to top of grid smoothly
+      document.getElementById('city-filters')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     function selectCity(city) {
       currentCity = city;
+      visibleLimit = PAGE_SIZE;
       cityContainer.querySelectorAll('.city-pill').forEach(pill => {
         pill.classList.toggle('active', pill.dataset.city === city);
       });
-      filterCards();
+      renderCards();
     }
+
+    // Load more
+    loadMoreBtn?.addEventListener('click', () => {
+      visibleLimit += PAGE_SIZE;
+      renderCards();
+    });
 
     catTabs.forEach(tab => {
       tab.addEventListener('click', () => selectCategory(tab.dataset.category));
