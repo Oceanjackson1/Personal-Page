@@ -1,0 +1,74 @@
+---
+---
+<section class="visitor-stats">
+  <div class="max-w-[var(--width-max)] mx-auto px-6">
+    <div class="stats-bar">
+      <p class="stats-label" data-i18n-zh="数据统计" data-i18n-en="Stats">数据统计</p>
+      <div class="stats-items">
+        <span class="stat-item">
+          <span class="stat-name" data-i18n-zh="总访客" data-i18n-en="Visitors">总访客</span>
+          <span class="stat-value" id="busuanzi_value_site_uv">--</span>
+        </span>
+        <span class="stat-divider"></span>
+        <span class="stat-item">
+          <span class="stat-name" data-i18n-zh="总访问" data-i18n-en="Views">总访问</span>
+          <span class="stat-value" id="busuanzi_value_site_pv">--</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<style>
+  .visitor-stats {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: #F2F1EE;
+  }
+
+  .stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+
+  .stats-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6B6B6B;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .stats-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stat-name {
+    font-size: 0.8125rem;
+    color: #9B9B9B;
+  }
+
+  .stat-value {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #3D3D3D;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+</style>

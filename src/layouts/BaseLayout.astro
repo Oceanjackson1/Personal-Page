@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import VisitorStats from '../components/VisitorStats.astro';
 import SearchModal from '../components/SearchModal.astro';
 
 interface Props {
@@ -55,6 +56,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <main class="flex-1">
     <slot />
   </main>
+  <VisitorStats />
   <Footer />
   <SearchModal />
 </body>
