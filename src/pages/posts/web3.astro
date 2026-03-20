@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'web3').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<BaseLayout title="Web3综合">
+<BaseLayout title="Web3综合" description="Ocean 关于 Web3 生态、NFT、DeFi、Token 经济学和区块链项目分析的文章。">
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="Web3综合" data-i18n-en="Web3">Web3综合</h1>

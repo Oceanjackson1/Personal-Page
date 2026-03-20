@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'prediction-market').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<BaseLayout title="预测市场">
+<BaseLayout title="预测市场" description="Ocean 关于预测市场平台、群体行为定价和市场机制设计的研究文章。">
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="预测市场" data-i18n-en="Prediction Market">预测市场</h1>

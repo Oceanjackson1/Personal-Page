@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects')).filter(p => p.data.category === 'infra').sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="基建相关">
+<BaseLayout title="基建相关" description="Ocean 构建的基础设施工具和开发者工具的开源代码库。">
   <section class="py-16 sm:py-24">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <p class="text-lg text-[color:var(--color-text-primary)] leading-relaxed max-w-2xl mb-20" data-i18n-zh="底层工具、框架和基础设施项目" data-i18n-en="Low-level tools, frameworks, and infrastructure projects">底层工具、框架和基础设施项目</p>

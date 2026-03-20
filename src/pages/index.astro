@@ -29,7 +29,29 @@ const categories = [
 ];
 ---
 
-<BaseLayout title="Ocean's Blog">
+<BaseLayout title="Ocean's Blog" description="Ocean 倪钰桐的个人博客 — Web3、Perp DEX、AI探索、产品增长、旅居随笔。找到一个最长的雪坡，滚雪球。">
+  <!-- WebSite Schema -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ocean's Blog",
+      "alternateName": "Ocean 倪钰桐",
+      "url": "https://niyutongocean.xyz",
+      "description": "Ocean 倪钰桐的个人博客",
+      "author": {
+        "@type": "Person",
+        "name": "Ocean 倪钰桐",
+        "url": "https://x.com/Ocean_Jackon",
+        "sameAs": ["https://x.com/Ocean_Jackon", "https://github.com/Oceanjackson1"]
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://niyutongocean.xyz/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  </Fragment>
   <div class="max-w-[var(--width-wide)] mx-auto px-6">
 
     <section class="pt-12 sm:pt-16 pb-12 sm:pb-20">

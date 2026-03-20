@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'reflections').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<BaseLayout title="个人思考">
+<BaseLayout title="个人思考" description="Ocean 关于职业选择、成长思维、复利效应和人生哲学的深度思考。">
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="个人思考" data-i18n-en="Reflections">个人思考</h1>

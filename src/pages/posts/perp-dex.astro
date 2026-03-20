@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'perp-dex').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<BaseLayout title="Perp DEX">
+<BaseLayout title="Perp DEX" description="Ocean 关于永续合约、Hyperliquid、OKX DEX 和链上衍生品交易的深度分析。">
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="Perp DEX" data-i18n-en="Perp DEX">Perp DEX</h1>
