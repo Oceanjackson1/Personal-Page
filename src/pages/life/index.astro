@@ -10,20 +10,9 @@ const allCities = [...new Set(places.map(p => p.city).filter(Boolean))].sort();
 const foodCities = [...new Set(foodPlaces.map(p => p.city).filter(Boolean))].sort();
 const barCities = [...new Set(barPlaces.map(p => p.city).filter(Boolean))].sort();
 const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))].sort();
-
-function renderStars(rating: number | null): string {
-  if (!rating) return '';
-  const full = Math.floor(rating);
-  const half = rating - full >= 0.5;
-  let stars = '';
-  for (let i = 0; i < full; i++) stars += '<span class="text-amber-500">&#9733;</span>';
-  if (half) stars += '<span class="text-amber-500">&#9733;</span>';
-  for (let i = full + (half ? 1 : 0); i < 5; i++) stars += '<span class="text-[#D4D4D4]">&#9733;</span>';
-  return stars;
-}
 ---
 
-<BaseLayout title="城市生活记忆" description="记录我在世界各地喜欢的角落 - Recording my favorite corners around the world">
+<BaseLayout title="城市生活记忆" description="记录我在世界各地喜欢的角落">
   <div class="max-w-[var(--width-wide)] mx-auto px-6">
 
     <!-- Hero -->
@@ -35,7 +24,7 @@ function renderStars(rating: number | null): string {
         记录我在世界各地喜欢的角落
       </p>
       <p class="mt-4 text-xs text-[color:var(--color-text-tertiary)]" id="stats-bar">
-        共 <span class="font-medium text-[color:var(--color-text-secondary)]">{places.length}</span> 个收藏地点
+        共 <span class="font-medium text-[color:var(--color-text-secondary)]" id="stats-count">{places.length}</span> 个收藏地点
       </p>
     </section>
 
@@ -67,18 +56,23 @@ function renderStars(rating: number | null): string {
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 pb-16" id="cards-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 pb-16" id="cards-grid">
       {places.map(place => (
         <a
           href={`https://www.google.com/maps/search/${place.mapsQuery}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="place-card block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-6 sm:py-5 hover:opacity-75 transition-opacity"
+          class="place-card"
           data-category={place.category}
           data-city={place.city}
         >
-          <div class="flex items-start justify-between gap-3 mb-2.5">
-            <h3 class="text-[15px] font-semibold text-[color:var(--color-text-primary)] leading-snug line-clamp-2">{place.name}</h3>
+          {/* Rating Badge */}
+          {place.rating && (
+            <span class="rating-badge">{place.rating}</span>
+          )}
+
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-[16px] font-semibold text-[color:var(--color-text-primary)] leading-snug line-clamp-2">{place.name}</h3>
             {place.city && (
               <span class="shrink-0 text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-border)] text-[color:var(--color-text-tertiary)] whitespace-nowrap mt-0.5">
                 {place.city}
@@ -86,33 +80,32 @@ function renderStars(rating: number | null): string {
             )}
           </div>
 
-          <div class="flex items-center gap-2 mb-2">
-            {place.rating && (
-              <div class="flex items-center gap-1">
-                <span class="text-xs leading-none" set:html={renderStars(place.rating)} />
-                <span class="text-xs text-[color:var(--color-text-secondary)] font-medium">{place.rating}</span>
-              </div>
-            )}
-            {place.reviews && (
-              <span class="text-xs text-[color:var(--color-text-tertiary)]">({place.reviews.toLocaleString()})</span>
-            )}
-          </div>
-
           <div class="flex items-center gap-2 flex-wrap">
             {place.cuisine && (
-              <span class="text-xs text-[color:var(--color-text-secondary)]">{place.cuisine}</span>
+              <span class="text-[13px] text-[color:var(--color-text-secondary)]">{place.cuisine}</span>
+            )}
+            {place.cuisine && place.price && (
+              <span class="text-[color:var(--color-text-tertiary)]">·</span>
             )}
             {place.price && (
-              <span class="text-[11px] text-[color:var(--color-text-tertiary)]">{place.price}</span>
+              <span class="text-[12px] text-[color:var(--color-text-tertiary)]">{place.price}</span>
+            )}
+            {place.reviews && (
+              <span class="text-[11px] text-[color:var(--color-text-tertiary)] ml-auto">{place.reviews.toLocaleString()} 评价</span>
             )}
           </div>
 
-          <div class="mt-2.5 flex items-center gap-1 text-[11px] text-[color:var(--color-text-tertiary)]">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="card-divider"></div>
+
+          <div class="maps-cta">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            <span>Google Maps</span>
+            <span>在 Google Maps 中打开</span>
+            <svg class="maps-arrow w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+            </svg>
           </div>
         </a>
       ))}
@@ -129,7 +122,7 @@ function renderStars(rating: number | null): string {
   </div>
 
   <style is:global>
-    /* Category Tabs */
+    /* ─── Category Tabs ─── */
     .cat-tab {
       display: flex;
       align-items: center;
@@ -154,9 +147,7 @@ function renderStars(rating: number | null): string {
       border-color: var(--color-text-primary);
       background: var(--color-surface);
     }
-    .tab-emoji {
-      font-size: 14px;
-    }
+    .tab-emoji { font-size: 14px; }
     .tab-badge {
       font-size: 11px;
       padding: 1px 6px;
@@ -170,7 +161,7 @@ function renderStars(rating: number | null): string {
       color: var(--color-bg);
     }
 
-    /* City pills */
+    /* ─── City Pills ─── */
     .city-pill {
       padding: 6px 14px;
       border-radius: 20px;
@@ -194,9 +185,107 @@ function renderStars(rating: number | null): string {
       font-weight: 500;
     }
 
-    /* Card hidden state */
+    /* ─── Place Cards ─── */
+    .place-card {
+      position: relative;
+      display: block;
+      background: var(--color-surface);
+      border-radius: 18px;
+      padding: 22px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.35s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .place-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+    }
+
+    /* Rating Badge */
+    .rating-badge {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-text-primary);
+      color: var(--color-bg);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1;
+    }
+
+    /* Card Divider */
+    .card-divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: 14px 0;
+      opacity: 0.6;
+    }
+
+    /* Maps CTA */
+    .maps-cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      transition: color 0.2s ease;
+    }
+    .place-card:hover .maps-cta {
+      color: var(--color-text-secondary);
+    }
+    .maps-arrow {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-left: auto;
+    }
+    .place-card:hover .maps-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ─── Filter Animation ─── */
     .place-card[data-hidden="true"] {
-      display: none;
+      opacity: 0;
+      transform: scale(0.95) translateY(8px);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* ─── Scroll Entrance ─── */
+    .place-card {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .place-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .place-card:hover {
+      transform: translateY(-4px);
+    }
+    .place-card[data-hidden="true"] {
+      opacity: 0 !important;
+      transform: scale(0.95) translateY(8px) !important;
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
     }
   </style>
 
@@ -208,12 +297,53 @@ function renderStars(rating: number | null): string {
     let currentCategory = 'food';
     let currentCity = 'all';
 
-    const cityMap = {
-      food: foodCities,
-      bar: barCities,
-      coffee: coffeeCities,
-    };
+    const cityMap = { food: foodCities, bar: barCities, coffee: coffeeCities };
 
+    // ─── Scroll Entrance Animation ───
+    const entranceObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          // Stagger delay based on visible index
+          const visibleCards = [...cards].filter(c => c.getAttribute('data-hidden') !== 'true' && !c.classList.contains('visible'));
+          const idx = visibleCards.indexOf(card);
+          const delay = Math.min(idx * 60, 300);
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, delay);
+          entranceObserver.unobserve(card);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    function observeVisibleCards() {
+      cards.forEach(card => {
+        if (card.getAttribute('data-hidden') !== 'true' && !card.classList.contains('visible')) {
+          entranceObserver.observe(card);
+        }
+      });
+    }
+
+    // ─── Count Animation ───
+    function animateCount(target) {
+      const el = document.getElementById('stats-count');
+      if (!el) return;
+      const from = parseInt(el.textContent) || 0;
+      const to = target;
+      if (from === to) return;
+      const duration = 300;
+      const start = performance.now();
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // ─── City Pills ───
     function updateCityPills() {
       const cities = cityMap[currentCategory] || allCities;
       cityContainer.innerHTML = '';
@@ -235,6 +365,7 @@ function renderStars(rating: number | null): string {
       });
     }
 
+    // ─── Filter Cards ───
     function filterCards() {
       let visibleCount = 0;
       cards.forEach(card => {
@@ -243,16 +374,31 @@ function renderStars(rating: number | null): string {
         const catMatch = cat === currentCategory;
         const cityMatch = currentCity === 'all' || city === currentCity;
         const show = catMatch && cityMatch;
-        card.setAttribute('data-hidden', show ? 'false' : 'true');
-        if (show) visibleCount++;
+
+        if (show) {
+          card.setAttribute('data-hidden', 'false');
+          card.classList.remove('visible');
+          visibleCount++;
+        } else {
+          card.setAttribute('data-hidden', 'true');
+          card.classList.remove('visible');
+        }
       });
+
+      // Animate count
+      animateCount(visibleCount);
 
       const statsBar = document.getElementById('stats-bar');
       if (statsBar) {
         const catNames = { food: '美食', bar: '酒吧', coffee: '咖啡' };
         const cityText = currentCity === 'all' ? '' : ` · ${currentCity}`;
-        statsBar.innerHTML = `当前显示 <span class="font-medium text-[color:var(--color-text-secondary)]">${visibleCount}</span> 个${catNames[currentCategory] || ''}地点${cityText}`;
+        statsBar.innerHTML = `当前显示 <span class="font-medium text-[color:var(--color-text-secondary)]" id="stats-count">${visibleCount}</span> 个${catNames[currentCategory] || ''}地点${cityText}`;
       }
+
+      // Re-trigger entrance animations
+      requestAnimationFrame(() => {
+        observeVisibleCards();
+      });
     }
 
     function selectCategory(cat) {
