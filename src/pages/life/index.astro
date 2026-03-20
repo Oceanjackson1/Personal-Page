@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { places } from '../../data/lifemap';
+
+const foodPlaces = places.filter(p => p.category === 'food');
+const barPlaces = places.filter(p => p.category === 'bar');
+const coffeePlaces = places.filter(p => p.category === 'coffee');
+
+const allCities = [...new Set(places.map(p => p.city).filter(Boolean))].sort();
+const foodCities = [...new Set(foodPlaces.map(p => p.city).filter(Boolean))].sort();
+const barCities = [...new Set(barPlaces.map(p => p.city).filter(Boolean))].sort();
+const coffeeCities = [...new Set(coffeePlaces.map(p => p.city).filter(Boolean))].sort();
+
+function renderStars(rating: number | null): string {
+  if (!rating) return '';
+  const full = Math.floor(rating);
+  const half = rating - full >= 0.5;
+  let stars = '';
+  for (let i = 0; i < full; i++) stars += '<span class="text-amber-500">&#9733;</span>';
+  if (half) stars += '<span class="text-amber-500">&#9733;</span>';
+  for (let i = full + (half ? 1 : 0); i < 5; i++) stars += '<span class="text-[#D4D4D4]">&#9733;</span>';
+  return stars;
+}
+---
+
+<BaseLayout title="城市生活记忆" description="记录我在世界各地喜欢的角落 - Recording my favorite corners around the world">
+  <div class="max-w-[var(--width-wide)] mx-auto px-6">
+
+    <!-- Hero -->
+    <section class="pt-12 sm:pt-20 pb-8 sm:pb-12 text-center">
+      <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight mb-3" style="font-family: 'Noto Serif SC', 'PingFang SC', serif;">
+        城市生活记忆
+      </h1>
+      <p class="text-sm sm:text-base text-[color:var(--color-text-secondary)] max-w-lg mx-auto leading-relaxed">
+        记录我在世界各地喜欢的角落<br class="sm:hidden" />
+        <span class="hidden sm:inline"> · </span>Recording my favorite corners around the world
+      </p>
+      <p class="mt-4 text-xs text-[color:var(--color-text-tertiary)]" id="stats-bar">
+        共 <span class="font-medium text-[color:var(--color-text-secondary)]">{places.length}</span> 个收藏地点
+      </p>
+    </section>
+
+    <!-- Category Tabs -->
+    <div class="flex justify-center gap-2 sm:gap-3 mb-6">
+      <button class="cat-tab active" data-category="food">
+        <span class="tab-emoji">🍜</span>
+        <span data-i18n-zh="美食录" data-i18n-en="Food">美食录</span>
+        <span class="tab-badge">{foodPlaces.length}</span>
+      </button>
+      <button class="cat-tab" data-category="bar">
+        <span class="tab-emoji">🍷</span>
+        <span data-i18n-zh="酒鬼日记" data-i18n-en="Bar">酒鬼日记</span>
+        <span class="tab-badge">{barPlaces.length}</span>
+      </button>
+      <button class="cat-tab" data-category="coffee">
+        <span class="tab-emoji">☕</span>
+        <span data-i18n-zh="咖啡时光" data-i18n-en="Coffee">咖啡时光</span>
+        <span class="tab-badge">{coffeePlaces.length}</span>
+      </button>
+    </div>
+
+    <!-- City Filter Pills -->
+    <div class="flex justify-center flex-wrap gap-1.5 sm:gap-2 mb-8 px-2" id="city-filters">
+      <button class="city-pill active" data-city="all">全部</button>
+      {allCities.map(city => (
+        <button class="city-pill" data-city={city}>{city}</button>
+      ))}
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 pb-16" id="cards-grid">
+      {places.map(place => (
+        <a
+          href={`https://www.google.com/maps/search/${place.mapsQuery}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="place-card block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-6 sm:py-5 hover:opacity-75 transition-opacity"
+          data-category={place.category}
+          data-city={place.city}
+        >
+          <div class="flex items-start justify-between gap-3 mb-2.5">
+            <h3 class="text-[15px] font-semibold text-[color:var(--color-text-primary)] leading-snug line-clamp-2">{place.name}</h3>
+            {place.city && (
+              <span class="shrink-0 text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-border)] text-[color:var(--color-text-tertiary)] whitespace-nowrap mt-0.5">
+                {place.city}
+              </span>
+            )}
+          </div>
+
+          <div class="flex items-center gap-2 mb-2">
+            {place.rating && (
+              <div class="flex items-center gap-1">
+                <span class="text-xs leading-none" set:html={renderStars(place.rating)} />
+                <span class="text-xs text-[color:var(--color-text-secondary)] font-medium">{place.rating}</span>
+              </div>
+            )}
+            {place.reviews && (
+              <span class="text-xs text-[color:var(--color-text-tertiary)]">({place.reviews.toLocaleString()})</span>
+            )}
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            {place.cuisine && (
+              <span class="text-xs text-[color:var(--color-text-secondary)]">{place.cuisine}</span>
+            )}
+            {place.price && (
+              <span class="text-[11px] text-[color:var(--color-text-tertiary)]">{place.price}</span>
+            )}
+          </div>
+
+          <div class="mt-2.5 flex items-center gap-1 text-[11px] text-[color:var(--color-text-tertiary)]">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            <span>Google Maps</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Footer link -->
+    <div class="text-center pb-16">
+      <p class="text-xs text-[color:var(--color-text-tertiary)]">
+        数据来源：
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-[color:var(--color-text-secondary)] transition-colors">Google Maps Lists</a>
+      </p>
+    </div>
+
+  </div>
+
+  <style>
+    /* Category Tabs */
+    .cat-tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .cat-tab:hover {
+      color: var(--color-text-secondary);
+      border-color: var(--color-text-tertiary);
+    }
+    .cat-tab.active {
+      color: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+      background: var(--color-surface);
+    }
+    .tab-emoji {
+      font-size: 14px;
+    }
+    .tab-badge {
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 8px;
+      background: var(--color-border);
+      color: var(--color-text-tertiary);
+      font-weight: 400;
+    }
+    .cat-tab.active .tab-badge {
+      background: var(--color-text-primary);
+      color: var(--color-bg);
+    }
+
+    /* City pills */
+    .city-pill {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .city-pill:hover {
+      color: var(--color-text-secondary);
+      border-color: var(--color-text-tertiary);
+    }
+    .city-pill.active {
+      color: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    /* Card hidden state */
+    .place-card[data-hidden="true"] {
+      display: none;
+    }
+  </style>
+
+  <script define:vars={{ foodCities, barCities, coffeeCities, allCities }}>
+    const catTabs = document.querySelectorAll('.cat-tab');
+    const cityContainer = document.getElementById('city-filters');
+    const cards = document.querySelectorAll('.place-card');
+
+    let currentCategory = 'food';
+    let currentCity = 'all';
+
+    const cityMap = {
+      food: foodCities,
+      bar: barCities,
+      coffee: coffeeCities,
+    };
+
+    function updateCityPills() {
+      const cities = cityMap[currentCategory] || allCities;
+      cityContainer.innerHTML = '';
+
+      const allBtn = document.createElement('button');
+      allBtn.className = 'city-pill' + (currentCity === 'all' ? ' active' : '');
+      allBtn.dataset.city = 'all';
+      allBtn.textContent = '全部';
+      allBtn.addEventListener('click', () => selectCity('all'));
+      cityContainer.appendChild(allBtn);
+
+      cities.forEach(city => {
+        const btn = document.createElement('button');
+        btn.className = 'city-pill' + (currentCity === city ? ' active' : '');
+        btn.dataset.city = city;
+        btn.textContent = city;
+        btn.addEventListener('click', () => selectCity(city));
+        cityContainer.appendChild(btn);
+      });
+    }
+
+    function filterCards() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const city = card.getAttribute('data-city');
+        const catMatch = cat === currentCategory;
+        const cityMatch = currentCity === 'all' || city === currentCity;
+        const show = catMatch && cityMatch;
+        card.setAttribute('data-hidden', show ? 'false' : 'true');
+        if (show) visibleCount++;
+      });
+
+      const statsBar = document.getElementById('stats-bar');
+      if (statsBar) {
+        const catNames = { food: '美食', bar: '酒吧', coffee: '咖啡' };
+        const cityText = currentCity === 'all' ? '' : ` · ${currentCity}`;
+        statsBar.innerHTML = `当前显示 <span class="font-medium text-[color:var(--color-text-secondary)]">${visibleCount}</span> 个${catNames[currentCategory] || ''}地点${cityText}`;
+      }
+    }
+
+    function selectCategory(cat) {
+      currentCategory = cat;
+      currentCity = 'all';
+      catTabs.forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.category === cat);
+      });
+      updateCityPills();
+      filterCards();
+    }
+
+    function selectCity(city) {
+      currentCity = city;
+      cityContainer.querySelectorAll('.city-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.city === city);
+      });
+      filterCards();
+    }
+
+    catTabs.forEach(tab => {
+      tab.addEventListener('click', () => selectCategory(tab.dataset.category));
+    });
+
+    // Initialize
+    selectCategory('food');
+  </script>
+</BaseLayout>

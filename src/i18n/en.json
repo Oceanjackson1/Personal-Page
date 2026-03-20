@@ -12,7 +12,8 @@
     "reflections": "Reflections",
     "infra": "Infrastructure",
     "products": "Products & Workflow",
-    "search": "Search posts and projects..."
+    "search": "Search posts and projects...",
+    "life": "Life"
   },
   "home": {
     "motto": "Find the longest slope, roll the snowball",
@@ -31,6 +32,15 @@
   },
   "code": {
     "title": "Code"
+  },
+  "life": {
+    "title": "City Life",
+    "subtitle": "Recording my favorite corners around the world",
+    "food": "Food",
+    "bar": "Bar",
+    "coffee": "Coffee",
+    "all": "All",
+    "places": "places"
   },
   "footer": {
     "rights": "© Ocean 2026"
