@@ -4,8 +4,29 @@ import PostSidebar from '../../components/PostSidebar.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'perp-dex').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const collectionLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Perp DEX — Ocean's Blog",
+  "description": "Ocean 关于永续合约、Hyperliquid、OKX DEX 和链上衍生品交易的深度分析。",
+  "url": "https://niyutongocean.xyz/posts/perp-dex/",
+  "isPartOf": { "@type": "WebSite", "name": "Ocean's Blog", "url": "https://niyutongocean.xyz" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": posts.length,
+    "itemListElement": posts.slice(0, 10).map((post, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `https://niyutongocean.xyz/posts/${post.id}/`
+    }))
+  }
+};
 ---
 <BaseLayout title="Perp DEX" description="Ocean 关于永续合约、Hyperliquid、OKX DEX 和链上衍生品交易的深度分析。">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  </Fragment>
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="Perp DEX" data-i18n-en="Perp DEX">Perp DEX</h1>

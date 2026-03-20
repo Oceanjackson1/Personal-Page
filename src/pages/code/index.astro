@@ -6,9 +6,37 @@ import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects');
 const infraProjects = allProjects.filter(p => p.data.category === 'infra').sort((a, b) => a.data.order - b.data.order);
 const productProjects = allProjects.filter(p => p.data.category === 'products').sort((a, b) => a.data.order - b.data.order);
+
+const codeLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "代码库 — Ocean's Blog",
+  "description": "Ocean 构建并开源的代码库 — 基建工具和产品工作流，在代码平权的时代拓展无限的可能。",
+  "url": "https://niyutongocean.xyz/code/",
+  "isPartOf": { "@type": "WebSite", "name": "Ocean's Blog", "url": "https://niyutongocean.xyz" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": allProjects.length,
+    "itemListElement": allProjects.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "SoftwareSourceCode",
+        "name": p.data.name,
+        "description": p.data.description,
+        "programmingLanguage": p.data.tech,
+        ...(p.data.github ? { "codeRepository": p.data.github } : {}),
+        "author": { "@type": "Person", "name": "Ocean 倪钰桐" }
+      }
+    }))
+  }
+};
 ---
 
 <BaseLayout title="代码库" description="Ocean 构建并开源的代码库 — 基建工具和产品工作流，在代码平权的时代拓展无限的可能。">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(codeLd)} />
+  </Fragment>
   <section class="py-12 sm:py-24">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
 

@@ -4,8 +4,29 @@ import PostSidebar from '../../components/PostSidebar.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts')).filter(p => p.data.category === 'stories').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const collectionLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "故事集 — Ocean's Blog",
+  "description": "Ocean 的对话录、人物记录、大学回忆和生活故事。",
+  "url": "https://niyutongocean.xyz/posts/stories/",
+  "isPartOf": { "@type": "WebSite", "name": "Ocean's Blog", "url": "https://niyutongocean.xyz" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": posts.length,
+    "itemListElement": posts.slice(0, 10).map((post, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `https://niyutongocean.xyz/posts/${post.id}/`
+    }))
+  }
+};
 ---
 <BaseLayout title="故事集" description="Ocean 的对话录、人物记录、大学回忆和生活故事。">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  </Fragment>
   <section class="py-12 sm:py-16">
     <div class="max-w-[var(--width-wide)] mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10" data-i18n-zh="故事集" data-i18n-en="Stories">故事集</h1>

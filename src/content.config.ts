@@ -8,6 +8,7 @@ const posts = defineCollection({
     description: z.string(),
     category: z.enum(['perp-dex', 'prediction-market', 'product-growth', 'web3', 'ai', 'stories', 'travel', 'reflections']),
     date: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
     featured: z.boolean().default(false),
   }),
 });

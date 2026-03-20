@@ -22,12 +22,39 @@ const categoryLabels: Record<string, string> = {
   devops: 'DevOps',
   other: '其他',
 };
+
+const skillLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": skill.data.title,
+  "description": skill.data.description,
+  "url": `https://niyutongocean.xyz/skills/${skill.id}/`,
+  "datePublished": skill.data.date.toISOString(),
+  ...(skill.data.author ? { "author": { "@type": "Person", "name": skill.data.author } } : {}),
+  "publisher": { "@type": "Person", "name": "Ocean 倪钰桐" },
+  "inLanguage": "zh-CN",
+  "keywords": skill.data.tags
+};
+
+const skillBreadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ocean's Blog", "item": "https://niyutongocean.xyz" },
+    { "@type": "ListItem", "position": 2, "name": "Claude Skill", "item": "https://niyutongocean.xyz/skills/" },
+    { "@type": "ListItem", "position": 3, "name": skill.data.title }
+  ]
+};
 ---
 
 <BaseLayout
   title={`${skill.data.title} | Claude Skill`}
   description={skill.data.description}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(skillLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(skillBreadcrumbLd)} />
+  </Fragment>
   <article class="py-12 sm:py-20">
     <div class="max-w-[var(--width-content)] mx-auto px-6">
 

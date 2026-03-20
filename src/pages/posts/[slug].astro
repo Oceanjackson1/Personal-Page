@@ -34,6 +34,7 @@ const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: 
 const readTime = Math.max(1, Math.ceil((post.body?.length || 0) / 400));
 const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const isoDate = post.data.date.toISOString();
+const isoDateModified = (post.data.updatedDate || post.data.date).toISOString();
 const canonicalURL = new URL(`/posts/${post.id}/`, Astro.site);
 
 const jsonLd = {
@@ -42,7 +43,7 @@ const jsonLd = {
   "headline": post.data.title,
   "description": post.data.description,
   "datePublished": isoDate,
-  "dateModified": isoDate,
+  "dateModified": isoDateModified,
   "author": {
     "@type": "Person",
     "name": "Ocean 倪钰桐",
@@ -57,10 +58,35 @@ const jsonLd = {
   "timeRequired": `PT${readTime}M`,
   "inLanguage": "zh-CN"
 };
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ocean's Blog",
+      "item": "https://niyutongocean.xyz"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": cat.zh,
+      "item": `https://niyutongocean.xyz/?category=${post.data.category}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.data.title
+    }
+  ]
+};
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   <!-- Reading progress -->
   <div class="reading-progress" id="reading-progress"></div>
 
