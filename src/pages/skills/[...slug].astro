@@ -55,8 +55,8 @@ const skillBreadcrumbLd = {
     <script type="application/ld+json" set:html={JSON.stringify(skillLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(skillBreadcrumbLd)} />
   </Fragment>
-  <article class="py-12 sm:py-20">
-    <div class="max-w-[var(--width-content)] mx-auto px-6">
+  <article class="py-8 sm:py-20">
+    <div class="max-w-[var(--width-content)] mx-auto px-4 sm:px-6">
 
       <!-- Back link -->
       <a href="/skills/" class="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors mb-8">
@@ -68,7 +68,7 @@ const skillBreadcrumbLd = {
 
       <!-- Header -->
       <header class="mb-10">
-        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">{skill.data.title}</h1>
+        <h1 class="text-xl sm:text-3xl font-bold tracking-tight mb-3 sm:mb-4">{skill.data.title}</h1>
         <p class="text-base text-[color:var(--color-text-secondary)] leading-relaxed mb-4">{skill.data.description}</p>
 
         <div class="flex flex-wrap items-center gap-2">
