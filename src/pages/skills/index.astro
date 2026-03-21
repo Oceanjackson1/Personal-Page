@@ -46,12 +46,18 @@ const skillsListLd = {
         <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mb-3 sm:mb-4">Claude Code Skills 合集</h1>
         <p class="text-base sm:text-lg text-[color:var(--color-text-primary)] leading-relaxed">100 精选高质量 Claude Code Skills</p>
         <p class="text-base sm:text-lg text-[color:var(--color-text-secondary)] leading-relaxed">探索开发、DevOps、工作流、AI Agent 等各领域的 Claude 技能</p>
-        <div class="flex items-center gap-2 mt-4">
+        <div class="flex items-center gap-3 mt-4">
           <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
             </svg>
             内容来自开源社区
+          </span>
+          <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            累计下载 <span id="total-downloads" class="font-medium">0</span> 次
           </span>
         </div>
       </div>
@@ -101,6 +107,20 @@ const skillsListLd = {
 </BaseLayout>
 
 <script>
+  // ─── Download Counter ───
+  const DOWNLOAD_SEED = 128; // initial seed
+  const totalEl = document.getElementById('total-downloads');
+  const stored = parseInt(localStorage.getItem('skill-downloads-total') || '0');
+  const total = DOWNLOAD_SEED + stored;
+  if (totalEl) totalEl.textContent = total.toLocaleString();
+
+  // Listen for download events from detail pages
+  window.addEventListener('storage', () => {
+    const updated = DOWNLOAD_SEED + parseInt(localStorage.getItem('skill-downloads-total') || '0');
+    if (totalEl) totalEl.textContent = updated.toLocaleString();
+  });
+
+  // ─── Category Filter ───
   const buttons = document.querySelectorAll('.skill-filter-btn');
   const items = document.querySelectorAll('#skills-list > div');
   const countEl = document.getElementById('skill-count');

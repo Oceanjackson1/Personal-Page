@@ -89,15 +89,28 @@ const skillBreadcrumbLd = {
           )}
         </div>
 
-        {skill.data.sourceUrl && (
-          <a href={skill.data.sourceUrl} target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-1.5 mt-4 text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">
+        <div class="flex flex-wrap items-center gap-3 mt-4">
+          <button
+            id="download-btn"
+            data-slug={skill.id}
+            data-title={skill.data.title}
+            class="inline-flex items-center gap-1.5 text-sm px-4 py-2 rounded-full border border-[var(--color-text-primary)] text-[color:var(--color-text-primary)] hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg)] transition-all cursor-pointer"
+          >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
-            查看原始来源
-          </a>
-        )}
+            下载 SKILL.md
+          </button>
+          {skill.data.sourceUrl && (
+            <a href={skill.data.sourceUrl} target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)] transition-colors">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              查看原始来源
+            </a>
+          )}
+        </div>
       </header>
 
       <hr class="border-[var(--color-border)] mb-10" />
@@ -121,4 +134,44 @@ const skillBreadcrumbLd = {
 
     </div>
   </article>
+
+  <script>
+    const btn = document.getElementById('download-btn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const slug = btn.dataset.slug || 'skill';
+        const title = btn.dataset.title || slug;
+
+        // Gather content from the prose section
+        const proseEl = document.querySelector('.prose');
+        if (!proseEl) return;
+
+        // Build SKILL.md content
+        const frontmatter = `---\nname: ${slug}\ndescription: ${title}\n---\n\n`;
+        // Convert HTML to approximate markdown
+        const content = proseEl.innerText || proseEl.textContent || '';
+        const md = frontmatter + content;
+
+        // Trigger download
+        const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${slug}.md`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Track download count
+        const current = parseInt(localStorage.getItem('skill-downloads-total') || '0');
+        localStorage.setItem('skill-downloads-total', String(current + 1));
+
+        // Visual feedback
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 12.75l6 6 9-13.5" /></svg> 已下载`;
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    }
+  </script>
 </BaseLayout>
