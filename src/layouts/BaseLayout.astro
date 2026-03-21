@@ -27,21 +27,21 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
-  <title>{title} | Ocean</title>
+  <title>{title.includes('Ocean') ? title : `${title} | Ocean`}</title>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:title" content={`${title} | Ocean`} />
+  <meta property="og:title" content={title.includes('Ocean') ? title : `${title} | Ocean`} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageURL} />
   <meta property="og:locale" content="zh_CN" />
-  <meta property="og:site_name" content="Ocean's Blog" />
+  <meta property="og:site_name" content="Ocean 倪钰桐 Blog" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@Ocean_Jackon" />
-  <meta name="twitter:title" content={`${title} | Ocean`} />
+  <meta name="twitter:title" content={title.includes('Ocean') ? title : `${title} | Ocean`} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
 
