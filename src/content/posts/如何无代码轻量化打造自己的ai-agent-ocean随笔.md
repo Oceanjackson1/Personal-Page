@@ -33,9 +33,8 @@ WebPilot, MixerBox: 访问互联网插件，gpt的默认浏览互联网为bing�
 
 Chatwithcode, ChatwithGit：可以和Github协作的插件，代码需求场景可以使用
 
-Earth：生成地图
-
-A/B Analytic：AB测试中可使用的插件
+- Earth：生成地图
+- A/B Analytic：AB测试中可使用的插件
 
 其中WebPilot和MixerBox是最为常用的插件，普通玩家用这个就可以了。
 

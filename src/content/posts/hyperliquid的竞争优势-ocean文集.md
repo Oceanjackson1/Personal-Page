@@ -50,28 +50,18 @@ Hyperliquid针对dYdX的优化集中在两点，一是价格预言机，二是�
 对于大户以上的，在Hyper中的Maker Fee是0，而Taker的费率依旧比BN低很多。
 
 ## 具体的技术是如何实现的和差异性
-### 价格预言机差异
-
-
 ### Hype如何做价格预言机的
 
 数据来源是，从以下主要交易所采集现货价格，基于多数据源进行计算：
 
-Binance: 权重 3
-
-OKX: 权重 2
-
-Bybit: 权重 2
-
-Kraken: 权重 1
-
-Kucoin: 权重 1
-
-Gate.io: 权重 1
-
-MEXC: 权重 1
-
-Hyperliquid Spot: 权重 1
+- Binance: 权重 3
+- OKX: 权重 2
+- Bybit: 权重 2
+- Kraken: 权重 1
+- Kucoin: 权重 1
+- Gate.io: 权重 1
+- MEXC: 权重 1
+- Hyperliquid Spot: 权重 1
 
 
 
