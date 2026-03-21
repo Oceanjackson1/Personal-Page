@@ -1,6 +1,6 @@
 ---
-title: "Clinical Reports"
-description: "Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (radiology/pathology/lab), clinical trial reports (ICH-E3, SAE, CSR), and patient documentation (SOAP, H&P, discharge summaries). Full support with t..."
+title: "临床报告撰写"
+description: "撰写全面的临床报告，包括病例报告（CARE 指南）和系统评价"
 category: "research"
 source: "community"
 author: "Community"

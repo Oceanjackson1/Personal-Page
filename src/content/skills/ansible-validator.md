@@ -1,6 +1,6 @@
 ---
-title: "Ansible Validator"
-description: "Validate, lint, audit, or debug Ansible playbooks, roles, inventories, FQCN, tasks."
+title: "Ansible 验证器"
+description: "验证、审查和调试 Ansible Playbook、角色、清单和集合"
 category: "devops"
 source: "community"
 author: "Community"

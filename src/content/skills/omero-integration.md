@@ -1,6 +1,6 @@
 ---
-title: "Omero Integration"
-description: "Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content screening and microscopy workflows."
+title: "OMERO 生物影像"
+description: "OMERO 生物影像平台集成，显微镜图像管理和分析"
 category: "workflow"
 source: "community"
 author: "Community"

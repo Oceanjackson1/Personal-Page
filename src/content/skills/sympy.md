@@ -1,6 +1,6 @@
 ---
-title: "Sympy"
-description: "Use this skill when working with symbolic mathematics in Python. This skill should be used for symbolic computation tasks including solving equations algebraically, performing calculus operations (derivatives, integrals, limits), manipulating alge..."
+title: "SymPy 符号计算"
+description: "Python 符号数学库，代数运算、微积分和方程求解"
 category: "development"
 source: "community"
 author: "Community"

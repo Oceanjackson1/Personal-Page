@@ -1,6 +1,6 @@
 ---
-title: "Spark Engineer"
-description: "Use when writing Spark jobs, debugging performance issues, or configuring cluster settings for Apache Spark applications, distributed data processing pipelines, or big data workloads. Invoke to write DataFrame transformations, optimize Spark SQL q..."
+title: "Spark 工程师"
+description: "Apache Spark 大数据处理，分布式计算和数据管道优化"
 category: "devops"
 source: "community"
 author: "Community"

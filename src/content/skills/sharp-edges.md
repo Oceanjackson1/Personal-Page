@@ -1,6 +1,6 @@
 ---
-title: "Sharp Edges"
-description: "Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes. Use when reviewing API designs, configuration schemas, cryptographic library ergonomics, or evaluating whether code follows 'secure by defaul..."
+title: "Sharp 边缘处理"
+description: "Node.js 高性能图像处理库 Sharp 的高级用法和优化"
 category: "development"
 source: "community"
 author: "Community"

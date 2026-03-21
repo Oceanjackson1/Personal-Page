@@ -1,6 +1,6 @@
 ---
-title: "Prompt Engineer"
-description: "Writes, refactors, and evaluates prompts for LLMs — generating optimized prompt templates, structured output schemas, evaluation rubrics, and test suites. Use when designing prompts for new LLM applications, refactoring existing prompts for better..."
+title: "提示工程"
+description: "LLM 提示词工程最佳实践，优化提示设计和输出质量"
 category: "research"
 source: "community"
 author: "Community"

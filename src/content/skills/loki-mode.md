@@ -1,6 +1,6 @@
 ---
-title: "Loki Mode"
-description: "Multi-agent autonomous startup system for Claude Code. Triggers on 'Loki Mode'. Orchestrates 100+ specialized agents across engineering, QA, DevOps, security, data/ML, business operations,..."
+title: "Loki 日志系统"
+description: "Grafana Loki 日志聚合系统配置和查询优化"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Fda Database"
-description: "Query openFDA API for drugs, devices, adverse events, recalls, regulatory submissions (510k, PMA), substance identification (UNII), for FDA regulatory data analysis and safety research."
+title: "FDA 数据库查询"
+description: "查询 FDA 数据库，包括药品、设备、食品召回和不良事件报告"
 category: "research"
 source: "community"
 author: "Community"

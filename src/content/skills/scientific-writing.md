@@ -1,6 +1,6 @@
 ---
-title: "Scientific Writing"
-description: "Core skill for the deep research and writing tool. Write scientific manuscripts in full paragraphs (never bullet points). Use two-stage process with (1) section outlines with key points using research-lookup then (2) convert to flowing prose. IMRA..."
+title: "科研写作"
+description: "科研论文和学术文档写作指导，符合期刊投稿规范"
 category: "research"
 source: "community"
 author: "Community"

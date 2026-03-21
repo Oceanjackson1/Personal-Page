@@ -1,6 +1,6 @@
 ---
-title: "Geomaster"
-description: "Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learning for earth observation, and 30+ scientific domains. Supports satellite imagery processing (Sentinel, Landsat, MODIS, SAR, hyperspectral), vector..."
+title: "地理空间分析"
+description: "全面的地理空间分析和地图可视化工具"
 category: "research"
 source: "community"
 author: "Community"

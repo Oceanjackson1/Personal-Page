@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Specialist"
-description: "Use when deploying or managing Kubernetes workloads. Invoke to create deployment manifests, configure pod security policies, set up service accounts, define network isolation rules, debug pod crashes, analyze resource limits, inspect container log..."
+title: "Kubernetes 专家"
+description: "Kubernetes 集群管理、部署策略和云原生架构设计"
 category: "devops"
 source: "community"
 author: "Community"

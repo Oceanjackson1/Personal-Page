@@ -1,6 +1,6 @@
 ---
-title: "Create Agent Skills"
-description: "Expert guidance for creating Claude Code skills and slash commands. Use when working with SKILL.md files, authoring new skills, improving existing skills, creating slash commands, or understanding skill structure and best practices."
+title: "创建 Agent 技能"
+description: "创建 Claude Code 技能和斜杠命令的专家指导"
 category: "development"
 source: "community"
 author: "Community"

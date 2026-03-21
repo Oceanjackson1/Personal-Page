@@ -1,6 +1,6 @@
 ---
-title: "Github Actions Validator"
-description: "Validate, lint, audit, fix GitHub Actions workflows (.github/workflows)."
+title: "GitHub Actions 验证器"
+description: "验证和优化 GitHub Actions 工作流配置"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Research Grants"
-description: "Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requir..."
+title: "科研基金申请"
+description: "科研基金申请撰写指导，研究计划书和预算编制"
 category: "research"
 source: "community"
 author: "Community"

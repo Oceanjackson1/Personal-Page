@@ -1,6 +1,6 @@
 ---
-title: "Macos Apps"
-description: "Build professional native macOS apps in Swift with SwiftUI and AppKit. Full lifecycle - build, debug, test, optimize, ship. CLI-only, no Xcode."
+title: "macOS 应用开发"
+description: "macOS 原生应用开发，SwiftUI、AppKit 和系统集成"
 category: "development"
 source: "community"
 author: "Community"

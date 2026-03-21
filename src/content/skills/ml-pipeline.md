@@ -1,6 +1,6 @@
 ---
-title: "ML Pipeline"
-description: "Designs and implements production-grade ML pipeline infrastructure: configures experiment tracking with MLflow or Weights & Biases, creates Kubeflow or Airflow DAGs for training orchestration, builds feature store schemas with Feast, deploys model..."
+title: "机器学习管道"
+description: "构建端到端机器学习管道，数据处理、模型训练和部署"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Qutip"
-description: "Quantum physics simulation library for open quantum systems. Use when studying master equations, Lindblad dynamics, decoherence, quantum optics, or cavity QED. Best for physics research, open system dynamics, and educational simulations. NOT for c..."
+title: "QuTiP 量子模拟"
+description: "开放量子系统动力学模拟工具包，量子光学和量子信息"
 category: "research"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Seaborn"
-description: "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For in..."
+title: "Seaborn 数据可视化"
+description: "Python 统计数据可视化库，美观的统计图表和探索性分析"
 category: "research"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Vue Expert"
-description: "Builds Vue 3 components with Composition API patterns, configures Nuxt 3 SSR/SSG projects, sets up Pinia stores, scaffolds Quasar/Capacitor mobile apps, implements PWA features, and optimises Vite builds. Use when creating Vue 3 applications with ..."
+title: "Vue.js 专家"
+description: "Vue.js 框架高级开发，组合式 API、状态管理和性能优化"
 category: "development"
 source: "community"
 author: "Community"

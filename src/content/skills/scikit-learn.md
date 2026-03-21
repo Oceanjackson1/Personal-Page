@@ -1,6 +1,6 @@
 ---
-title: "Scikit Learn"
-description: "Machine learning in Python with scikit-learn. Use when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionality reduction), model evaluation, hyperparameter tuning, preprocessing, or building..."
+title: "Scikit-learn 机器学习"
+description: "Python 经典机器学习库，分类、回归、聚类和降维算法"
 category: "research"
 source: "community"
 author: "Community"

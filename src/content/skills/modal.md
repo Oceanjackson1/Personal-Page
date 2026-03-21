@@ -1,6 +1,6 @@
 ---
-title: "Modal"
-description: "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling."
+title: "Modal 云计算"
+description: "Modal 无服务器云平台，GPU 计算和分布式任务执行"
 category: "devops"
 source: "community"
 author: "Community"

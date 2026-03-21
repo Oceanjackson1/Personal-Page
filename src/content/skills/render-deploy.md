@@ -1,6 +1,6 @@
 ---
-title: "Render Deploy"
-description: "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform."
+title: "Render 部署"
+description: "Render 云平台部署配置，Web 服务和数据库托管"
 category: "devops"
 source: "community"
 author: "Community"

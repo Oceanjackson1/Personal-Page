@@ -1,6 +1,6 @@
 ---
-title: "Fred Economic Data"
-description: "Query FRED (Federal Reserve Economic Data) API for 800,000+ economic time series from 100+ sources. Access GDP, unemployment, inflation, interest rates, exchange rates, housing, and regional data. Use for macroeconomic analysis, financial research..."
+title: "FRED 经济数据"
+description: "美联储经济数据库查询，宏观经济指标和时间序列分析"
 category: "research"
 source: "community"
 author: "Community"

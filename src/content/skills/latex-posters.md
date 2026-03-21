@@ -1,6 +1,6 @@
 ---
-title: "Latex Posters"
-description: "Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support for conference presentations, academic posters, and scientific communication. Includes layout design, color schemes, multi-column formats, figure in..."
+title: "LaTeX 海报制作"
+description: "使用 LaTeX 创建学术会议海报和科研展示"
 category: "research"
 source: "community"
 author: "Community"

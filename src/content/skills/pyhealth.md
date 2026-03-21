@@ -1,6 +1,6 @@
 ---
-title: "Pyhealth"
-description: "Comprehensive healthcare AI toolkit for developing, testing, and deploying machine learning models with clinical data. This skill should be used when working with electronic health records (EHR), clinical prediction tasks (mortality, readmission, ..."
+title: "PyHealth 医疗AI"
+description: "医疗健康数据的深度学习工具包，电子健康记录分析"
 category: "devops"
 source: "community"
 author: "Community"

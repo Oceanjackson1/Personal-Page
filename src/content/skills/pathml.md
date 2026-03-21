@@ -1,6 +1,6 @@
 ---
-title: "Pathml"
-description: "Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide fo..."
+title: "PathML 病理分析"
+description: "计算病理学机器学习工具包，组织切片图像分析"
 category: "development"
 source: "community"
 author: "Community"

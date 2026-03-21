@@ -1,6 +1,6 @@
 ---
-title: "Security Best Practices"
-description: "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger o..."
+title: "安全最佳实践"
+description: "软件安全最佳实践，漏洞防御、认证授权和安全编码"
 category: "development"
 source: "community"
 author: "Community"

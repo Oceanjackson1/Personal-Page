@@ -1,6 +1,6 @@
 ---
-title: "Create Meta Prompts"
-description: "Create optimized prompts for Claude-to-Claude pipelines with research, planning, and execution stages. Use when building prompts that produce outputs for other prompts to consume, or when running multi-stage workflows (research -> plan -> implement)."
+title: "创建元提示"
+description: "为 Claude 管道创建优化提示，包含研究和结构化输出"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Scientific Slides"
-description: "Build slide decks and presentations for research talks. Use this for making PowerPoint slides, conference presentations, seminar talks, research presentations, thesis defense slides, or any scientific talk. Provides slide structure, design templat..."
+title: "科研演示文稿"
+description: "使用 LaTeX Beamer 创建专业科研演示文稿和学术报告"
 category: "research"
 source: "community"
 author: "Community"

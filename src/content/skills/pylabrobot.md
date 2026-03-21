@@ -1,6 +1,6 @@
 ---
-title: "Pylabrobot"
-description: "Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing unified programming across different vendors. Best for complex workflows, multi-vendor setups, si..."
+title: "PyLabRobot 实验室"
+description: "实验室自动化机器人控制库，液体处理和实验流程自动化"
 category: "workflow"
 source: "community"
 author: "Community"

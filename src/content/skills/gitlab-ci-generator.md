@@ -1,6 +1,6 @@
 ---
-title: "Gitlab CI Generator"
-description: "Create, generate, or scaffold .gitlab-ci.yml pipelines, stages, and jobs."
+title: "GitLab CI 生成器"
+description: "生成 GitLab CI/CD 管道配置文件"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "RAG Architect"
-description: "Designs and implements production-grade RAG systems by chunking documents, generating embeddings, configuring vector stores, building hybrid search pipelines, applying reranking, and evaluating retrieval quality. Use when building RAG systems, vec..."
+title: "RAG 架构师"
+description: "检索增强生成系统架构设计，向量数据库和语义检索优化"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Pytorch Lightning"
-description: "Deep learning framework (PyTorch Lightning). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard), distributed training (DDP, FSDP, DeepSpeed), for scala..."
+title: "PyTorch Lightning"
+description: "PyTorch 高级训练框架，简化深度学习模型训练和部署"
 category: "devops"
 source: "community"
 author: "Community"

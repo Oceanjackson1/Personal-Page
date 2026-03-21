@@ -1,6 +1,6 @@
 ---
-title: "Etetoolkit"
-description: "Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, orthology/paralogy, NCBI taxonomy, visualization (PDF/SVG), for phylogenomics."
+title: "ETE Toolkit 系统发育"
+description: "Python 系统发育分析工具包，进化树构建和可视化"
 category: "research"
 source: "community"
 author: "Community"

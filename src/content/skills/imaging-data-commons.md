@@ -1,6 +1,6 @@
 ---
-title: "Imaging Data Commons"
-description: "Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for accessing large-scale radiology (CT, MR, PET) and pathology datasets for AI training or research. No authentication required. Query by metadata, v..."
+title: "医学影像数据"
+description: "NCI 医学影像数据公共资源，癌症影像数据分析"
 category: "research"
 source: "community"
 author: "Community"

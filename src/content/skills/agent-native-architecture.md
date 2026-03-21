@@ -1,6 +1,6 @@
 ---
-title: "Agent Native Architecture"
-description: "Build applications where agents are first-class citizens. Use this skill when designing autonomous agents, creating MCP tools, implementing self-modifying systems, or building apps where features are outcomes achieved by agents operating in a loop."
+title: "Agent 原生架构"
+description: "构建以 Agent 为核心的应用架构，设计自主代理、创建 MCP 工具、实现自修改系统"
 category: "development"
 source: "community"
 author: "Community"

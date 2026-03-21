@@ -1,6 +1,6 @@
 ---
-title: "React Native Best Practices"
-description: "Provides React Native performance optimization guidelines for FPS, TTI, bundle size, memory leaks, re-renders, and animations. Applies to tasks involving Hermes optimization, JS thread blocking, bridge overhead, FlashList, native modules, or debug..."
+title: "React Native 最佳实践"
+description: "React Native 移动应用开发最佳实践，性能优化和跨平台策略"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Pandas Pro"
-description: "Performs pandas DataFrame operations for data analysis, manipulation, and transformation. Use when working with pandas DataFrames, data cleaning, aggregation, merging, or time series analysis. Invoke for data manipulation tasks such as joining Dat..."
+title: "Pandas 高级用法"
+description: "Pandas 高级数据处理技巧，性能优化和大数据集处理"
 category: "research"
 source: "community"
 author: "Community"

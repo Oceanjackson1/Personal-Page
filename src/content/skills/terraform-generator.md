@@ -1,6 +1,6 @@
 ---
-title: "Terraform Generator"
-description: "Create, generate, write, or scaffold Terraform .tf HCL — resources, modules, providers, variables, outputs."
+title: "Terraform 生成器"
+description: "生成 Terraform 基础设施代码，云资源配置和模块化设计"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Exploratory Data Analysis"
-description: "Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. This skill should be used when analyzing any scientific data file to understand its structure, content, quality, and characteristics. Automatically ..."
+title: "探索性数据分析"
+description: "使用 Python 进行全面的探索性数据分析，统计概述和可视化"
 category: "research"
 source: "community"
 author: "Community"

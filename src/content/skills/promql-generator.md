@@ -1,6 +1,6 @@
 ---
-title: "Promql Generator"
-description: "Generate/create/write PromQL queries, metric expressions, alerting rules, recording rules, Prometheus dashboards."
+title: "PromQL 生成器"
+description: "生成 Prometheus 查询语言表达式，监控指标查询和告警规则"
 category: "devops"
 source: "community"
 author: "Community"

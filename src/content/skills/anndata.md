@@ -1,6 +1,6 @@
 ---
-title: "Anndata"
-description: "Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or integrating with the scverse ecosystem. This is the data format skill—for analysis workflows use scanpy; for probabilistic models use scvi-tools; f..."
+title: "AnnData 数据分析"
+description: "单细胞分析中注释矩阵的数据结构，处理 .h5ad 文件和基因表达数据"
 category: "workflow"
 source: "community"
 author: "Community"

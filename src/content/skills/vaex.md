@@ -1,6 +1,6 @@
 ---
-title: "Vaex"
-description: "Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed available RAM. Vaex excels at out-of-core DataFrame operations, lazy evaluation, fast aggregations, efficient visualization of big data, and machine ..."
+title: "Vaex 大规模数据"
+description: "处理十亿级数据行的惰性计算数据框架，内存映射和流式处理"
 category: "development"
 source: "community"
 author: "Community"

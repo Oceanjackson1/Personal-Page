@@ -1,6 +1,6 @@
 ---
-title: "Helm Generator"
-description: "Create, scaffold, or generate Helm charts, Chart.yaml, values.yaml, templates, helpers."
+title: "Helm Chart 生成器"
+description: "生成 Kubernetes Helm Chart 模板和配置"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
 title: "Sentry React Native SDK"
-description: "Full Sentry SDK setup for React Native and Expo. Use when asked to 'add Sentry to React Native', 'install @sentry/react-native', 'setup Sentry in Expo', or configure error monitoring, tracing, profiling, session replay, or logging for React Native..."
+description: "Sentry 错误监控 React Native SDK 集成，移动端崩溃追踪"
 category: "devops"
 source: "community"
 author: "Community"

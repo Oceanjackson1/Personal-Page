@@ -1,6 +1,6 @@
 ---
-title: "Sentry Dotnet SDK"
-description: "Full Sentry SDK setup for .NET. Use when asked to 'add Sentry to .NET', 'install Sentry for C#', or configure error monitoring, tracing, profiling, logging, or crons for ASP.NET Core, MAUI, WPF, WinForms, Blazor, Azure Functions, or any other .NET..."
+title: "Sentry .NET SDK"
+description: "Sentry 错误监控 .NET SDK 集成，异常追踪和性能监控"
 category: "devops"
 source: "community"
 author: "Community"

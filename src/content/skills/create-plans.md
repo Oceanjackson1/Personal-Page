@@ -1,6 +1,6 @@
 ---
-title: "Create Plans"
-description: "Create hierarchical project plans optimized for solo agentic development. Use when planning projects, phases, or tasks that Claude will execute. Produces Claude-executable plans with verification criteria, not enterprise documentation. Handles bri..."
+title: "创建项目计划"
+description: "创建针对单人 Agent 开发优化的分层项目计划"
 category: "writing"
 source: "community"
 author: "Community"

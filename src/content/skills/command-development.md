@@ -1,5 +1,5 @@
 ---
-title: "Command Development"
+title: "Claude Code 命令开发"
 description: "创建 Claude Code 斜杠命令的指南，涵盖结构、前置信息和动态功能"
 category: "development"
 source: "community"

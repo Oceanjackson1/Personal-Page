@@ -1,6 +1,6 @@
 ---
-title: "Jenkinsfile Validator"
-description: "Validate, lint, audit, or check Jenkinsfiles and shared libraries."
+title: "Jenkinsfile 验证器"
+description: "验证和优化 Jenkins 管道配置文件"
 category: "devops"
 source: "community"
 author: "Community"

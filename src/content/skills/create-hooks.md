@@ -1,6 +1,6 @@
 ---
-title: "Create Hooks"
-description: "Expert guidance for creating, configuring, and using Claude Code hooks. Use when working with hooks, setting up event listeners, validating commands, automating workflows, adding notifications, or understanding hook types (PreToolUse, PostToolUse,..."
+title: "创建 Hooks"
+description: "创建、配置和使用 Claude Code Hooks 的专家指导"
 category: "workflow"
 source: "community"
 author: "Community"

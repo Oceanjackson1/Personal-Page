@@ -1,6 +1,6 @@
 ---
-title: "Transformers"
-description: "This skill should be used when working with pre-trained transformer models for natural language processing, computer vision, audio, or multimodal tasks. Use for text generation, classification, question answering, translation, summarization, image..."
+title: "Transformers 深度学习"
+description: "Hugging Face Transformers 库，预训练模型微调和推理部署"
 category: "development"
 source: "community"
 author: "Community"

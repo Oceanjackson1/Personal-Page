@@ -1,6 +1,6 @@
 ---
-title: "Salesforce Developer"
-description: "Writes and debugs Apex code, builds Lightning Web Components, optimizes SOQL queries, implements triggers, batch jobs, platform events, and integrations on the Salesforce platform. Use when developing Salesforce applications, customizing CRM workf..."
+title: "Salesforce 开发"
+description: "Salesforce 平台开发，Apex 编程和 Lightning 组件构建"
 category: "workflow"
 source: "community"
 author: "Community"

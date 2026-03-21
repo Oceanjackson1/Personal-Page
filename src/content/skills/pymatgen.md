@@ -1,6 +1,6 @@
 ---
-title: "Pymatgen"
-description: "Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DOS, Materials Project integration, format conversion, for computational materials science."
+title: "Pymatgen 材料科学"
+description: "Python 材料基因组学库，晶体结构分析和材料性质计算"
 category: "other"
 source: "community"
 author: "Community"

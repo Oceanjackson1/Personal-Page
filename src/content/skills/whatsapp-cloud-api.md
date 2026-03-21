@@ -1,6 +1,6 @@
 ---
-title: "Whatsapp Cloud API"
-description: "Integracao com WhatsApp Business Cloud API (Meta). Mensagens, templates, webhooks HMAC-SHA256, automacao de atendimento. Boilerplates Node.js e Python."
+title: "WhatsApp Cloud API"
+description: "WhatsApp 商业 API 集成，消息发送、模板管理和 Webhook"
 category: "devops"
 source: "community"
 author: "Community"

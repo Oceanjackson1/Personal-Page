@@ -1,6 +1,6 @@
 ---
-title: "UI Styling"
-description: "Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating re..."
+title: "UI 样式设计"
+description: "用户界面样式设计系统，组件库、设计令牌和响应式布局"
 category: "workflow"
 source: "community"
 author: "Community"

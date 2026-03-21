@@ -1,6 +1,6 @@
 ---
-title: "Plugin Structure"
-description: "Claude Code 插件的标准化目录结构和清单配置指南"
+title: "Claude Code 插件结构"
+description: "Claude Code 插件的标准化目录结构和开发规范"
 category: "development"
 source: "community"
 sourceUrl: "https://github.com/anthropics/claude-code"

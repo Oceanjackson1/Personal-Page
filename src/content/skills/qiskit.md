@@ -1,6 +1,6 @@
 ---
-title: "Qiskit"
-description: "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum co..."
+title: "Qiskit 量子计算"
+description: "IBM 量子计算 SDK，量子电路设计、模拟和真机执行"
 category: "other"
 source: "community"
 author: "Community"

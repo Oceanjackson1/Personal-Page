@@ -1,6 +1,6 @@
 ---
-title: "Iphone Apps"
-description: "Build professional native iPhone apps in Swift with SwiftUI and UIKit. Full lifecycle - build, debug, test, optimize, ship. CLI-only, no Xcode. Targets iOS 26 with iOS 18 compatibility."
+title: "iPhone 应用开发"
+description: "iOS 应用开发全栈指南，SwiftUI、UIKit 和应用架构"
 category: "development"
 source: "community"
 author: "Community"

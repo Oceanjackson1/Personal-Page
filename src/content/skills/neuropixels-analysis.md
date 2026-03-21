@@ -1,6 +1,6 @@
 ---
-title: "Neuropixels Analysis"
-description: "Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correction, Kilosort4 spike sorting, quality metrics, Allen/IBL curation, AI-assisted visual analysis, for Neuropixels 1.0/2.0 extracellular electrophysiology...."
+title: "Neuropixels 分析"
+description: "Neuropixels 神经探针数据分析，高密度电生理记录处理"
 category: "research"
 source: "community"
 author: "Community"

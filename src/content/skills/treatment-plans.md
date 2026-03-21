@@ -1,6 +1,6 @@
 ---
-title: "Treatment Plans"
-description: "Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical specialties. Supports general medical treatment, rehabilitation therapy, mental health care, chronic disease management, perioperative care, and pain..."
+title: "治疗方案设计"
+description: "制定循证医学治疗方案，个体化治疗计划和随访策略"
 category: "research"
 source: "community"
 author: "Community"

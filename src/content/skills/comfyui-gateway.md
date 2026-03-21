@@ -1,6 +1,6 @@
 ---
-title: "Comfyui Gateway"
-description: "REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rate limiting, and image delivery (URL + base64)."
+title: "ComfyUI 网关"
+description: "ComfyUI 服务器的 REST API 网关，工作流管理和任务队列"
 category: "workflow"
 source: "community"
 author: "Community"

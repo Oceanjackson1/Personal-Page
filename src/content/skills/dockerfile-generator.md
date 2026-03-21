@@ -1,6 +1,6 @@
 ---
-title: "Dockerfile Generator"
-description: "Create, generate, or write Dockerfiles and multi-stage Docker images. Containerize apps."
+title: "Dockerfile 生成器"
+description: "生成安全、高效、生产就绪的多阶段 Dockerfile"
 category: "devops"
 source: "community"
 author: "Community"

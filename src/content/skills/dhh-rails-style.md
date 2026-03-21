@@ -1,6 +1,6 @@
 ---
-title: "Dhh Rails Style"
-description: "This skill should be used when writing Ruby and Rails code in DHH's distinctive 37signals style. It applies when writing Ruby code, Rails applications, creating models, controllers, or any Ruby file. Triggers on Ruby/Rails code generation, refacto..."
+title: "DHH Rails 风格"
+description: "David Heinemeier Hansson 的 Ruby on Rails 编程风格和最佳实践"
 category: "writing"
 source: "community"
 author: "Community"

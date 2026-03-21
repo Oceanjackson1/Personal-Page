@@ -1,6 +1,6 @@
 ---
-title: "Biopython"
-description: "Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines, BLAST automation..."
+title: "BioPython 分子生物学"
+description: "分子生物学综合工具包，序列操作、BLAST 搜索和蛋白质结构分析"
 category: "devops"
 source: "community"
 author: "Community"

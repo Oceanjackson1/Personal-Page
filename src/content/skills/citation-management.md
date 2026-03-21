@@ -1,6 +1,6 @@
 ---
-title: "Citation Management"
-description: "Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find pa..."
+title: "学术引文管理"
+description: "学术研究的全面引文管理，搜索 Google Scholar、PubMed 等数据库"
 category: "research"
 source: "community"
 author: "Community"

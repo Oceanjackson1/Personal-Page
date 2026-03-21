@@ -1,6 +1,6 @@
 ---
-title: "Dnanexus Integration"
-description: "DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development and execution."
+title: "DNAnexus 集成"
+description: "DNAnexus 基因组学平台集成，大规模生物信息学数据处理"
 category: "devops"
 source: "community"
 author: "Community"

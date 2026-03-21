@@ -1,6 +1,6 @@
 ---
-title: "Rdkit"
-description: "Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, LogP, TPSA), fingerprints, substructure search, 2D/3D generation, similarity, reactions. For standard workflows with simpler interface, use datamol (w..."
+title: "RDKit 化学信息学"
+description: "化学信息学工具包，分子操作、相似性搜索和药物设计"
 category: "workflow"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Rowan"
-description: "Cloud-based quantum chemistry platform with Python API. Preferred for computational chemistry workflows including pKa prediction, geometry optimization, conformer searching, molecular property calculations, protein-ligand docking (AutoDock Vina), ..."
+title: "Rowan 化学计算"
+description: "Python 计算化学库，量子化学计算和分子模拟"
 category: "devops"
 source: "community"
 author: "Community"

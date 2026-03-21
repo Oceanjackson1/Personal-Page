@@ -1,6 +1,6 @@
 ---
-title: "Graphql Architect"
-description: "Use when designing GraphQL schemas, implementing Apollo Federation, or building real-time subscriptions. Invoke for schema design, resolvers with DataLoader, query optimization, federation directives."
+title: "GraphQL 架构师"
+description: "设计和实现 GraphQL API 架构，Schema 设计和性能优化"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Matlab"
-description: "MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and scientific computing. Use when writing MATLAB/Octave scripts for linear algebra, signal processing, image processing, differential equations, optimi..."
+title: "MATLAB 科学计算"
+description: "MATLAB 科学计算和工程仿真，信号处理和数值分析"
 category: "research"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Helm Validator"
-description: "Validate, lint, audit, check Helm charts — Chart.yaml, templates, values.yaml, CRDs, schemas."
+title: "Helm Chart 验证器"
+description: "验证和审查 Helm Chart 配置的正确性和安全性"
 category: "devops"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Dspy Ruby"
-description: "Build type-safe LLM applications with DSPy.rb — Ruby's programmatic prompt framework with signatures, modules, agents, and optimization. Use when implementing predictable AI features, creating LLM signatures and modules, configuring language model..."
+title: "DSPy Ruby"
+description: "Ruby 中的 DSPy 框架实现，用于编程式 LLM 管道"
 category: "research"
 source: "community"
 author: "Community"

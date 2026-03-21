@@ -1,6 +1,6 @@
 ---
-title: "Shopify Expert"
-description: "Builds and debugs Shopify themes (.liquid files, theme.json, sections), develops custom Shopify apps (shopify.app.toml, OAuth, webhooks), and implements Storefront API integrations for headless storefronts. Use when building or customizing Shopify..."
+title: "Shopify 开发专家"
+description: "Shopify 电商平台开发，主题定制、App 开发和 Liquid 模板"
 category: "development"
 source: "community"
 author: "Community"

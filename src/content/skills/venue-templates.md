@@ -1,6 +1,6 @@
 ---
-title: "Venue Templates"
-description: "Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major scientific publication venues (Nature, Science, PLOS, IEEE, ACM), academic conferences (NeurIPS, ICML, CVPR, CHI), research posters, and grant propo..."
+title: "场地模板设计"
+description: "活动场地布局设计模板，会议、展览和演出场地规划"
 category: "research"
 source: "community"
 author: "Community"

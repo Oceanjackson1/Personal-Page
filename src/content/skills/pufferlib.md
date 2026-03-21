@@ -1,6 +1,6 @@
 ---
-title: "Pufferlib"
-description: "High-performance reinforcement learning framework optimized for speed and scale. Use when you need fast parallel training, vectorized environments, multi-agent systems, or integration with game environments (Atari, Procgen, NetHack). Achieves 2-10..."
+title: "PufferLib 强化学习"
+description: "高效强化学习库，大规模并行环境训练和评估"
 category: "development"
 source: "community"
 author: "Community"

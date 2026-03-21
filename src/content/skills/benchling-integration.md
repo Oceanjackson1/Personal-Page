@@ -1,6 +1,6 @@
 ---
-title: "Benchling Integration"
-description: "Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse, for lab data management automation."
+title: "Benchling 集成"
+description: "Benchling 研发平台集成，访问 DNA、蛋白质注册表和实验室工作流"
 category: "research"
 source: "community"
 author: "Community"

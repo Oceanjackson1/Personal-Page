@@ -1,6 +1,6 @@
 ---
-title: "Pyopenms"
-description: "Complete mass spectrometry analysis platform. Use for proteomics workflows feature detection, peptide identification, protein quantification, and complex LC-MS/MS pipelines. Supports extensive file formats and algorithms. Best for proteomics, comp..."
+title: "PyOpenMS 质谱分析"
+description: "质谱数据处理和蛋白质组学分析工具包"
 category: "devops"
 source: "community"
 author: "Community"

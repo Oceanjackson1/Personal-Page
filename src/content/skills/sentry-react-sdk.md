@@ -1,6 +1,6 @@
 ---
 title: "Sentry React SDK"
-description: "Full Sentry SDK setup for React. Use when asked to 'add Sentry to React', 'install @sentry/react', or configure error monitoring, tracing, session replay, profiling, or logging for React applications. Supports React 16+, React Router v5-v7, TanSta..."
+description: "Sentry 错误监控 React SDK 集成，前端异常和性能监控"
 category: "devops"
 source: "community"
 author: "Community"

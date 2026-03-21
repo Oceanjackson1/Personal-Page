@@ -1,6 +1,6 @@
 ---
-title: "Scvi Tools"
-description: "Deep generative models for single-cell omics. Use when you need probabilistic batch correction (scVI), transfer learning, differential expression with uncertainty, or multi-modal integration (TOTALVI, MultiVI). Best for advanced modeling, batch ef..."
+title: "scvi-tools 单细胞"
+description: "单细胞组学深度学习工具包，变分推断和数据集成"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Cirq"
-description: "Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google hardware, noise modeling, and low-level circuit design. For IBM har..."
+title: "Cirq 量子计算"
+description: "Google 量子计算框架，针对 Google 量子硬件的量子电路设计和模拟"
 category: "other"
 source: "community"
 author: "Community"

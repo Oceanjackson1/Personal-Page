@@ -1,6 +1,6 @@
 ---
-title: "Dask"
-description: "Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existing pandas/NumPy code beyond memory or across clusters. Best for parallel file processing, distributed ML, integration with existing pandas code. For..."
+title: "Dask 分布式计算"
+description: "超大规模 Pandas/NumPy 工作流的分布式计算框架"
 category: "research"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Github Actions Generator"
-description: "Create, generate, or scaffold GitHub Actions workflows, action.yml, or .github/workflows CI/CD pipelines."
+title: "GitHub Actions 生成器"
+description: "生成 CI/CD 工作流配置的 GitHub Actions YAML 文件"
 category: "devops"
 source: "community"
 author: "Community"

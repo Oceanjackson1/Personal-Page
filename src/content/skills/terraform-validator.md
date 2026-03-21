@@ -1,6 +1,6 @@
 ---
-title: "Terraform Validator"
-description: "Validate, lint, audit, or plan Terraform/.tf/HCL files; runs tflint, checkov, terraform validate."
+title: "Terraform 验证器"
+description: "验证和审查 Terraform 配置的安全性、合规性和最佳实践"
 category: "devops"
 source: "community"
 author: "Community"

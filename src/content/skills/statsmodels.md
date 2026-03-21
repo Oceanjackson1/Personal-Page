@@ -1,6 +1,6 @@
 ---
-title: "Statsmodels"
-description: "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. Fo..."
+title: "Statsmodels 统计建模"
+description: "Python 统计建模库，回归分析、时间序列和假设检验"
 category: "research"
 source: "community"
 author: "Community"

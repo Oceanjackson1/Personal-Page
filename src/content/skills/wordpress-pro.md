@@ -1,6 +1,6 @@
 ---
-title: "Wordpress Pro"
-description: "Develops custom WordPress themes and plugins, creates and registers Gutenberg blocks and block patterns, configures WooCommerce stores, implements WordPress REST API endpoints, applies security hardening (nonces, sanitization, escaping, capability..."
+title: "WordPress 专业开发"
+description: "WordPress 高级开发，主题和插件开发、性能优化和安全加固"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Neurokit2"
-description: "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patter..."
+title: "NeuroKit2 神经信号"
+description: "神经生理信号处理工具包，ECG、EEG 和 EMG 分析"
 category: "development"
 source: "community"
 author: "Community"

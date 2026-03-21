@@ -1,6 +1,6 @@
 ---
-title: "Lamindb"
-description: "This skill should be used when working with LaminDB, an open-source data framework for biology that makes data queryable, traceable, reproducible, and FAIR. Use when managing biological datasets (scRNA-seq, spatial, flow cytometry, etc.), tracking..."
+title: "LaminDB 生物数据"
+description: "生物数据管理平台，实验数据追踪和版本控制"
 category: "development"
 source: "community"
 author: "Community"

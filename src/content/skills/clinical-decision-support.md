@@ -1,6 +1,6 @@
 ---
-title: "Clinical Decision Support"
-description: "Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical research settings, including patient cohort analyses (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based guidelin..."
+title: "临床决策支持"
+description: "生成专业临床决策支持文档，涵盖诊断路径和治疗方案建议"
 category: "research"
 source: "community"
 author: "Community"

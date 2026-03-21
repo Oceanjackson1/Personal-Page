@@ -1,6 +1,6 @@
 ---
-title: "Market Research Reports"
-description: "Generate comprehensive market research reports (50+ pages) in the style of top consulting firms (McKinsey, BCG, Gartner). Features professional LaTeX formatting, extensive visual generation with scientific-schematics and generate-image, deep integ..."
+title: "市场研究报告"
+description: "生成全面的市场研究报告，行业分析和竞争格局评估"
 category: "research"
 source: "community"
 author: "Community"

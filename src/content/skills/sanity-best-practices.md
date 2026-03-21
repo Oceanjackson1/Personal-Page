@@ -1,6 +1,6 @@
 ---
-title: "Sanity Best Practices"
-description: "Sanity development best practices for schema design, GROQ queries, TypeGen, Visual Editing, images, Portable Text, Studio structure, localization, migrations, and framework integrations such as Next.js, Nuxt, Astro, Remix, SvelteKit, Angular, Hydr..."
+title: "Sanity CMS 最佳实践"
+description: "Sanity 内容管理系统最佳实践，Schema 设计和 GROQ 查询"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Code Documenter"
-description: "Expert documentation generator for coding projects. Analyzes codebases to create thorough, comprehensive documentation for developers and users. Supports incremental updates, multi-audience documentation, architecture decision records, and documen..."
+title: "代码文档生成器"
+description: "专业的代码文档生成工具，分析代码库并自动生成文档"
 category: "writing"
 source: "community"
 author: "Community"

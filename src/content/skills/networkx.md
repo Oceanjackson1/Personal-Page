@@ -1,6 +1,6 @@
 ---
-title: "Networkx"
-description: "Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python. Use when working with network/graph data structures, analyzing relationships between entities, computing graph algorithms (shortest paths, centra..."
+title: "NetworkX 网络分析"
+description: "Python 网络分析库，图论算法和复杂网络可视化"
 category: "development"
 source: "community"
 author: "Community"

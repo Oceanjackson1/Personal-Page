@@ -1,6 +1,6 @@
 ---
-title: "Microservices Architect"
-description: "Designs distributed system architectures, decomposes monoliths into bounded-context services, recommends communication patterns, and produces service boundary diagrams and resilience strategies. Use when designing distributed systems, decomposing ..."
+title: "微服务架构师"
+description: "设计和实现微服务架构，服务拆分、通信和部署策略"
 category: "development"
 source: "community"
 author: "Community"

@@ -1,6 +1,6 @@
 ---
-title: "Astropy"
-description: "Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordina..."
+title: "AstroPy 天文计算"
+description: "Python 天文学和天体物理学综合库，天体坐标、光谱分析和宇宙学计算"
 category: "development"
 source: "community"
 author: "Community"

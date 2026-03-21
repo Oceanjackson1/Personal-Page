@@ -1,6 +1,6 @@
 ---
-title: "Sentry Nextjs SDK"
-description: "Full Sentry SDK setup for Next.js. Use when asked to 'add Sentry to Next.js', 'install @sentry/nextjs', or configure error monitoring, tracing, session replay, logging, profiling, AI monitoring, or crons for Next.js applications. Supports Next.js ..."
+title: "Sentry Next.js SDK"
+description: "Sentry 错误监控 Next.js SDK 集成，服务端和客户端错误追踪"
 category: "devops"
 source: "community"
 author: "Community"

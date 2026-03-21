@@ -1,6 +1,6 @@
 ---
-title: "Create MCP Servers"
-description: "Create Model Context Protocol (MCP) servers that expose tools, resources, and prompts to Claude. Use when building custom integrations, APIs, data sources, or any server that Claude should interact with via the MCP protocol. Supports both TypeScri..."
+title: "创建 MCP 服务器"
+description: "创建 Model Context Protocol (MCP) 服务器，暴露工具、资源和提示"
 category: "development"
 source: "community"
 author: "Community"

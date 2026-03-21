@@ -1,6 +1,6 @@
 ---
-title: "Create Subagents"
-description: "Expert guidance for creating, building, and using Claude Code subagents and the Task tool. Use when working with subagents, setting up agent configurations, understanding how agents work, or using the Task tool to launch specialized agents."
+title: "创建子代理"
+description: "创建和使用 Claude Code 子代理的专家指导"
 category: "development"
 source: "community"
 author: "Community"

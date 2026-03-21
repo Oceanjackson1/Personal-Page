@@ -1,6 +1,6 @@
 ---
-title: "Pennylane"
-description: "Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum circuits via gradients, building hybrid quantum-classical models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for variational a..."
+title: "PennyLane 量子ML"
+description: "量子机器学习框架，量子电路和经典神经网络混合计算"
 category: "other"
 source: "community"
 author: "Community"

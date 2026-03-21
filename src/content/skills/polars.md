@@ -1,6 +1,6 @@
 ---
-title: "Polars"
-description: "Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data still fits in memory. Lazy evaluation, parallel execution, Apache Arrow backend. Best for 1-100GB datasets, ETL pipelines, faster pandas replacemen..."
+title: "Polars 高性能数据"
+description: "Rust 驱动的高性能数据框架，比 Pandas 快 10-100 倍"
 category: "devops"
 source: "community"
 author: "Community"
