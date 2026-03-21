@@ -53,30 +53,30 @@ Hyperliquid针对dYdX的优化集中在两点，一是价格预言机，二是�
 ### 价格预言机差异
 
 
-## Hype如何做价格预言机的
+### Hype如何做价格预言机的
 
 数据来源是，从以下主要交易所采集现货价格，基于多数据源进行计算：
 
-## Binance: 权重 3
+Binance: 权重 3
 
-## OKX: 权重 2
+OKX: 权重 2
 
-## Bybit: 权重 2
+Bybit: 权重 2
 
-## Kraken: 权重 1
+Kraken: 权重 1
 
-## Kucoin: 权重 1
+Kucoin: 权重 1
 
-## Gate.io: 权重 1
+Gate.io: 权重 1
 
-## MEXC: 权重 1
+MEXC: 权重 1
 
-## Hyperliquid Spot: 权重 1
-
-
+Hyperliquid Spot: 权重 1
 
 
-## 在验证数据上，验证者（Validators）的核心角色被提出
+
+
+在验证数据上，验证者（Validators）的核心角色被提出
 
 验证者的主要任务是每3秒 发布每种永续合约（Perpetual Contract）资产的现货预言机价格。
 
