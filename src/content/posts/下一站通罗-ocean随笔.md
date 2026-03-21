@@ -5,6 +5,8 @@ category: "travel"
 date: 2026-03-21
 ---
 
+<img src="/posts/thong-lo-cover.png" alt="通罗街头 × Next Station Thong Lo" style="width:100%;max-width:720px;margin:0 auto 2rem;display:block;border-radius:12px;" />
+
 BTS绿线的报站声是不会跟你打招呼的。
 
 我最近在循环一个缅甸DJ的曲子，Y3llO，99年的仰光人，这小子的remix被Skrillex和Fred Again都翻过的那种，结果他2月发布的新歌，采样的不是什么高级的合成器音色，而是曼谷BTS绿线那个所有住在素万那普的人都能在梦里背出来的机械女声，"Next Station, Thong Lo"。
