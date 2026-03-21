@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { places } from '../../data/lifemap';
 
-const foodPlaces = places.filter(p => p.category === 'food');
-const barPlaces = places.filter(p => p.category === 'bar');
-const coffeePlaces = places.filter(p => p.category === 'coffee');
+const byRating = (a: typeof places[0], b: typeof places[0]) => (b.rating ?? 0) - (a.rating ?? 0);
+const foodPlaces = places.filter(p => p.category === 'food').sort(byRating);
+const barPlaces = places.filter(p => p.category === 'bar').sort(byRating);
+const coffeePlaces = places.filter(p => p.category === 'coffee').sort(byRating);
 
 const allCities = [...new Set(places.map(p => p.city).filter(Boolean))].sort();
 const foodCities = [...new Set(foodPlaces.map(p => p.city).filter(Boolean))].sort();
