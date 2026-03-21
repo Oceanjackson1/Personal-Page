@@ -45,6 +45,37 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
 
+  <!-- Sitelinks / Navigation structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ocean's Blog",
+    "alternateName": "倪钰桐的个人主页",
+    "url": "https://niyutongocean.xyz",
+    "description": "找到一个最长的雪坡，滚雪球",
+    "author": {
+      "@type": "Person",
+      "name": "Ocean 倪钰桐",
+      "url": "https://niyutongocean.xyz"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://niyutongocean.xyz/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": ["文章", "代码库", "城市生活记忆", "Claude Skills"],
+    "url": [
+      "https://niyutongocean.xyz/posts/",
+      "https://niyutongocean.xyz/code/",
+      "https://niyutongocean.xyz/life/",
+      "https://niyutongocean.xyz/skills/"
+    ]
+  })} />
+
   <!-- Extra head content (structured data etc.) -->
   <slot name="head" />
 
