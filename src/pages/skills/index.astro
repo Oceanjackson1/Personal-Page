@@ -15,20 +15,37 @@ const categories = [
   { value: 'devops', label: 'DevOps' },
   { value: 'other', label: '其他' },
 ];
+const skillsListLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Claude Code Skills 合集",
+  "description": "最全的 Claude Code Skills 合集，涵盖开发、DevOps、工作流、AI Agent 等社区精选 Skill",
+  "url": "https://niyutongocean.xyz/skills/",
+  "numberOfItems": sortedSkills.length,
+  "itemListElement": sortedSkills.slice(0, 50).map((skill, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "url": `https://niyutongocean.xyz/skills/${skill.id}/`,
+    "name": skill.data.title
+  }))
+};
 ---
 
 <BaseLayout
-  title="Claude Skill"
-  description="来自社区公开的 Claude Code Skills 合集 — 探索社区贡献的 Claude 技能，提升 AI 编程工作流效率。"
+  title="Claude Code Skills 合集 — 1900+ 精选 Skill 推荐"
+  description="最全的 Claude Code Skills 合集，涵盖开发、DevOps、工作流、AI Agent 等 1900+ 个社区精选 Skill。免费探索并提升 AI 编程效率。"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(skillsListLd)} />
+  </Fragment>
   <section class="py-8 sm:py-24">
     <div class="max-w-[var(--width-wide)] mx-auto px-4 sm:px-6">
 
       <!-- Intro -->
       <div class="max-w-2xl mb-8 sm:mb-16">
-        <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mb-3 sm:mb-4">Claude Skill</h1>
-        <p class="text-base sm:text-lg text-[color:var(--color-text-primary)] leading-relaxed">来自社区公开的 Claude Code Skills</p>
-        <p class="text-base sm:text-lg text-[color:var(--color-text-secondary)] leading-relaxed">探索并使用社区贡献的技能，提升 AI 编程工作流</p>
+        <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mb-3 sm:mb-4">Claude Code Skills 合集</h1>
+        <p class="text-base sm:text-lg text-[color:var(--color-text-primary)] leading-relaxed">1900+ 社区精选 Claude Code Skills</p>
+        <p class="text-base sm:text-lg text-[color:var(--color-text-secondary)] leading-relaxed">探索开发、DevOps、工作流、AI Agent 等各领域的 Claude 技能</p>
         <div class="flex items-center gap-2 mt-4">
           <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-tertiary)]">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

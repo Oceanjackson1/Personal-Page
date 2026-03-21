@@ -25,15 +25,16 @@ const categoryLabels: Record<string, string> = {
 
 const skillLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": skill.data.title,
+  "@type": "TechArticle",
+  "headline": `${skill.data.title} — Claude Code Skill`,
   "description": skill.data.description,
   "url": `https://niyutongocean.xyz/skills/${skill.id}/`,
   "datePublished": skill.data.date.toISOString(),
   ...(skill.data.author ? { "author": { "@type": "Person", "name": skill.data.author } } : {}),
   "publisher": { "@type": "Person", "name": "Ocean 倪钰桐" },
   "inLanguage": "zh-CN",
-  "keywords": skill.data.tags
+  "keywords": [...skill.data.tags, "Claude Code", "Claude Skill", "AI coding"],
+  "about": { "@type": "SoftwareApplication", "name": "Claude Code", "applicationCategory": "DeveloperApplication" }
 };
 
 const skillBreadcrumbLd = {
