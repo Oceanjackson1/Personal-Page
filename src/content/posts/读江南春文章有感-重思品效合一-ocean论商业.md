@@ -1,5 +1,6 @@
 ---
 title: "读江南春文章有感，重思品效合一｜Ocean论商业"
+slug: "jiang-nanchun-brand-effect"
 description: "我曾在一上海公司实习时负责广告投放。广告投放的目标是品牌声量和效果转化。每周两次的销售数据复盘会议中，我经常被问到为什么投放的数据下降了。"
 category: "product-growth"
 date: 2022-10-21

@@ -1,5 +1,6 @@
 ---
 title: "把自己训练成一个 AI Model｜Ocean随笔"
+slug: "train-yourself-as-ai"
 description: "最近在研究Vibe Coding，也实际上手用AI去做了一些产品原型。"
 category: "ai"
 date: 2026-02-26

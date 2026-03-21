@@ -1,5 +1,6 @@
 ---
 title: "斩杀线之下: 从《无耻之徒》看底层生存的残酷算术｜Ocean随笔"
+slug: "below-the-kill-line-shameless"
 description: "\"斩杀线\"这个词，最早流行于游戏圈——当角色的生命值跌破某个临界点，会被直接终结，无论此前积累了多少优势。这个概念后来被金融市场借用：一笔保证金交易，当亏损触及某个阈值，系统自动清算，不留余地。"
 category: "reflections"
 date: 2026-02-19

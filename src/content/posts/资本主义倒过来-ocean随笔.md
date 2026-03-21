@@ -1,5 +1,6 @@
 ---
 title: "资本主义倒过来｜Ocean随笔"
+slug: "capitalism-inverted"
 description: "巴菲特一年一度的股东大会最近又举办了，也在朋友圈和推特中看到了很多解读的文章。"
 category: "reflections"
 date: 2025-05-04

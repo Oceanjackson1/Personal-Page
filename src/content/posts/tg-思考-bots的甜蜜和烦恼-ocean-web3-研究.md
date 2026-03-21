@@ -1,5 +1,6 @@
 ---
 title: "「TG 思考」Bots的甜蜜和烦恼 | Ocean Web3 研究"
+slug: "telegram-bots-joy-and-pain"
 description: "TG游戏区别于传统微信的游戏"
 category: "web3"
 date: 2024-12-07

@@ -5,7 +5,7 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: post.data.slug || post.id },
     props: { post },
   }));
 }
@@ -35,7 +35,8 @@ const readTime = Math.max(1, Math.ceil((post.body?.length || 0) / 400));
 const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const isoDate = post.data.date.toISOString();
 const isoDateModified = (post.data.updatedDate || post.data.date).toISOString();
-const canonicalURL = new URL(`/posts/${post.id}/`, Astro.site);
+const postSlug = post.data.slug || post.id;
+const canonicalURL = new URL(`/posts/${postSlug}/`, Astro.site);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -116,12 +117,12 @@ const breadcrumbLd = {
       <!-- Prev/Next -->
       <nav class="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
         {prevPost ? (
-          <a href={`/posts/${prevPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors line-clamp-1" data-i18n-zh={`\u2190 ${prevPost.data.title}`} data-i18n-en={`\u2190 ${prevPost.data.title}`}>
+          <a href={`/posts/${prevPost.data.slug || prevPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors line-clamp-1" data-i18n-zh={`\u2190 ${prevPost.data.title}`} data-i18n-en={`\u2190 ${prevPost.data.title}`}>
             &larr; {prevPost.data.title}
           </a>
         ) : <div />}
         {nextPost ? (
-          <a href={`/posts/${nextPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors sm:text-right line-clamp-1" data-i18n-zh={`${nextPost.data.title} \u2192`} data-i18n-en={`${nextPost.data.title} \u2192`}>
+          <a href={`/posts/${nextPost.data.slug || nextPost.id}/`} class="text-sm text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] transition-colors sm:text-right line-clamp-1" data-i18n-zh={`${nextPost.data.title} \u2192`} data-i18n-en={`${nextPost.data.title} \u2192`}>
             {nextPost.data.title} &rarr;
           </a>
         ) : <div />}

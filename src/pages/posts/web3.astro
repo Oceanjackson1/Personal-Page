@@ -18,7 +18,7 @@ const collectionLd = {
     "itemListElement": posts.slice(0, 10).map((post, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "url": `https://niyutongocean.xyz/posts/${post.id}/`
+      "url": `https://niyutongocean.xyz/posts/${post.data.slug || post.id}/`
     }))
   }
 };
@@ -36,7 +36,7 @@ const collectionLd = {
           {posts.map((post) => {
             const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
             return (
-              <a href={`/posts/${post.id}/`} class="block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-4 hover:opacity-75 transition-opacity">
+              <a href={`/posts/${post.data.slug || post.id}/`} class="block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-4 hover:opacity-75 transition-opacity">
                 <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{post.data.title}</h3>
                 <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{post.data.description}</p>
                 <p class="text-sm text-[color:var(--color-text-secondary)]">Web3 · {formattedDate}</p>

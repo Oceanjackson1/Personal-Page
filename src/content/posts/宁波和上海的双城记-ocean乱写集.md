@@ -1,5 +1,6 @@
 ---
 title: "宁波和上海的双城记｜Ocean乱写集"
+slug: "tale-of-ningbo-and-shanghai"
 description: "回上海后和朋友们意犹未尽去了静安寺朋友的办公室小酌到凌晨，但是在回去的路上其实没有想太多关于市场相关的事情，想的更多是宁诺，发现自己一直在外面，其实应该在学校度过最后一年的本科时光。"
 category: "stories"
 date: 2023-10-21

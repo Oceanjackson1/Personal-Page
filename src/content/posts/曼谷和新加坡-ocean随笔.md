@@ -1,5 +1,6 @@
 ---
 title: "曼谷和新加坡 | Ocean随笔"
+slug: "bangkok-and-singapore"
 description: "在曼谷，仿佛是一个远离世界中心的地方，这里气候舒适，人文环境热情，漂亮的餐厅和酒吧，特别是在凉季的时候夕阳西下更容易在生活中找到幸福感。"
 category: "travel"
 date: 2025-10-25

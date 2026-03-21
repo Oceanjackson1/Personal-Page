@@ -1,5 +1,6 @@
 ---
 title: "思考和插件的艺术｜Ocean教你如何智慧摸鱼"
+slug: "art-of-smart-slacking"
 description: "在工作中，会出现一些简单繁琐的工作，比如在数据中台中下载数据，然后进行非常初步的excel数据清晰。或者是做数据的埋点，有一些低代码平台可以使用，但是需要一个个点埋，内容简单耗时且繁琐。"
 category: "product-growth"
 date: 2023-09-13

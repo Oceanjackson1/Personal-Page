@@ -1,5 +1,6 @@
 ---
 title: "论生产关系和生产力｜Ocean文集"
+slug: "production-relations-forces"
 description: "人的成长不得不经历生产关系和生产力，人本身就是各种关系的总和。"
 category: "reflections"
 date: 2023-12-05

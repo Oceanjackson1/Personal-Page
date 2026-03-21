@@ -1,5 +1,6 @@
 ---
 title: "Vibe Coding时代的生存原则 | Ocean随笔"
+slug: "vibe-coding-survival-rules"
 description: "最近Vibe Coding了几款产品"
 category: "ai"
 date: 2025-12-21

@@ -1,5 +1,6 @@
 ---
 title: "预测市场平台可以做杠杆吗 | Ocean随笔"
+slug: "leveraged-prediction-markets"
 description: "从降息预测到杠杆结构，拆解预测市场中杠杆的本质问题"
 category: "prediction-market"
 date: 2025-12-17

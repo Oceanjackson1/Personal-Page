@@ -1,5 +1,6 @@
 ---
 title: "永远在追风口，但是都还没追到｜Ocean散文集"
+slug: "always-chasing-trends"
 description: "永远在追风口，但是都还没追到。"
 category: "stories"
 date: 2023-10-25

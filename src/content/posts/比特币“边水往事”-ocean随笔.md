@@ -1,5 +1,6 @@
 ---
 title: "比特币“边水往事”｜Ocean随笔"
+slug: "bitcoin-side-water-stories"
 description: "第一次读比特币白皮书，是大学准备期末考试的一个摸鱼的晚上。"
 category: "web3"
 date: 2026-02-16

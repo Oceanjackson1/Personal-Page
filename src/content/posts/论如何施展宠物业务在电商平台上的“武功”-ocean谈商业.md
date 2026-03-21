@@ -1,5 +1,6 @@
 ---
 title: "论如何施展宠物业务在电商平台上的“武功”｜Ocean谈商业"
+slug: "pet-business-ecommerce"
 description: "我在某公司工作内容之一为负责公司宠物业务在重庆地区的增长。"
 category: "product-growth"
 date: 2022-07-03

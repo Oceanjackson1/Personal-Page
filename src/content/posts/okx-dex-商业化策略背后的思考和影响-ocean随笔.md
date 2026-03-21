@@ -1,5 +1,6 @@
 ---
 title: "OKX DEX 商业化策略背后的思考和影响 | Ocean随笔"
+slug: "okx-dex-monetization"
 description: "OKX DEX 从最初的免费模式转向收费，本质上是从“通过免费吸引用户、建立用户基础”到“通过收费提升收入”的战略转型。"
 category: "perp-dex"
 date: 2025-08-25

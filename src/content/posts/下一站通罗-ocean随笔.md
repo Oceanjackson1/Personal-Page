@@ -1,5 +1,6 @@
 ---
 title: "下一站，通罗｜Ocean随笔"
+slug: "next-stop-thonglor"
 description: "BTS绿线的报站声是不会跟你打招呼的。"
 category: "travel"
 date: 2026-03-21

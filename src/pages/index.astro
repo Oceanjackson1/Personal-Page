@@ -104,7 +104,7 @@ const categories = [
             const cat = categoryLabels[post.data.category] || { zh: post.data.category, en: post.data.category };
             const formattedDate = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
             return (
-              <a href={`/posts/${post.id}/`}
+              <a href={`/posts/${post.data.slug || post.id}/`}
                  class="post-item block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 mb-3 hover:opacity-75 transition-opacity"
                  data-category={post.data.category}>
                 <h3 class="text-base font-semibold text-[color:var(--color-text-primary)] mb-2">{post.data.title}</h3>

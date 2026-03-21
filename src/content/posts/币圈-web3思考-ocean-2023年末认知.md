@@ -1,5 +1,6 @@
 ---
 title: "币圈/Web3思考：Ocean 2023年末认知"
+slug: "web3-reflections-2023"
 description: "币圈/Web3思考：Ocean 2023年末认知"
 category: "web3"
 date: 2023-11-28

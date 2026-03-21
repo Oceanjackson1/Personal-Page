@@ -1,5 +1,6 @@
 ---
 title: "冲浪的秘诀｜Ocean随笔"
+slug: "surfing-secrets"
 description: "冲浪的秘诀是等待，跑步的秘诀是坚持。"
 category: "travel"
 date: 2025-07-13

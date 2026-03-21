@@ -1,5 +1,6 @@
 ---
 title: "Terra的暴雷初始和经过｜Ocean分析"
+slug: "terra-collapse-analysis"
 description: "Terra的暴雷展现了人性的恐怖和贪婪，也是加密货币早期发展阶段最著名的泡沫，但也也是金融周期中必然发生的一个事件。当市场开始教育的时候，教训会非常惨痛。"
 category: "web3"
 date: 2023-12-15

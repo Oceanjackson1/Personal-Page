@@ -1,5 +1,6 @@
 ---
 title: "写在23岁之后｜Ocean随笔"
+slug: "after-turning-23"
 description: "本科是2024年7月毕业，截止目前刚好是毕业一年，从工作的年限上，由于从大三暑假开始就一直在同一家公司，正式的雇佣是一年半。"
 category: "reflections"
 date: 2025-07-30

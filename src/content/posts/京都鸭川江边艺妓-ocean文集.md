@@ -1,5 +1,6 @@
 ---
 title: "京都鸭川江边艺妓｜Ocean文集"
+slug: "kyoto-kamogawa-geisha"
 description: "在我眼中，冬末春初的樱花，宛如交响曲开始前略显随意摆放的乐器。"
 category: "travel"
 date: 2025-01-26

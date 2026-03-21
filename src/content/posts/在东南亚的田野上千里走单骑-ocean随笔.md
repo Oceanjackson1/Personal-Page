@@ -1,5 +1,6 @@
 ---
 title: "在东南亚的田野上千里走单骑｜Ocean随笔"
+slug: "solo-ride-southeast-asia"
 description: "东南亚大多数（危险系数没有那么高的）国家基本上都走了一遍。"
 category: "travel"
 date: 2025-04-16

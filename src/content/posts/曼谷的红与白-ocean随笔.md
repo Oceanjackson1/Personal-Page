@@ -1,5 +1,6 @@
 ---
 title: "曼谷的红与白｜Ocean随笔"
+slug: "red-and-white-bangkok"
 description: "很多人会将曼谷和东京相比较，同样是沿海的城市，没有坡度的街道，红灯区，摩登高楼和宁静的街道相结合，一南一北的机场，一个靠近市区一个远离市区的机场。"
 category: "travel"
 date: 2025-02-28

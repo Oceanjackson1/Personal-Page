@@ -1,5 +1,6 @@
 ---
 title: "自我的进化和冲突｜Ocean 25年总结和思考"
+slug: "self-evolution-2025-review"
 description: "2025年末，本科毕业的次年，在曼谷的第二年，职业的第三年（从大四开始就变成了某公司的正式雇员了）。"
 category: "reflections"
 date: 2025-12-29

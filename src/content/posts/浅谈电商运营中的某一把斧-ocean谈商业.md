@@ -1,5 +1,6 @@
 ---
 title: "浅谈电商运营中的某一把斧｜Ocean谈商业"
+slug: "ecommerce-operations-tactics"
 description: "在宁诺中有门课叫做“电子商务经济学”，虽然我没选，但是做一行的伊始，我问朋友要了这门课的PPT。"
 category: "product-growth"
 date: 2022-07-02

@@ -1,5 +1,6 @@
 ---
 title: "步入六点二十七分的清真寺｜Ocean随笔"
+slug: "entering-mosque-at-627"
 description: "一开始，我并没有打算在今年斋月走进一座清真寺。"
 category: "travel"
 date: 2026-02-27

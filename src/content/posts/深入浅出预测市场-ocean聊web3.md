@@ -1,5 +1,6 @@
 ---
 title: "深入浅出预测市场｜Ocean聊Web3"
+slug: "prediction-markets-explained"
 description: "政治是博弈，但是预测政治也是博弈。"
 category: "prediction-market"
 date: 2025-10-07

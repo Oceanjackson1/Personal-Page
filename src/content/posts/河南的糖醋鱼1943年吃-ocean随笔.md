@@ -1,5 +1,6 @@
 ---
 title: "河南的糖醋鱼1943年吃｜Ocean随笔"
+slug: "henan-sweet-sour-fish-1943"
 description: "之前在新加坡时跟前辈们吃饭，吃的是河南菜，吃了一会便晕了碳，仿佛混着酒喝的感觉。"
 category: "travel"
 date: 2025-12-08

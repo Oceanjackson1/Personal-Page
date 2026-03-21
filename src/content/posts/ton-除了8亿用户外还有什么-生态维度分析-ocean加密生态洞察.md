@@ -1,5 +1,6 @@
 ---
 title: "Ton: 除了8亿用户外还有什么（生态维度分析）｜Ocean加密生态洞察"
+slug: "ton-ecosystem-beyond-users"
 description: "有一款海外的‘微信’，用户数量高达8亿，但它暂时还没有建立起完善的支付功能和站内小程序生态。"
 category: "web3"
 date: 2023-12-24

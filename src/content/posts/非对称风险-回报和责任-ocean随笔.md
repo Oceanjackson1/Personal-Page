@@ -1,5 +1,6 @@
 ---
 title: "非对称风险：回报和责任｜Ocean随笔"
+slug: "asymmetric-risk-reward"
 description: "《非对称风险》由纳西姆·尼古拉斯·塔勒布（Nassim Nicholas Taleb）所著，核心观点是：对于企业和社会，决策者或者代理人需要承认后果，做利益绑定才能避免系统性的风险。对于个人来讲，投资决策中需要思考投资所对应的风险和投资潜在"
 category: "reflections"
 date: 2025-05-25

@@ -1,5 +1,6 @@
 ---
 title: "合约版 Pumpfun 何时会诞生？| Ocean随笔"
+slug: "perpetual-pumpfun"
 description: "最近一直研究DEX，特别是Perps DEX领域，尽管自己不是一个“交易者”，但是在各种DEX中精妙的交易设计，和各方的博弈，给予了我极大的热情。"
 category: "perp-dex"
 date: 2025-09-27

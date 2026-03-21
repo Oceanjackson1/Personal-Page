@@ -1,5 +1,6 @@
 ---
 title: "当一个菲律宾人想把钱带回马尼拉｜Ocean文集"
+slug: "remittance-to-manila"
 description: "最近听了一个故事，是华裔企业做硬件钱包出海的，他分享了一个关于菲律宾外劳在香港，如何把钱带回马尼拉的故事。"
 category: "web3"
 date: 2025-01-16

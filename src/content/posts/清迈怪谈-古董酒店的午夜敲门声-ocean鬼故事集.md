@@ -1,5 +1,6 @@
 ---
 title: "【清迈怪谈】古董酒店的午夜敲门声 | Ocean鬼故事集"
+slug: "chiang-mai-ghost-story"
 description: "本故事纯属虚构，请勿模仿或对号入座"
 category: "travel"
 date: 2025-12-15

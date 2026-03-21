@@ -1,5 +1,6 @@
 ---
 title: "Hyperliquid的竞争优势｜Ocean文集"
+slug: "hyperliquid-competitive-edge"
 description: "Hyperliquid的介绍"
 category: "perp-dex"
 date: 2024-12-19

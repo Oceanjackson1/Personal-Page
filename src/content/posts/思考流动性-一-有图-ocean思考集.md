@@ -1,5 +1,6 @@
 ---
 title: "思考流动性（一）有图｜Ocean思考集"
+slug: "thinking-about-liquidity"
 description: "资产流动性问题在我们生活中也经常出现，对于玩潮牌的人来讲，买入一些潮流玩具、鞋子，他们一方面是有收藏的个人需求，另一方面是在二级市场进行流动溢价的期望。"
 category: "web3"
 date: 2023-12-19

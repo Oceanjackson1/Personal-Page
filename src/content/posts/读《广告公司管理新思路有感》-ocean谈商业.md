@@ -1,5 +1,6 @@
 ---
 title: "读《广告公司管理新思路有感》｜Ocean谈商业"
+slug: "ad-agency-management-review"
 description: "最近读了一本书，是杨宇时撰写的《广告公司管理新思路》，虽然这本书是2005年出版，很多内容不一定与现在的情况相符合，但是依旧给予了我很多启发，在一定程度上解决了我在实习中产生的疑惑。"
 category: "product-growth"
 date: 2022-09-13

@@ -1,5 +1,6 @@
 ---
 title: "如福建钱庄套利 | 看透 Perp DEX 的“坐庄”生意经"
+slug: "perp-dex-market-making"
 description: "在流动性匮乏和宏观下行的现在，虎口夺食和套利零和博弈成为资金在短期内最好的盈利方式。"
 category: "perp-dex"
 date: 2025-12-12

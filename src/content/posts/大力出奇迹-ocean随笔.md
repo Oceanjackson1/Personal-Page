@@ -1,5 +1,6 @@
 ---
 title: "大力出奇迹｜Ocean随笔"
+slug: "brute-force-miracles"
 description: "那个上海的夏天，是我职业的启蒙，尽管大部分聚会我都忘记了细节（但是去长寿路的植物酒吧，最爱玫瑰马提尼），尽管大学因为疫情四年都没有出国，但是当大家聊起国际化的时候，依旧是兴奋，觉得无论是Web2还是Web3，会有很多机会。"
 category: "reflections"
 date: 2025-03-22

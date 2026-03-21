@@ -1,5 +1,6 @@
 ---
 title: "思考职业和选择｜Ocean倪文集"
+slug: "career-and-choices"
 description: "我是24年（本科）以及25年（研究生）的毕业生，今年已经是23年，在临近毕业之际，是时候复盘过往，沉淀思考自己未来的职业和前途了。"
 category: "reflections"
 date: 2023-01-04

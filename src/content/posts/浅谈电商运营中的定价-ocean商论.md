@@ -1,5 +1,6 @@
 ---
 title: "浅谈电商运营中的定价｜Ocean商论"
+slug: "ecommerce-pricing-strategy"
 description: "我的一个经济学老师的研究领域是定价，在一次交流中，他开玩笑说如果有一个经济学家能把定价完全解释明白，他就会获得诺贝尔奖。"
 category: "product-growth"
 date: 2023-01-29

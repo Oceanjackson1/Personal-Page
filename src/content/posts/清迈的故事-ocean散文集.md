@@ -1,5 +1,6 @@
 ---
 title: "清迈的故事｜Ocean散文集"
+slug: "chiang-mai-stories"
 description: "那阵子看什么都隔着一层滤镜，觉得一切都太美好，时间又过得并不快，夕阳，峡谷，河流，酒吧，这是青春巅峰状态。"
 category: "travel"
 date: 2024-10-06

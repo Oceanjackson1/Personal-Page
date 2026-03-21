@@ -1,5 +1,6 @@
 ---
 title: "月费199刀换回无限开发杠杆？2026我的AI编程工具ROI大起底｜Ocean技术开发录"
+slug: "ai-coding-tools-roi-2026"
 description: "最近在广州，我花了相当一部分时间，在几个不同的AI编程工具之间切换。从Cursor Pro到Codex，再到Visual Code配合Claude Code，外加一堆外部API和模型服务。"
 category: "ai"
 date: 2026-02-12

@@ -1,5 +1,6 @@
 ---
 title: "思考搜索产品营销｜Ocean谈商业"
+slug: "search-product-marketing"
 description: "最初接触搜索引擎营销是在一家社交媒体企业小红书服务美妆类客户，尽管当时只是处理日常工作，没有思考更深层次的业务逻辑，但是过去几个月的时间里，我有较多的时间可以去思考搜索和搜索引擎营销的业务逻辑。"
 category: "product-growth"
 date: 2022-12-27

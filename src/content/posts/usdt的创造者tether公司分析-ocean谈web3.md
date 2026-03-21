@@ -1,5 +1,6 @@
 ---
 title: "USDT的创造者Tether公司分析｜Ocean谈Web3"
+slug: "tether-company-analysis"
 description: "⚠️本文只是对于NFT项目的分析和讨论，不具备任何投资和购买的倾向和意见，投资有风险购买需谨慎。"
 category: "web3"
 date: 2023-09-24

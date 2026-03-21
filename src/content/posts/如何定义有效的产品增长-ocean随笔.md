@@ -1,5 +1,6 @@
 ---
 title: "如何定义有效的产品增长｜Ocean随笔"
+slug: "effective-product-growth"
 description: "在Web3中，无论是公链，项目方，Defi Pool，交易所，产品的增长在目前还未进入存量时代的Web3是最为重要的。"
 category: "product-growth"
 date: 2025-04-20

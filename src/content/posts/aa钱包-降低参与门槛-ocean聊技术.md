@@ -1,5 +1,6 @@
 ---
 title: "AA钱包，降低参与门槛｜Ocean聊技术"
+slug: "aa-wallet-lower-barriers"
 description: "在我的工作和日常工作中，经常需要向别人解释用户如何和Web3项目产生交互，其中数字钱包是首先被提及的话题，但是传统以太坊钱包例如metamask的交互的门槛较高，为了普及使用，一种新的加密货币数字钱包的解决方案被提出。"
 category: "web3"
 date: 2023-12-01

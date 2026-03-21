@@ -1,5 +1,6 @@
 ---
 title: "出发的岁月｜Ocean随笔"
+slug: "years-of-departure"
 description: "那是一个非常普通的下午，经历干季到雨季的转化，狂欢的城市和人群还不愿散去，音乐节满地的酒瓶子还没有被收拾。"
 category: "travel"
 date: 2025-04-28

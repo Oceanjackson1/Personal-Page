@@ -1,5 +1,6 @@
 ---
 title: "勇敢思想的小岛｜Ocean随笔"
+slug: "island-of-brave-thoughts"
 description: "去了新加坡的国家博物馆，入口处的一段话最吸引我。"
 category: "reflections"
 date: 2025-09-14

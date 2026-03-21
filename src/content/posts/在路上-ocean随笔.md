@@ -1,5 +1,6 @@
 ---
 title: "在路上｜Ocean随笔"
+slug: "on-the-road"
 description: "雨季到了，黄昏天空开始发黄，发褐，发红。"
 category: "travel"
 date: 2025-05-18

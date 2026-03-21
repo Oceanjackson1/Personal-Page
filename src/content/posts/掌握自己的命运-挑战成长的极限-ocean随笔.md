@@ -1,5 +1,6 @@
 ---
 title: "掌握自己的命运，挑战成长的极限｜Ocean随笔"
+slug: "master-your-destiny"
 description: "听了罗永浩和李想的访谈，最大的感悟是文章开头的第一句话。"
 category: "reflections"
 date: 2025-08-27

@@ -1,5 +1,6 @@
 ---
 title: "湄南河的凉季｜Ocean随笔"
+slug: "chao-phraya-cool-season"
 description: "和朋友在朱拉隆功大学附近吃完后散步，途径朱拉百年纪念公园，看到了这个城市的“冬天”，雨季落幕，凉季锣鼓。"
 category: "travel"
 date: 2024-11-30

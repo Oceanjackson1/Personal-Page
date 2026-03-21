@@ -1,5 +1,6 @@
 ---
 title: "答案在风中飘扬｜Mono no Aware"
+slug: "answer-in-the-wind-mono-aware"
 description: "23年某一个夏天的晚上，长寿路公路商店宿醉前。"
 category: "stories"
 date: 2025-02-13

@@ -1,5 +1,6 @@
 ---
 title: "Chaos City Resident NFT项目方分析｜Ocean评Web3"
+slug: "chaos-city-nft-analysis"
 description: "⚠️本文只是对于NFT项目的分析和讨论，不具备任何投资和购买的倾向和意见，投资有风险购买需谨慎。"
 category: "web3"
 date: 2023-09-22

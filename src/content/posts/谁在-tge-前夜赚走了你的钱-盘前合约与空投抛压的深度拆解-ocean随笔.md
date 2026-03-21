@@ -1,5 +1,6 @@
 ---
 title: "谁在 TGE 前夜赚走了你的钱: 盘前合约与空投抛压的深度拆解｜Ocean随笔"
+slug: "who-profits-before-tge"
 description: "2023 年 8 月，去中心化衍生品交易所 Aevo 悄悄上线了一个新功能：Pre-Launch Token Futures。第一个被选中的标的是 $SEI——一个尚未在币安上线的代币。交易者可以在代币正式发行之前，就用杠杆去做多或做空它的"
 category: "perp-dex"
 date: 2026-02-21

@@ -1,5 +1,6 @@
 ---
 title: "藏头不藏尾｜Ocean随笔"
+slug: "hide-head-show-tail"
 description: "最近有一个朋友入职的一个项目，她的职位是做华语区的（主要还是中国，为啥叫华语懂得都懂），且是属于公开露面的那种，不是在幕后的运营，做了很多对外的PR，市场工作。"
 category: "travel"
 date: 2025-04-22

@@ -1,5 +1,6 @@
 ---
 title: "如何无代码轻量化打造自己的AI Agent｜Ocean随笔"
+slug: "no-code-ai-agent"
 description: "AI浪潮而来，AI Agent是其中的一个热议的话题。本文分为两个部分，一是简单给出基于Openai打造的AI Agent的方法，二是分享自己对于未来AI产品层企业的发展的观点。"
 category: "ai"
 date: 2023-11-20

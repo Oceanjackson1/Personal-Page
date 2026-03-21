@@ -1,5 +1,6 @@
 ---
 title: "母语在处，即是吾乡｜Ocean随笔"
+slug: "where-mother-tongue-is-home"
 description: "一开始注意到这个话题，是在吉隆坡的一顿晚饭上。"
 category: "travel"
 date: 2026-02-18

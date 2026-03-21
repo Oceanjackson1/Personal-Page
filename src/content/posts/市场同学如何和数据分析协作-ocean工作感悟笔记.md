@@ -1,5 +1,6 @@
 ---
 title: "市场同学如何和数据分析协作｜Ocean工作感悟笔记"
+slug: "marketing-data-collaboration"
 description: "最近和技术同学有比较深的协作，其中一个环节是在做市场活动时有数据埋点，需要后端的数据进行监测。"
 category: "product-growth"
 date: 2023-10-05

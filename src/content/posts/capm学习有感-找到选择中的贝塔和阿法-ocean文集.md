@@ -1,5 +1,6 @@
 ---
 title: "CAPM学习有感：找到选择中的贝塔和阿法｜Ocean文集"
+slug: "capm-beta-and-alpha"
 description: "CAPM学习有感：找到选择中的贝塔和阿法"
 category: "reflections"
 date: 2023-12-08

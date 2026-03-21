@@ -1,5 +1,6 @@
 ---
 title: "Bored Ape Yacht Club NFT项目分析｜Ocean谈Web3"
+slug: "bayc-nft-analysis"
 description: "⚠️本文只是对于NFT项目的分析和讨论，不具备任何投资和购买的倾向和意见，此外，本文由AI协助写作。"
 category: "web3"
 date: 2023-09-25

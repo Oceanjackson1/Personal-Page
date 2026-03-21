@@ -1,5 +1,6 @@
 ---
 title: "信息、算法和决策｜Ocean随笔"
+slug: "info-algorithm-decision"
 description: "美团的联合创始人王慧文在清华的公开课讲道："
 category: "reflections"
 date: 2024-01-04

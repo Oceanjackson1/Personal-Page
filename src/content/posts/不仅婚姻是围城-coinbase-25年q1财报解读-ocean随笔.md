@@ -1,5 +1,6 @@
 ---
 title: "不仅婚姻是围城，Coinbase 25年Q1财报解读｜Ocean随笔"
+slug: "coinbase-q1-2025-earnings"
 description: "在加密货币领域，交易所因是流动性集中所在地，所以在行业中位于“食物链”顶端，商业模式的本质是交易额抽佣。"
 category: "web3"
 date: 2025-05-29

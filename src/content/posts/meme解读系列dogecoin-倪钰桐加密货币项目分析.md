@@ -1,5 +1,6 @@
 ---
 title: "MEME解读系列DogeCoin ｜倪钰桐加密货币项目分析"
+slug: "dogecoin-meme-analysis"
 description: "MEME币，也就是那些没有实体产品、资产或者商业模式支撑的币种，可能是一个符号，表情包或者是文化象征。正因为如此，币种的价格波动更容易受到社区和内容传播的影响。"
 category: "web3"
 date: 2023-12-27

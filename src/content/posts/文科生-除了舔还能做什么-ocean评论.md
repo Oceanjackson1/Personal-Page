@@ -1,5 +1,6 @@
 ---
 title: "文科生，除了舔还能做什么？｜Ocean评论"
+slug: "what-can-arts-majors-do"
 description: "23年12月，大陆知名考研讲师张雪峰在直播间评论文科生毕业从事的专业都是服务业，服务业的本质就是“舔”，此外一出引发热议。"
 category: "reflections"
 date: 2023-12-10

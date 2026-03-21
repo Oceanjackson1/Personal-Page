@@ -1,5 +1,6 @@
 ---
 title: "自动做市商和绑定曲线的演变趋势｜Ocean文集"
+slug: "amm-bonding-curve-evolution"
 description: "最早期和传统的Defi模型是Uniswap在以太坊生态中创造性提出的X * Y = K。"
 category: "web3"
 date: 2025-03-02

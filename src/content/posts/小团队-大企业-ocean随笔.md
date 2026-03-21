@@ -1,5 +1,6 @@
 ---
 title: "小团队，大企业｜Ocean随笔"
+slug: "small-team-big-company"
 description: "Supercell是知名游戏《部落冲突》，《荒野乱斗》的母公司，在2021年公布的数据是该团队仅有26人，但是累计收入已经有10亿美金，且在2021年6月21日被腾讯出价86亿美金收购。2014年Facebook的母公司Meta完成对Wha"
 category: "product-growth"
 date: 2024-04-23

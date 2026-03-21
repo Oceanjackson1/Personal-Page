@@ -1,5 +1,6 @@
 ---
 title: "权力的代理人: 从印尼丁香到加密货币订单簿｜Ocean随笔"
+slug: "agents-of-power-cloves-crypto"
 description: "一个福建小贩的政治嗅觉"
 category: "web3"
 date: 2026-02-13

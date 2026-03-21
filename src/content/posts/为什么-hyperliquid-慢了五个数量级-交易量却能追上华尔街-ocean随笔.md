@@ -1,5 +1,6 @@
 ---
 title: "为什么 Hyperliquid 慢了五个数量级，交易量却能追上华尔街｜Ocean随笔"
+slug: "why-hyperliquid-slow-yet-big"
 description: "一开始，让我从一个很具体的瞬间讲起。"
 category: "perp-dex"
 date: 2026-02-23

@@ -1,5 +1,6 @@
 ---
 title: "类似中国房地产的低流动性高估值的NFT市场分析｜Ocean分析"
+slug: "nft-low-liquidity-valuation"
 description: "普通用户最初接触到加密货币市场的两个概念分为是比特币和NFT，原因是比特币作为媒体最先且最热烈讨论的话题，从曝光量上能触及更多的用户，对于NFT来讲一种图片绘画形式用户的理解成本更低。"
 category: "web3"
 date: 2023-12-02

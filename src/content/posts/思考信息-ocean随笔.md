@@ -1,5 +1,6 @@
 ---
 title: "思考信息｜Ocean随笔"
+slug: "thinking-about-information"
 description: "在一次碳九资本创始人的讲座上，我听到他讲到一个观点："
 category: "reflections"
 date: 2022-11-28

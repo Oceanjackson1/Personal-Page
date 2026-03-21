@@ -1,5 +1,6 @@
 ---
 title: "我们这代人，是中国品牌出海的原始居民｜Ocean随笔"
+slug: "china-brand-going-global"
 description: "我们这代人，是中国品牌出海的原始居民。"
 category: "reflections"
 date: 2023-10-18

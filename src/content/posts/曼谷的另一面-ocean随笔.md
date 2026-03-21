@@ -1,5 +1,6 @@
 ---
 title: "曼谷的另一面｜Ocean随笔"
+slug: "other-side-of-bangkok"
 description: "虽然现在演员星星在曼谷落地后直接被“送”往缅东的妙瓦底，曼谷现在负面一面是诈骗中转站，不安全等等（尽管并不是这样的），但是我所经历的，感受的，则是曼谷的另外一面。"
 category: "travel"
 date: 2025-01-09

@@ -1,5 +1,6 @@
 ---
 title: "VC币供给侧改革｜Ocean随笔"
+slug: "vc-token-supply-reform"
 description: "VC币曾经是加密世界中最被“拥戴”的存在，从风险投资机构中拿到最多的原始资金，仅是被一些知名的机构投资便可以获得大量的PR曝光，散户的资金关注和用户的撸毛。"
 category: "web3"
 date: 2025-05-24

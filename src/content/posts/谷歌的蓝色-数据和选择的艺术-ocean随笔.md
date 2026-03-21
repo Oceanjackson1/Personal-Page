@@ -1,5 +1,6 @@
 ---
 title: "谷歌的蓝色、数据和选择的艺术｜Ocean随笔"
+slug: "google-blue-data-choices"
 description: "谷歌的蓝色是业务的实践，更是人生的哲学和艺术"
 category: "reflections"
 date: 2024-04-16
