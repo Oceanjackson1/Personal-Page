@@ -6,6 +6,8 @@ category: "reflections"
 date: 2026-03-24
 ---
 
+<img src="/posts/kelly-cover.png" alt="EV思维：用期望值框架优化人生决策" style="width:100%;max-width:720px;margin:0 auto 2rem;display:block;border-radius:12px;" />
+
 ## 背景
 
 去年在曼谷的一个周末，一个做合约交易的朋友跟我讲，他把账户里80%的仓位压在了一个MEME上，逻辑是"这个团队太强了，社区共识在，翻十倍不是问题"。
