@@ -9,7 +9,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="text-center mb-6">
       <div class="text-4xl mb-2">🦞</div>
       <h1 class="text-xl font-semibold mb-1">问Ocean的龙虾</h1>
-      <p class="text-sm text-[color:var(--color-text-tertiary)]">基于 Ocean 的所有文章，回答你的问题</p>
+      <p class="text-sm text-[color:var(--color-text-tertiary)]">基于 Ocean 的所有文章和代码项目，回答你的问题</p>
     </div>
 
     <!-- Chat area -->
@@ -28,7 +28,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             Ocean对预测市场怎么看？
           </button>
           <button class="suggest-btn text-sm px-4 py-2 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:border-[var(--color-text-tertiary)] transition-colors">
-            推荐一篇关于旅行的文章
+            Ocean写过哪些代码项目？
           </button>
         </div>
       </div>
@@ -152,6 +152,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <script>
   // ─── Types ───
   interface Article {
+    type?: 'post' | 'project';
     slug: string;
     title: string;
     description: string;
@@ -239,26 +240,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     let context = '';
     if (articles.length > 0) {
       context = articles
-        .map(
-          (a) =>
-            `【${a.title}】(${a.url})\n${a.body.slice(0, 2000)}`
-        )
+        .map((a) => {
+          const tag = a.type === 'project' ? '【代码项目】' : '【文章】';
+          return `${tag}【${a.title}】(${a.url})\n${a.body.slice(0, 2000)}`;
+        })
         .join('\n\n---\n\n');
     } else {
-      context = '（未找到与问题直接相关的文章）';
+      context = '（未找到与问题直接相关的文章或项目）';
     }
 
-    return `你是"Ocean的龙虾"🦞，一只博学、有趣的龙虾助手。你的工作是根据Ocean（倪钰桐）博客文章的内容来回答用户的问题。
+    return `你是"Ocean的龙虾"🦞，一只博学、有趣的龙虾助手。你的工作是根据Ocean（倪钰桐）的博客文章和代码项目来回答用户的问题。
 
 规则：
-1. 只基于下方提供的文章内容回答问题。如果文章中没有相关信息，诚实地说"Ocean的文章里暂时没有涉及这个话题哦🦞"。
-2. 回答时自然地引用来源，比如"在Ocean的《xxx》这篇文章里提到..."。
+1. 基于下方提供的文章和项目内容回答问题。如果没有相关信息，诚实地说"Ocean的内容里暂时没有涉及这个话题哦🦞"。
+2. 回答时自然地引用来源，比如"在Ocean的《xxx》这篇文章里提到..."或"Ocean开发过一个叫xxx的项目..."。
 3. 保持友好、有趣的语气，你是一只有性格的龙虾。
 4. 回答用中文，除非用户用英文提问。
-5. 如果用户问的话题Ocean的文章有涉及，在回答末尾推荐相关文章链接，格式为：📖 推荐阅读：[文章标题](url)
+5. 在回答末尾推荐相关文章或项目链接，格式为：📖 推荐阅读：[标题](url) 或 💻 相关项目：[项目名](github链接)
 6. 回答简洁有力，不要过于冗长。
+7. 如果用户问代码/技术栈/项目相关的问题，优先引用代码项目的信息。
 
-以下是与用户问题最相关的文章内容：
+以下是与用户问题最相关的内容（包含文章和代码项目）：
 
 ${context}`;
   }
