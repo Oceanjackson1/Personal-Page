@@ -5,18 +5,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout title="问Ocean的龙虾" description="和Ocean的龙虾聊天，基于Ocean所有文章和代码项目回答你的问题">
   <div class="lobster-wrapper">
 
-    <!-- Header -->
-    <div class="lobster-header">
-      <div class="text-3xl">🦞</div>
-      <h1 class="text-lg font-semibold mt-1">问Ocean的龙虾</h1>
-      <p class="text-xs text-[color:var(--color-text-tertiary)] mt-0.5">基于 Ocean 的所有文章和代码项目，回答你的问题</p>
-    </div>
-
     <!-- Chat messages area — scrollable -->
     <div class="lobster-messages" id="chat-area">
-      <!-- Suggestions (empty state) -->
+      <!-- Empty state: header + suggestions together -->
       <div id="suggestions" class="suggestions-wrap">
-        <p class="text-sm text-[color:var(--color-text-tertiary)] mb-3">试试问我：</p>
+        <div class="text-3xl mb-2">🦞</div>
+        <h1 class="text-lg font-semibold">问Ocean的龙虾</h1>
+        <p class="text-xs text-[color:var(--color-text-tertiary)] mt-0.5 mb-6">基于 Ocean 的所有文章和代码项目，回答你的问题</p>
         <div class="flex flex-wrap justify-center gap-2 max-w-md">
           <button class="suggest-btn">Ocean是谁？</button>
           <button class="suggest-btn">Hyperliquid是什么？</button>
@@ -64,12 +59,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     height: calc(100dvh - 64px); /* dynamic viewport for mobile */
   }
 
-  .lobster-header {
-    text-align: center;
-    padding: 1.25rem 0 0.75rem;
-    flex-shrink: 0;
-  }
-
   .lobster-messages {
     flex: 1;
     overflow-y: auto;
@@ -96,8 +85,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     flex: 1;
-    padding: 2rem 0;
+    padding: 0;
   }
 
   .suggest-btn {
