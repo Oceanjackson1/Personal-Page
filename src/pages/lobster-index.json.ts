@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 export async function GET() {
   const posts = await getCollection('posts');
   const projects = await getCollection('projects');
+  const aiShares = await getCollection('aiShares');
 
   const postIndex = posts.map((post) => ({
     type: 'post' as const,
@@ -24,7 +25,17 @@ export async function GET() {
     body: `项目名称：${project.data.name}\n简介：${project.data.description}\n技术栈：${project.data.tech.join('、')}\n分类：${project.data.category === 'infra' ? '数据基建' : '产品与交易工具'}${project.data.github ? `\nGitHub：${project.data.github}` : ''}`,
   }));
 
-  return new Response(JSON.stringify([...postIndex, ...projectIndex]), {
+  const aiShareIndex = aiShares.map((share) => ({
+    type: 'ai-share' as const,
+    slug: share.id,
+    title: share.data.title,
+    description: share.data.description,
+    category: 'ai-share',
+    url: `/ai-shares/${share.data.slug || share.id}/`,
+    body: (share.body ?? '').slice(0, 3000),
+  }));
+
+  return new Response(JSON.stringify([...postIndex, ...projectIndex, ...aiShareIndex]), {
     headers: { 'Content-Type': 'application/json' },
   });
 }

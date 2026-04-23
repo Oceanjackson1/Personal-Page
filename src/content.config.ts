@@ -41,4 +41,17 @@ const skills = defineCollection({
   }),
 });
 
-export const collections = { posts, projects, skills };
+const aiShares = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/ai-shares' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string().optional(),
+    description: z.string(),
+    date: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    source: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, projects, skills, aiShares };

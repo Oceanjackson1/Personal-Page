@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allShares = await getCollection('aiShares');
+const sortedShares = allShares.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="AI 分享 | Ocean 倪钰桐" description="Ocean 关于 AI 工具、Agent、前端 AI 化等方向的技术研究与分享。">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "AI 分享",
+      "description": "Ocean 关于 AI 工具、Agent、前端 AI 化等方向的技术研究与分享",
+      "url": "https://niyutongocean.xyz/ai-shares/",
+    })} />
+  </Fragment>
+
+  <div class="max-w-[var(--width-wide)] mx-auto px-6">
+    <section class="pt-12 sm:pt-16 pb-12 sm:pb-20">
+      <!-- Header -->
+      <div class="mb-10 sm:mb-14">
+        <h1 class="text-2xl sm:text-3xl font-semibold mb-2" data-i18n-zh="AI 分享" data-i18n-en="AI Sharing">AI 分享</h1>
+        <p class="text-sm sm:text-base text-[color:var(--color-text-secondary)]"
+           data-i18n-zh="AI 相关的技术研究、工具对比与实践分享"
+           data-i18n-en="Research, tool comparisons and practical notes on AI">
+          AI 相关的技术研究、工具对比与实践分享
+        </p>
+      </div>
+
+      <!-- Share list -->
+      <div class="flex flex-col gap-3" id="share-list">
+        {sortedShares.map((share) => {
+          const formattedDate = share.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          return (
+            <a href={`/ai-shares/${share.data.slug || share.id}/`}
+               class="share-item block bg-[var(--color-surface)] rounded-2xl px-5 py-5 sm:px-7 sm:py-6 hover:opacity-75 transition-opacity">
+              <h2 class="text-base sm:text-lg font-semibold text-[color:var(--color-text-primary)] mb-2">{share.data.title}</h2>
+              <p class="text-sm text-[color:var(--color-text-secondary)] mb-4 line-clamp-2 leading-relaxed">{share.data.description}</p>
+              <div class="flex items-center gap-2 text-xs text-[color:var(--color-text-tertiary)] flex-wrap">
+                <time>{formattedDate}</time>
+                {share.data.tags.length > 0 && (
+                  <>
+                    <span>·</span>
+                    <div class="flex gap-1.5 flex-wrap">
+                      {share.data.tags.map((tag) => (
+                        <span class="px-2 py-0.5 rounded-full border border-[var(--color-border)]">{tag}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </a>
+          );
+        })}
+
+        {sortedShares.length === 0 && (
+          <div class="text-center py-20 text-[color:var(--color-text-tertiary)] text-sm">
+            暂无内容，敬请期待 🦞
+          </div>
+        )}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
