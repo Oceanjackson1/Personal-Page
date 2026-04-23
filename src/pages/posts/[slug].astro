@@ -168,6 +168,17 @@ const breadcrumbLd = {
   </script>
 
   <script>
+    // Wrap tables in horizontally scrollable container
+    document.querySelectorAll('.prose table').forEach((table) => {
+      if (table.parentElement?.classList.contains('table-wrapper')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentNode?.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  </script>
+
+  <script>
     document.querySelectorAll('.prose pre').forEach((pre) => {
       const wrapper = pre as HTMLElement;
       wrapper.style.position = 'relative';
