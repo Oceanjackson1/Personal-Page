@@ -132,7 +132,7 @@ const breadcrumbLd = {
 
   <!-- TOC (desktop right side) -->
   {headings.length > 0 && (
-    <aside class="hidden xl:block fixed right-8 top-1/3 w-48" id="toc">
+    <aside class="hidden xl:block fixed right-8 top-1/3 w-48 transition-opacity duration-300" id="toc">
       <p class="text-xs font-medium text-[color:var(--color-text-tertiary)] uppercase tracking-wider mb-3" data-i18n-zh="目录" data-i18n-en="Contents">目录</p>
       <nav class="space-y-1.5">
         {headings.filter(h => h.depth <= 3).map((h) => (
@@ -216,6 +216,22 @@ const breadcrumbLd = {
         { rootMargin: '-80px 0px -60% 0px' }
       );
       headings.forEach(h => obs.observe(h));
+    }
+
+    // Hide TOC when footer enters viewport to avoid visual overlap
+    const tocEl = document.getElementById('toc');
+    const footerEl = document.querySelector('footer');
+    if (tocEl && footerEl) {
+      const footerObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            tocEl.style.opacity = entry.isIntersecting ? '0' : '1';
+            tocEl.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+          });
+        },
+        { rootMargin: '0px' }
+      );
+      footerObs.observe(footerEl);
     }
   </script>
 </BaseLayout>
