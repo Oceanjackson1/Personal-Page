@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Post Clicked",
+    "description": "User clicks a post card on the home page or category list. Properties: post_title, post_category, post_slug."
+  },
+  {
+    "name": "Category Filtered",
+    "description": "User selects a category filter on the home page post list. Properties: category_id, category_name."
+  },
+  {
+    "name": "Article Read",
+    "description": "User reads to 80%+ of a post article (deep engagement). Properties: post_title, post_category, post_slug, read_time_minutes."
+  },
+  {
+    "name": "Code Block Copied",
+    "description": "User clicks the Copy button on a code block within a post. Properties: post_slug."
+  },
+  {
+    "name": "Skill Downloaded",
+    "description": "User downloads a SKILL.md file from the Claude Skills detail page. Properties: skill_title, skill_slug, skill_category."
+  },
+  {
+    "name": "Skill Category Filtered",
+    "description": "User filters Claude Skills by category. Properties: category."
+  },
+  {
+    "name": "Lobster Message Sent",
+    "description": "User sends a message in the Ask Lobster chat interface. Properties: message_length, is_suggestion (whether clicked a pre-set suggestion), conversation_turn."
+  },
+  {
+    "name": "Search Opened",
+    "description": "User opens the search modal via button or Cmd+K shortcut."
+  },
+  {
+    "name": "Search Result Clicked",
+    "description": "User clicks a result in the search modal. Properties: result_title, result_type, result_category, query_length."
+  },
+  {
+    "name": "Project Link Clicked",
+    "description": "User clicks a GitHub or demo link on the Code/Projects page. Properties: project_name, link_type (github or demo)."
+  }
+]

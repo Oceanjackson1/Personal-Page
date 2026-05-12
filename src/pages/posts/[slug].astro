@@ -149,9 +149,10 @@ const breadcrumbLd = {
   )}
 
   <script>
-    // Reading progress
+    // Reading progress + Amplitude "Article Read" engagement event
     const progressBar = document.getElementById('reading-progress');
     const article = document.getElementById('article-content');
+    let readEventFired = false;
 
     function updateProgress() {
       if (!article || !progressBar) return;
@@ -161,6 +162,16 @@ const breadcrumbLd = {
       const scrolled = window.scrollY - articleTop;
       const progress = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
       progressBar.style.width = `${progress}%`;
+
+      if (!readEventFired && progress >= 80) {
+        readEventFired = true;
+        const catEl = document.querySelector('article header span[data-i18n-zh]');
+        window.amplitude?.track('Article Read', {
+          post_title: document.title.replace(/ \| Ocean$/, ''),
+          post_slug: location.pathname.replace(/^\/posts\//, '').replace(/\/$/, ''),
+          post_category: catEl?.getAttribute('data-i18n-zh') || '',
+        });
+      }
     }
 
     window.addEventListener('scroll', updateProgress);
@@ -192,6 +203,9 @@ const breadcrumbLd = {
         navigator.clipboard.writeText(code?.textContent || '');
         btn.textContent = 'Copied!';
         setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+        window.amplitude?.track('Code Block Copied', {
+          post_slug: location.pathname.replace(/^\/posts\//, '').replace(/\/$/, ''),
+        });
       });
       wrapper.appendChild(btn);
     });

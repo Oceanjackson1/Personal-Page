@@ -95,5 +95,19 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <VisitorStats />
   <Footer />
   <SearchModal />
+
+  <!-- Amplitude Analytics + Session Replay (client-side only) -->
+  <script>
+    import * as amplitude from '@amplitude/unified';
+
+    if (!window.__amplitudeInitialized) {
+      window.__amplitudeInitialized = true;
+      amplitude.initAll('8c87cdca6153fd695ac2d6cd9320b82f', {
+        analytics: { autocapture: true },
+        sessionReplay: { sampleRate: 1 },
+      });
+      window.amplitude = amplitude as unknown as Window['amplitude'];
+    }
+  </script>
 </body>
 </html>
