@@ -19,30 +19,29 @@
   </div>
 </section>
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 <script>
-  // Historical offsets to account for visits before busuanzi was installed
-  const UV_OFFSET = 22;
-  const PV_OFFSET = 32;
+  (async () => {
+    const uvEl = document.getElementById('stat_uv');
+    const pvEl = document.getElementById('stat_pv');
+    const bar = document.querySelector('.visitor-stats') as HTMLElement | null;
+    if (!uvEl || !pvEl) return;
 
-  const observer = new MutationObserver(() => {
-    const uvEl = document.getElementById('busuanzi_value_site_uv');
-    const pvEl = document.getElementById('busuanzi_value_site_pv');
-    if (uvEl && uvEl.textContent && pvEl && pvEl.textContent) {
-      const uv = parseInt(uvEl.textContent, 10);
-      const pv = parseInt(pvEl.textContent, 10);
-      if (!isNaN(uv)) document.getElementById('stat_uv')!.textContent = String(uv + UV_OFFSET);
-      if (!isNaN(pv)) document.getElementById('stat_pv')!.textContent = String(pv + PV_OFFSET);
-      observer.disconnect();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+
+    try {
+      const res = await fetch('/api/stats', { signal: controller.signal });
+      clearTimeout(timeout);
+      if (!res.ok) throw new Error(String(res.status));
+      const { uv, pv } = await res.json();
+      if (typeof uv === 'number') uvEl.textContent = uv.toLocaleString();
+      if (typeof pv === 'number') pvEl.textContent = pv.toLocaleString();
+    } catch {
+      clearTimeout(timeout);
+      if (bar) bar.style.display = 'none';
     }
-  });
-  observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  })();
 </script>
-
-<!-- Hidden elements for busuanzi to inject into -->
-<span id="busuanzi_value_site_uv" style="display:none"></span>
-<span id="busuanzi_value_site_pv" style="display:none"></span>
 
 <style>
   .visitor-stats {
