@@ -8,7 +8,11 @@ date: 2026-05-20
 
 要告别暹罗了，退掉我的公寓，离开这个我居住了两年的地方。离开了这个没有春天秋天冬天只有夏天的城市，希望未来有机会能继续来这里定居。
 
+<img src="/posts/farewell-siam-1-move-out.jpg" alt="跟房东约退租的微信聊天" style="width:100%;max-width:520px;margin:0 auto 2rem;display:block;border-radius:12px;" />
+
 虽然两年对于一个人来讲并不长，但是这是你毕业后所在的第一个城市，青春的记忆总是最让人铭记。
+
+<img src="/posts/farewell-siam-2-map.jpg" alt="曼谷两年探索过的地方" style="width:100%;max-width:720px;margin:0 auto 0.5rem;display:block;border-radius:12px;" />
 
 （探索过的地方）
 
@@ -25,6 +29,8 @@ date: 2026-05-20
 也无法打到车，最后只能步行过桥到河的东岸，桥两岸也挤满了人，根本接触不到能看到跨年烟花的地方。在东岸的一个拐角处，我们三个人终于能打到摩托车去到东岸的游乐园。
 
 到的时候已经快到整点，也就意味着我们不抓紧就看不到烟花了。在进园的时候全是密密麻麻的人头，在我们正准备遗憾的时候，一声雷响和人群的欢呼，烟花突然绽放了，抬起头后天幕如鲜花一般。
+
+<img src="/posts/farewell-siam-3-fireworks.jpg" alt="2024 跨年夜曼谷河东岸游乐园烟花" style="width:100%;max-width:720px;margin:0 auto 2rem;display:block;border-radius:12px;" />
 
 不知为何感动到热泪盈眶，可能这是你预料之外的惊喜吧。
 
