@@ -149,33 +149,73 @@ const breadcrumbLd = {
   )}
 
   <script>
-    // Reading progress + Amplitude "Article Read" engagement event
+    // Reading progress + engagement ("Article Read") + reading-time tracking
     const progressBar = document.getElementById('reading-progress');
     const article = document.getElementById('article-content');
     let readEventFired = false;
+
+    const meta = () => {
+      const catEl = document.querySelector('article header span[data-i18n-zh]');
+      return {
+        post_title: document.title.replace(/ \| Ocean$/, ''),
+        post_slug: location.pathname.replace(/^\/posts\//, '').replace(/\/$/, ''),
+        post_category: catEl?.getAttribute('data-i18n-zh') || '',
+      };
+    };
+
+    // Active reading time — only counts while the tab is actually visible.
+    let activeMs = 0;
+    let lastTick = Date.now();
+    let visible = !document.hidden;
+    function accumulate() {
+      const now = Date.now();
+      if (visible) activeMs += now - lastTick;
+      lastTick = now;
+    }
 
     function updateProgress() {
       if (!article || !progressBar) return;
       const rect = article.getBoundingClientRect();
       const articleTop = rect.top + window.scrollY;
-      const articleHeight = rect.height;
       const scrolled = window.scrollY - articleTop;
-      const progress = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+      const progress = Math.min(100, Math.max(0, (scrolled / rect.height) * 100));
       progressBar.style.width = `${progress}%`;
 
       if (!readEventFired && progress >= 80) {
         readEventFired = true;
-        const catEl = document.querySelector('article header span[data-i18n-zh]');
+        accumulate();
         window.amplitude?.track('Article Read', {
-          post_title: document.title.replace(/ \| Ocean$/, ''),
-          post_slug: location.pathname.replace(/^\/posts\//, '').replace(/\/$/, ''),
-          post_category: catEl?.getAttribute('data-i18n-zh') || '',
+          ...meta(),
+          read_time_seconds: Math.round(activeMs / 1000),
         });
       }
     }
-
     window.addEventListener('scroll', updateProgress);
     updateProgress();
+
+    // Report total active reading time when the reader leaves or backgrounds.
+    let timeReported = false;
+    function reportReadingTime() {
+      accumulate();
+      if (timeReported) return;
+      const seconds = Math.round(activeMs / 1000);
+      if (seconds < 3) return; // ignore quick bounces
+      timeReported = true;
+      window.amplitude?.track('Article Reading Time', {
+        ...meta(),
+        active_seconds: seconds,
+        reached_80pct: readEventFired,
+      });
+      window.amplitude?.flush?.();
+    }
+    document.addEventListener('visibilitychange', () => {
+      accumulate();
+      const wasVisible = visible;
+      visible = !document.hidden;
+      lastTick = Date.now();
+      if (document.hidden && wasVisible) reportReadingTime();
+    });
+    window.addEventListener('pagehide', reportReadingTime);
   </script>
 
   <script>
