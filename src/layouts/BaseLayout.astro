@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import VisitorStats from '../components/VisitorStats.astro';
 import SearchModal from '../components/SearchModal.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -95,6 +96,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <VisitorStats />
   <Footer />
   <SearchModal />
+  <Analytics />
 
   <!-- Amplitude Analytics + Session Replay (client-side only) -->
   <script>

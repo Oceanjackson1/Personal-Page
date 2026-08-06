@@ -1,0 +1,71 @@
+---
+// Global click-delegated Amplitude tracking for events that repeat across
+// many pages, so each list page doesn't need its own handler:
+//   - Post Clicked          (article cards on home / posts index / category pages)
+//   - Category Filtered      (sidebar category links → /posts/<cat>/)
+//   - Project Link Clicked   (github/demo links carrying data-project-name)
+// Page-specific events (home category buttons, search, skills, lobster) are
+// tracked in their own components.
+---
+<script>
+  const CATEGORY_NAMES: Record<string, string> = {
+    all: '所有文章',
+    'perp-dex': 'Perp DEX',
+    'prediction-market': '预测市场',
+    'product-growth': '产品与增长',
+    web3: 'Web3综合',
+    ai: 'AI探索',
+    stories: '故事集',
+    travel: '旅居和探索',
+    reflections: '个人思考',
+  };
+  const CATEGORY_SLUGS = new Set(
+    Object.keys(CATEGORY_NAMES).filter((k) => k !== 'all'),
+  );
+
+  document.addEventListener(
+    'click',
+    (e) => {
+      const target = e.target as HTMLElement;
+
+      // Clicks inside the search dialog have their own Search Result Clicked
+      // tracking — don't double-count them as Post Clicked here.
+      if (target.closest('#search-dialog')) return;
+
+      // Project link (github / demo) — carries explicit data attributes
+      const projLink = target.closest('a[data-project-name]') as HTMLElement | null;
+      if (projLink) {
+        window.amplitude?.track('Project Link Clicked', {
+          project_name: projLink.dataset.projectName || '',
+          link_type: projLink.dataset.linkType || '',
+        });
+        return;
+      }
+
+      // Links into the /posts/ area — either a category nav link or an article
+      const a = target.closest('a[href^="/posts/"]') as HTMLElement | null;
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      const m = href.match(/^\/posts\/([^/]*)\/?$/);
+      if (!m) return;
+      const seg = m[1]; // '' for /posts/, a category slug, or an article slug
+
+      if (seg === '' || CATEGORY_SLUGS.has(seg)) {
+        const id = seg || 'all';
+        window.amplitude?.track('Category Filtered', {
+          category_id: id,
+          category_name: CATEGORY_NAMES[id] || id,
+          source: 'nav',
+        });
+      } else {
+        const title = a.querySelector('h3')?.textContent?.trim() || '';
+        window.amplitude?.track('Post Clicked', {
+          post_slug: seg,
+          post_title: title,
+          post_category: a.getAttribute('data-category') || '',
+        });
+      }
+    },
+    true,
+  );
+</script>

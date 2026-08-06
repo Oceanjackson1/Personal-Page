@@ -34,12 +34,14 @@ const { name, description, tech, github, demo } = Astro.props;
       <div class="flex flex-wrap gap-2">
         {github && (
           <a href={github} target="_blank" rel="noopener noreferrer"
+             data-project-name={name} data-link-type="github"
              class="inline-block text-xs px-4 py-2 sm:px-3.5 sm:py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:border-[color:var(--color-text-tertiary)] transition-colors duration-200">
             Github
           </a>
         )}
         {demo && (
           <a href={demo} target="_blank" rel="noopener noreferrer"
+             data-project-name={name} data-link-type="demo"
              class="inline-block text-xs px-4 py-2 sm:px-3.5 sm:py-1.5 rounded-full border border-[var(--color-border)] text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:border-[color:var(--color-text-tertiary)] transition-colors duration-200">
             Demo
           </a>

@@ -148,6 +148,10 @@ const skillsListLd = {
       });
 
       if (countEl) countEl.textContent = `共 ${visible} 个 Skill`;
+
+      window.amplitude?.track('Skill Category Filtered', {
+        category: cat || 'all',
+      });
     });
   });
 </script>

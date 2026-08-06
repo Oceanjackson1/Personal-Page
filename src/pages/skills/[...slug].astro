@@ -94,6 +94,7 @@ const skillBreadcrumbLd = {
             id="download-btn"
             data-slug={skill.id}
             data-title={skill.data.title}
+            data-category={skill.data.category}
             class="inline-flex items-center gap-1.5 text-sm px-4 py-2 rounded-full border border-[var(--color-text-primary)] text-[color:var(--color-text-primary)] hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg)] transition-all cursor-pointer"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,6 +167,12 @@ const skillBreadcrumbLd = {
         // Track download count
         const current = parseInt(localStorage.getItem('skill-downloads-total') || '0');
         localStorage.setItem('skill-downloads-total', String(current + 1));
+
+        window.amplitude?.track('Skill Downloaded', {
+          skill_slug: slug,
+          skill_title: title,
+          skill_category: btn.dataset.category || '',
+        });
 
         // Visual feedback
         const originalText = btn.innerHTML;

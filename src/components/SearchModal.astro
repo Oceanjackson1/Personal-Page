@@ -223,13 +223,14 @@
     }
   }
 
-  function openSearch() {
+  function openSearch(source: 'button' | 'shortcut' = 'button') {
     dialog.showModal();
     input.value = '';
     input.focus();
     activeIndex = -1;
     resultsContainer.innerHTML = '<div class="search-empty">输入关键词开始搜索</div>';
     loadIndex();
+    window.amplitude?.track('Search Opened', { source });
   }
 
   function closeSearch() {
@@ -288,7 +289,20 @@
   }
 
   // Open
-  document.getElementById('search-btn')?.addEventListener('click', openSearch);
+  document.getElementById('search-btn')?.addEventListener('click', () => openSearch('button'));
+
+  // Track result clicks (delegated — results are re-rendered on each keystroke)
+  resultsContainer.addEventListener('click', (e) => {
+    const item = (e.target as HTMLElement).closest('.search-result-item') as HTMLElement | null;
+    if (!item) return;
+    const idx = Number(item.getAttribute('data-index') ?? -1);
+    window.amplitude?.track('Search Result Clicked', {
+      result_title: item.querySelector('.search-result-title')?.textContent?.trim() || '',
+      result_category: item.querySelector('.search-result-tag')?.textContent?.trim() || '',
+      result_position: idx,
+      query_length: input.value.trim().length,
+    });
+  });
 
   // Close on backdrop click
   backdrop.addEventListener('click', closeSearch);
@@ -322,7 +336,7 @@
       if (dialog.open) {
         closeSearch();
       } else {
-        openSearch();
+        openSearch('shortcut');
       }
     }
   });

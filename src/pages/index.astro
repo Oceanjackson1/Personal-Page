@@ -152,9 +152,21 @@ const categories = [
       });
     }
 
+    const categoryNames: Record<string, string> = {
+      all: '所有文章', 'perp-dex': 'Perp DEX', 'prediction-market': '预测市场',
+      'product-growth': '产品与增长', web3: 'Web3综合', ai: 'AI探索',
+      stories: '故事集', travel: '旅居和探索', reflections: '个人思考',
+    };
+
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        setActive(btn.getAttribute('data-cat') || 'all');
+        const catId = btn.getAttribute('data-cat') || 'all';
+        setActive(catId);
+        window.amplitude?.track('Category Filtered', {
+          category_id: catId,
+          category_name: categoryNames[catId] || catId,
+          source: 'home',
+        });
       });
     });
 

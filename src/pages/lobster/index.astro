@@ -600,13 +600,20 @@ ${context}`;
   }
 
   // ─── Send message ───
-  async function sendMessage(userInput: string) {
+  async function sendMessage(userInput: string, isSuggestion = false) {
     if (isLoading || !userInput.trim()) return;
     isLoading = true;
     sendBtn.disabled = true;
     chatInput.disabled = true;
 
     messages.push({ role: 'user', content: userInput.trim() });
+
+    window.amplitude?.track('Lobster Message Sent', {
+      message_length: userInput.trim().length,
+      is_suggestion: isSuggestion,
+      conversation_turn: messages.filter((m) => m.role === 'user').length,
+    });
+
     renderMessages();
 
     // Show typing indicator while loading
@@ -734,7 +741,7 @@ ${context}`;
     btn.addEventListener('click', () => {
       const text = (btn as HTMLElement).textContent?.trim() || '';
       chatInput.value = '';
-      sendMessage(text);
+      sendMessage(text, true);
     });
   });
 </script>
